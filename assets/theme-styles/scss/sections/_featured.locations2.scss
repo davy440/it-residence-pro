@@ -1,0 +1,34 @@
+// Featured Locations - Tabs
+
+#itre-featured-locations-tabs {
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin-left: 0;
+        margin-bottom: 1.6em;
+        li {
+            position: relative;
+            margin: auto 0.8em;
+            font-size: 1.2em;
+            &.is-active {
+                &:before, &:after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    top: 100%;
+                    height: 3px;
+                    background-color: var(--accent);
+                    animation: activeTab 300ms ease-out forwards;
+                }
+                &:before {
+                    left: 50%;
+                }
+                &:after {
+                    right: 50%;
+                }
+            }
+        }
+    }
+}

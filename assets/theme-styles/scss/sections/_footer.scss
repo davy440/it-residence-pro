@@ -1,0 +1,27 @@
+// Footer Styling
+
+#footer-sidebar {
+    background-color: var(--footer-bg);
+    padding-top: 3em;
+    color: var(--footer-text);
+    a {
+        color: var(--footer-link);
+        text-decoration: underline;
+    }
+    caption {
+        color: var(--footer-text);
+    }
+}
+
+#colophon {
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+    .site-info {
+        padding: 0.2em 1em;
+    }
+}

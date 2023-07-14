@@ -1,0 +1,190 @@
+// Navigation Styling
+
+.nav-wrapper {
+    display: none;
+    @media (min-width: 1024px) {
+        display: block;
+    }
+}
+
+.main-navigation {
+	width: auto;
+	@extend %heading-font;
+	a {
+		color: var(--nav-link);
+		padding: 0.5em 1em;
+	}
+	@media (min-width: 992px) {
+		ul#primary-menu {
+			& > li {
+                display: inline-block;
+				margin: 0;
+				float: none;
+				&.menu-item-has-children > a, &.page_item_has_children > a {
+					&:after {
+						position: relative;
+						content: "\f107";
+						font-family: "FontAwesome";
+						padding-left: 10px;
+                        line-height: 1;
+					}
+				}
+			}
+			> li:hover {
+				background-color: rgba(0,0,0,0.05);
+			}
+			ul {
+				flex-direction: column;
+				opacity: 0;
+				text-transform: none;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+				background-color: var(--nav-bg);
+				@include transform(translateY(-15px));
+				@include transition(opacity 300ms $standard, transform 300ms $decelerate);
+				font-weight: 400;
+                a {
+                    color: var(--subnav-link);
+                    &:hover {
+                        background-color: rgba(255,255,255,0.05);
+                        @include transform(none);
+                    }
+                }
+				li {
+					float: none;
+					display: block;
+					position: relative;
+					margin: 0;
+					&.menu-item-has-children  > a:after, &.page_item_has_children  > a:after {
+						position: relative;
+						content: "\f105";
+						font-family: "FontAwesome";
+						float: right;
+					}
+					&:hover > ul, &:focus-within > ul {
+						left: 100%;
+						@include transform(translateY(0px));
+					}
+				}
+			}
+			li:hover > ul, li:focus-within > ul {
+				opacity: 1;
+				left: auto;
+				@include transform( translateY(0px) );
+			}
+		}
+	}
+}
+
+button.mobile-nav-btn {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    svg {
+        width: 32px;
+        height: 32px;
+        rect {
+            fill: var(--nav-link);
+        }
+    }
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
+
+button#close-menu {
+    background-color: transparent;
+    border: 0;
+    margin: 16px auto;
+    color: white;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 0 100% 100% 0;
+    color: var(--subnav-link);
+    &:focus {
+        outline: none;
+    }
+
+}
+
+#menu {
+	z-index: 999;
+	text-align: left;
+	overflow-y: auto;
+	background-color: var(--nav-bg);
+	.menu-overlay {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.14);
+		z-index: 0;
+		display: none;
+	}
+	.go-to-top {
+		background: none;
+		float: left;
+		border: 0;
+		i {
+			color: white;
+	  	}
+	}
+	.go-to-bottom {
+		background: none;
+		float: right;
+		border: 0;
+		i {
+			color: white;
+		}
+	}
+	ul {
+		margin-left: 0px;
+		padding: 0px;
+		width: 100%;
+	    li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			&:before {
+				display: none;
+			}
+		    a {
+		        display: block;
+		        color: white;
+		        padding: 0.5em 0.8em;
+		        width: 100%;
+		        overflow: hidden;
+		        white-space: nowrap;
+		        text-overflow: ellipsis;
+                color: var(--subnav-link);
+		    }
+	    }
+	    li.menu-item-has-children {
+	        display: block;
+	        span.dropdown-arrow {
+	            position: absolute;
+	            height: 44px;
+	            width: 44px;
+	            top: 0;
+	            right: 0;
+	            display: flex;
+	            justify-content: center;
+	            align-content: center;
+	            background: rgba(255,255,255,.1);
+	            cursor: pointer;
+	            i {
+	                margin: auto;
+	                color: white;
+	                @extend %bold;
+	                font-size: 20px;
+                    color: var(--subnav-link);
+	            }
+	        }
+	        ul {
+		        background: rgba(255,255,255, 0.1);
+
+	        }
+	    }
+	}
+}
