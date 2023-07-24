@@ -61,7 +61,7 @@ function itre_general_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting(
 	    'itre_area_units', array(
-		    'default'			=>	'box',
+		    'default'			=>	'ft',
 		    'sanitize_callback'	=>	'itre_sanitize_radio'
 	    )
     );
@@ -95,11 +95,11 @@ function itre_general_customize_register( $wp_customize ) {
 		    'section'	=>	'itre_general_options',
 		    'priority'	=>	14,
 		    'choices'	=>	array(
-			    'dollar'	=>	__('Dollar', 'it-residence'),
-			    'euro'		=>	__('Euro', 'it-residence'),
-				'pound'		=>	__('Pound', 'it-residence'),
-				'ruble'		=>	__('Ruble', 'it-residence'),
-				'yen'		=>	__('Yen', 'it-residence')
+			    'dollar'	=>	__('US Dollar', 'it-residence'),
+				'pound'		=>	__('British Pound', 'it-residence'),
+				'ruble'		=>	__('Russian Ruble', 'it-residence'),
+				'yen'		=>	__('Chinese Yen', 'it-residence'),
+				'euro'		=>	__('Euro', 'it-residence'),
 		    )
 	    )
 	);

@@ -30,7 +30,7 @@ body, body:not(.single-property) article.type-property[class^=col-] .listing-wra
 button,
 input[type=button],
 input[type=reset],
-input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body:not(.single-property) article.type-property.list .prop-price, body.single-property .prop-price, #itre-featured-property .itre-feat-prop-info .feat-prop-link a, .wpcf7 input[type=submit], article[class^=col-].type-post .itre-read-more a, article.list .itre-read-more a {
+input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body:not(.single-property) article.type-property.list .prop-price, body.single-property .prop-price, #itre-featured-property .itre-feat-prop-info .feat-prop-link a, article[class^=col-].type-post .itre-read-more a, article.list .itre-read-more a {
   font-weight: var(--title-weight);
 }
 
@@ -76,7 +76,7 @@ a:active {
   outline: 0;
 }
 
-article.list .itre-read-more a, .wpcf7 input[type=submit], #comments .comment .reply a, .itre-cta, #itre-front-blog .itre-front-blog-cta a {
+article.list .itre-read-more a, #comments .comment .reply a, .itre-cta, #itre-front-blog .itre-front-blog-cta a {
   display: inline-block;
   background-color: var(--accent);
   padding: 0.8rem 1rem 0.65rem;
@@ -85,7 +85,7 @@ article.list .itre-read-more a, .wpcf7 input[type=submit], #comments .comment .r
   color: white;
   border-radius: 5px;
 }
-article.list .itre-read-more a:hover, .wpcf7 input[type=submit]:hover, #comments .comment .reply a:hover, .itre-cta:hover, #itre-front-blog .itre-front-blog-cta a:hover {
+article.list .itre-read-more a:hover, #comments .comment .reply a:hover, .itre-cta:hover, #itre-front-blog .itre-front-blog-cta a:hover {
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -1301,12 +1301,32 @@ body.page-template-template-team article .itre-agent:hover .agent-thumb img {
   line-height: 1.5em;
 }
 
-.wpcf7 label, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) {
-  width: 100%;
+.itre_contact_form {
+  background-color: var(--accent);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-.wpcf7 label > input:not([type=checkbox]):not([type=radio]), .wpcf7 label > select, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > input:not([type=checkbox]):not([type=radio]), .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > select {
-  width: 100%;
+@media (min-width: 60rem) {
+  .itre_contact_form {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
+.itre_contact_form__wrapper {
+  max-width: 62.5rem;
+  margin: 0 auto;
+  color: white;
+  max-width: 52.5rem;
+}
+.itre_contact_form__wrapper h2,
+.itre_contact_form__wrapper p,
+.itre_contact_form__wrapper .submit-wrap {
+  text-align: center;
+}
+.itre_contact_form .nf-error-msg, .itre_contact_form .ninja-forms-req-symbol {
+  color: #ff3636;
+}
+
 article[class^=col-].type-post {
   margin-bottom: 1.8em;
 }

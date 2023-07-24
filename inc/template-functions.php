@@ -417,6 +417,38 @@ function itre_get_blog_excerpt( $post = null, $length = 30 ) {
  add_action('itre_blog_excerpt', 'itre_get_blog_excerpt', 10, 1);
 
 
+ if (class_exists('Ninja_Forms')) {
+ 	function itre_contact_form() {
+		if (empty(get_theme_mod('itre_enable_contact_form'))) {
+			return;
+		}
+
+		if (!empty(get_theme_mod('itre_contact_form'))) {
+			?>
+			<div class="itre_contact_form">
+				<div class="container">
+					<div class="itre_contact_form__wrapper">
+						<?php
+							if (!empty(get_theme_mod('itre_contact_form_title'))) {
+								printf('<h2>%s</h2>', esc_html(get_theme_mod('itre_contact_form_title', '')));
+							}
+						?>
+						<?php
+							if (!empty(get_theme_mod('itre_contact_form_desc'))) {
+								printf('<p>%s</p>', esc_html(get_theme_mod('itre_contact_form_desc', '')));
+							}
+						?>
+						<?php echo do_shortcode(get_theme_mod('itre_contact_form')); ?>
+					</div>
+				</div>
+			</div>
+			<?php
+		}
+	}
+	add_action('itre_footer', 'itre_contact_form', 15);
+ }
+
+
  /**
   *	Function for footer section
   */
@@ -599,14 +631,11 @@ function itre_about_author( $post ) { ?>
  *	Map just over footer for Properties
  */
 function itre_single_property_map() {
-
 	if ( post_type_exists( "property" ) && is_singular("property") && !empty( get_post_meta( get_the_ID(), "maps", true ) ) && empty( get_post_meta( get_the_ID(), "header", true ) ) ) {
-
-	    	echo '<div id="property-map"></div>';
-
+	    echo '<div id="property-map"></div>';
 	}
 }
-//add_action('itre_footer', 'itre_single_property_map', 10);
+add_action('itre_footer', 'itre_single_property_map', 10);
 
 function itre_area_units() {
 	$setting = get_theme_mod('itre_area_units', 'ft');
@@ -647,4 +676,13 @@ function itre_hero_area() {
 	printf('<p class="itre-hero-desc">%s</p>', $hero_desc);
 	echo '</div>';
 
+}
+
+function itlst_sanitize_phone_input( $input ) {
+	$input = preg_replace( "/[^0-9]/", "", $input );
+	if ( strlen( $input ) == 10 ) {
+		if ( is_numeric( $input ) ) {
+        	return intval( $input );
+		}
+	}
 }

@@ -82,8 +82,6 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 		?>
 	</div><!-- .entry-content -->
 
-	<?php itre_single_property_map(); ?>
-
 	<footer class="entry-footer">
 		<?php itre_entry_footer(); ?>
 	</footer><!-- .entry-footer -->

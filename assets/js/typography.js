@@ -32,7 +32,7 @@
 
 					var catField = jQuery(`#customize-control-itre_gcat_${element}`)
 
-					catField.val( itre[ font.get()]['category'] ).change()
+					catField.val( itre[ font.get() ]['category'] ).change()
 
 				})
 

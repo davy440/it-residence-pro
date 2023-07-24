@@ -51,67 +51,66 @@ if ( !function_exists('itre_property_filter_form') ) {
      	<div class="itre-property-filter container">
     		<form id="itre-property-filter-form" method="post">
     			<div class="row align-items-center">
-    			<div class="filter-fields col-md-9">
+                    <div class="filter-fields col-md-9">
+                        <div class="row">
+                            <div class="itre-type form-control-wrapper col-md-4">
+                                <?php
+                                $types_list = [];
+                                $types = get_terms('property-type');
+                                foreach($types as $type) {
+                                    $types_list[$type->slug] = $type->name;
+                                }
+                                ?>
+                                <select id="property-type" name="type">
+                                    <option value="0"><?php _e('Type', 'it-residence'); ?>
+                                    <?php foreach($types_list as $key => $value) { ?>
+                                        <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
 
-    				<div class="row">
-    					<div class="itre-type form-control-wrapper col-md-4">
-    						<?php
-    						$types_list = [];
-    						$types = get_terms('property-type');
-    						foreach($types as $type) {
-    							$types_list[$type->slug] = $type->name;
-    						}
-    						?>
-    						<select id="property-type" name="type">
-    							<option value="0"><?php _e('Type', 'it-residence'); ?>
-    							<?php foreach($types_list as $key => $value) { ?>
-    								<option value="<?php echo $key ?>"><?php echo $value ?></option>
-    							<?php
-    							}
-    							?>
-    						</select>
-    					</div>
+                            <div class="itre-min-area form-control-wrapper col-md-4">
+                                <input class="form-control-min-area" type="number" name="min-area" id="min-area" placeholder="<?php esc_attr_e("Min Area", 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
 
-    					<div class="itre-min-area form-control-wrapper col-md-4">
-    						<input class="form-control-min-area" type="number" name="min-area" id="min-area" placeholder="<?php esc_attr_e("Min Area", 'it-residence'); ?>" autocomplete="off" value="" />
-    					</div>
+                            <div class="itre-max-area form-control-wrapper col-md-4">
+                                <input class="form-control-max-area" type="number" name="max-area" id="max-area" placeholder="<?php esc_attr_e('Max Area', 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
 
-    					<div class="itre-max-area form-control-wrapper col-md-4">
-    						<input class="form-control-max-area" type="number" name="max-area" id="max-area" placeholder="<?php esc_attr_e('Max Area', 'it-residence'); ?>" autocomplete="off" value="" />
-    					</div>
+                            <div class="itre-bedrooms form-control-wrapper col-md-4">
+                                <select class="form-control-bedrooms" name="bedrooms" id="bedrooms" placeholder="<?php esc_attr_e("Bedrooms", 'it-residence'); ?>">
+                                    <option value="0"><?php _e("Bedrooms", 'it-residence'); ?></option>
+                                    <option value="1"><?php _e("1", 'it-residence'); ?></option>
+                                    <option value="2"><?php _e("2", 'it-residence'); ?></option>
+                                    <option value="3"><?php _e("3", 'it-residence'); ?></option>
+                                    <option value="4"><?php _e("4", 'it-residence'); ?></option>
+                                    <option value="5"><?php _e("5", 'it-residence'); ?></option>
+                                    <option value="5+"><?php _e("5+", 'it-residence'); ?></option>
+                                </select>
+                            </div>
 
-    					<div class="itre-bedrooms form-control-wrapper col-md-4">
-    							<select class="form-control-bedrooms" name="bedrooms" id="bedrooms" placeholder="<?php esc_attr_e("Bedrooms", 'it-residence'); ?>">
-    							<option value="0"><?php _e("Bedrooms", 'it-residence'); ?></option>
-    							<option value="1"><?php _e("1", 'it-residence'); ?></option>
-    							<option value="2"><?php _e("2", 'it-residence'); ?></option>
-    							<option value="3"><?php _e("3", 'it-residence'); ?></option>
-    							<option value="4"><?php _e("4", 'it-residence'); ?></option>
-    							<option value="5"><?php _e("5", 'it-residence'); ?></option>
-    							<option value="5+"><?php _e("5+", 'it-residence'); ?></option>
-    						</select>
-    					</div>
+                            <div class="itre-min-price form-control-wrapper col-md-4">
+                                <input class="form-control-min-price" type="number" name="min-price" id="min-price" placeholder="<?php esc_attr_e('Min Price', 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
 
-    					<div class="itre-min-price form-control-wrapper col-md-4">
-    						<input class="form-control-min-price" type="number" name="min-price" id="min-price" placeholder="<?php esc_attr_e('Min Price', 'it-residence'); ?>" autocomplete="off" value="" />
-    					</div>
+                            <div class="itre-max-price form-control-wrapper col-md-4">
+                                <input class="form-control-max-area" type="number" name="max-price" id="max-price" placeholder="<?php esc_attr_e('Max Price', 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
+                        </div>
+                    </div>
 
-    					<div class="itre-max-price form-control-wrapper col-md-4">
-    						<input class="form-control-max-area" type="number" name="max-price" id="max-price" placeholder="<?php esc_attr_e('Max Price', 'it-residence'); ?>" autocomplete="off" value="" />
-    					</div>
-    				</div>
-    			</div>
-
-    			<div class="filter-btn col-md-3">
-    				<button type="button"><?php esc_html_e('Submit', 'it-residence'); ?></button>
-    			</div>
+                    <div class="filter-btn col-md-3">
+                        <button type="button"><?php esc_html_e('Submit', 'it-residence'); ?></button>
+                    </div>
     			</div>
     		</form>
      	</div>
-     	<?php
+    <?php
     }
 }
-// add_action('itre_property_filter', 'itre_property_filter_form');
+add_action('itre_property_filter', 'itre_property_filter_form');
 
 
 if ( !function_exists('itre_property_listing') ) {

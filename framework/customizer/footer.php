@@ -12,6 +12,76 @@
         )
     );
 
+	$wp_customize->add_setting(
+		'itre_enable_contact_form', array(
+			'default'			=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_enable_contact_form', array(
+			'label'		=>	__('Enable Shortcode', 'it-residence'),
+			'type'		=>	'checkbox',
+			'priority'	=>	4,
+			'section'	=>	'itre_footer_section'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'itre_contact_form_title', array(
+			'default'			=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_contact_form_title', array(
+			'label'		=>	__('Contact Form Title', 'it-residence'),
+			'priority'	=>	4,
+			'section'	=>	'itre_footer_section'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'itre_contact_form_desc', array(
+			'default'			=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_contact_form_desc', array(
+			'label'		=>	__('Contact Form Description', 'it-residence'),
+			'priority'	=>	4,
+			'section'	=>	'itre_footer_section'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'itre_contact_form', array(
+			'default'			=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_contact_form', array(
+			'label'		=>	__('Contact Form Shortcode', 'it-residence'),
+			'priority'	=>	4,
+			'section'	=>	'itre_footer_section'
+		)
+	);
+
+	$cf_controls = array($wp_customize->get_control('itre_contact_form'), $wp_customize->get_control('itre_contact_form_title'), $wp_customize->get_control('itre_contact_form_desc'));
+
+	foreach($cf_controls as $cf_control) {
+		$cf_control->active_callback = function( $control ) {
+			$setting = $control->manager->get_setting('itre_enable_contact_form');
+			return (!empty($setting->value())) ? true : false;
+		};
+	}
+
     $wp_customize->add_setting(
         'itre_footer_cols', array(
             'default'  => 4,

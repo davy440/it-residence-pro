@@ -5,9 +5,7 @@
  *	Template Name: Property Listings
  *
  */
-
  $header = is_front_page() ? get_theme_mod('itre_front_header_layout', 'default') : 'default';
-
 get_header(null, ['header' => $header]);
 ?>
 
@@ -15,9 +13,7 @@ get_header(null, ['header' => $header]);
 
 		<?php
 		if ( post_type_exists('property') ) {
-
 			do_action('itre_property_filter');
-
 		}
 		?>
 

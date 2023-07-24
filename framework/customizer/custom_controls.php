@@ -100,11 +100,11 @@ if ( class_exists('WP_Customize_Control') ) {
 
     class itre_Google_Font_Dropdown_Custom_Control extends WP_Customize_Control {
 
-        public $type             = 'itre-gfonts';
-	    private $fonts			 = false;
-	    private $fontValue		 = '';
-        private $catValue        = '';
-	    private $weightValue	 = '';
+        public $type            = 'itre-gfonts';
+	    private $fonts			= false;
+	    private $fontValue		= '';
+        private $catValue       = '';
+	    private $weightValue	= '';
 
 	    public function __construct( $manager, $id, $args = array(), $options = array() )
 	    {
@@ -116,11 +116,9 @@ if ( class_exists('WP_Customize_Control') ) {
 	    public function render_content() {
 
 		    if ( !empty( $this->fonts ) ) {
-
 			    $this->render_fonts();
 			    $this->render_weights();
                 $this->render_category();
-
 		    }
 	    }
 
@@ -189,6 +187,34 @@ if ( class_exists('WP_Customize_Control') ) {
 		<?php
 		}
     }
+
+	class ITRE_Multi_Checkbox_Control extends WP_Customize_Control {
+
+		public $type = 'checkbox-multiple';
+
+		public function render_content() {
+
+			if (empty($this->choices)) {
+				return;
+			}
+
+			if ( !empty( $this->label ) ) : ?>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<?php endif; ?>
+	
+			<?php if ( !empty( $this->description ) ) : ?>
+				<span class="description customize-control-description"><?php echo $this->description; ?></span>
+			<?php endif; ?>
+
+			<select id="<?php echo $this->id ?>" <?php $this->link(); ?> multiple>
+			<?php foreach( $this->choices as $value => $label ) { ?>
+				<?php $selected = selected( in_array($value, $this->value()) ); ?>
+				<?php printf('<option value="%s" %s>%s</option>', esc_attr($value), $selected, esc_html($label) ); ?>
+			<?php } ?>
+			</select>
+			<?php
+		}
+	}
 }
 
 /**
@@ -280,4 +306,4 @@ function itre_sanitize_coloralpha( $value ) {
  	}
  	// If no match was found, return an empty string.
  	return '';
- }
+}

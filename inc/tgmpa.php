@@ -66,8 +66,8 @@ function itpg_register_required_plugins() {
 			'required'  => true,
 		),
 		array(
-			'name'		=> 'Contact Form 7',
-			'slug'		=> 'contact-form-7',
+			'name'		=> 'Ninja Forms',
+			'slug'		=> 'ninja-forms',
 			'required'	=>	false,
 		)
 	);
@@ -82,7 +82,7 @@ function itpg_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'it-residence',       // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'it-residence',          // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'  => true,                    // Show admin notices or not.
