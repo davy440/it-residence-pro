@@ -33,4 +33,9 @@ Demo content is bundled with the theme package. The demo content can be imported
     Added go to top button
     Many Bug Fixes
 
+* **v1.2**
+    Improved Accessibility
+    Nav Menu refactor
+    Bug Fixes
+
 Good luck!

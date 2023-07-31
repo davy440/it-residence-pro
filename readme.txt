@@ -37,6 +37,11 @@ IT Residence Pro is the extended version of IT Residence. It expands upon the fu
 = 1.2 - July 23, 2023 =
 * Added Ninja Forms
 
+= v1.3 - July 31, 2023 =
+* Improved Accessibility
+* Nav Menu refactor
+* Bug Fixes
+
 
 == Credits ==
 
