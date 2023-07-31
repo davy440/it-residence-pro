@@ -2,14 +2,27 @@
 
 #footer-sidebar {
     background-color: var(--footer-bg);
-    padding-top: 3em;
     color: var(--footer-text);
+    text-align: center;
+
+    @media (min-width: 48rem) {
+        text-align: left;
+    }
+
     a {
         color: var(--footer-link);
         text-decoration: underline;
     }
+
     caption {
         color: var(--footer-text);
+    }
+
+    .footer-column {
+
+        @media (min-width: 60rem) {
+            padding-top: 3em;
+        }
     }
 }
 

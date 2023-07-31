@@ -21,7 +21,7 @@
 
 	$wp_customize->add_control(
 		'itre_enable_contact_form', array(
-			'label'		=>	__('Enable Shortcode', 'it-residence'),
+			'label'		=>	__('Enable Contact Form', 'it-residence'),
 			'type'		=>	'checkbox',
 			'priority'	=>	4,
 			'section'	=>	'itre_footer_section'

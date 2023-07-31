@@ -11,30 +11,23 @@ if ( !function_exists('itre_get_for') ) {
         $for = "";
 
         switch ($value):
-
             case "sold":
                 $for = "sold";
             break;
-
             case "coming-soon":
                 $for = "coming soon";
             break;
-
             case "active":
                 $for = "active";
             break;
-
             case "sale":
                 $for = "sale";
             break;
-
             case "rent":
                 $for = "rent";
             break;
-
             default:
             $for = "";
-
         endswitch;
 
         printf('<span class="itre-for-tag %s">%s</span>', esc_attr( $value ),  esc_html( $for ) );
@@ -46,8 +39,7 @@ if ( !function_exists('itre_property_filter_form') ) {
 
         if ( empty( get_theme_mod('itlst_prop_filter_enable', 1) ) ) {
             return;
-        }
-     	?>
+        } ?>
      	<div class="itre-property-filter container">
     		<form id="itre-property-filter-form" method="post">
     			<div class="row align-items-center">
@@ -121,8 +113,9 @@ if ( !function_exists('itre_property_listing') ) {
      		<div class="row">
      		<?php
      		$args = array(
-     			'post_type'	=>	'property',
-     			'posts_per_page'	=>	15
+     			'post_type'         => 'property',
+                'post_status'       => 'publish',
+     			'posts_per_page'	=> 15
      		);
 
      		$prop_query = new WP_Query( $args );
@@ -402,8 +395,8 @@ function itre_featured_types() {
 if ( !function_exists('itre_featured_property') ) {
 function itre_featured_property() {
 
-     if ( empty( get_theme_mod( 'itlst_feat_prop', '' ) ) ) {
-         return;
+     if (empty(get_theme_mod('itlst_feat_prop_enable', ''))) {
+        return;
      }
      ?>
 
