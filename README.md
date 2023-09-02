@@ -38,4 +38,7 @@ Demo content is bundled with the theme package. The demo content can be imported
     Nav Menu refactor
     Bug Fixes
 
+* **v1.5**
+    Improvd Typography
+
 Good luck!
