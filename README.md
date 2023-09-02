@@ -39,6 +39,6 @@ Demo content is bundled with the theme package. The demo content can be imported
     Bug Fixes
 
 * **v1.5**
-    Improvd Typography
+    Improved Typography
 
 Good luck!
