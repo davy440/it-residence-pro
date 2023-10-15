@@ -1,12 +1,13 @@
 // Styling of the theme
 
 html {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 body {
     font-family: var(--body-font);
-    line-height: 1.8em;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
     -webkit-font-smoothing: antialiased;
     @extend %regular;
     color: var(--body-text);
@@ -63,10 +64,10 @@ input[type="submit"] {
 	border-radius: 0;
 	background-color: var(--dark);
 	color: white;
-	padding: 0.4em 1em 0.25em;
+	padding: 0.4em 1em 0.25rem;
     text-transform: uppercase;
     @extend %bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.05rem;
     @include transition(all 150ms ease-out);
 }
 
@@ -108,7 +109,7 @@ select,
 textarea {
 	color: #666;
 	border-radius: 0px;
-	padding: 0.7em;
+	padding: 0.7rem;
 }
 
 input[type="text"]:focus,
@@ -143,12 +144,12 @@ select {
 }
 
 .section {
-    margin-bottom: 4em;
+    margin-bottom: 4rem;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 2.25rem;
     margin-bottom: 0;
 }
 
@@ -157,14 +158,14 @@ select {
     color: var(--excerpt);
     width: 100%;
     margin: 0 auto;
-    line-height: 1.5em;
-    @media (min-width: 992px) {
+    line-height: 1.5rem;
+    @media (min-width: 48rem) {
         width: 65%;
     }
 }
 
 .section-top {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.25rem;
 }
 
 
@@ -172,7 +173,7 @@ select {
     position: relative;
     z-index: 1;
     body:not(.page-template-template-property-front) & {
-        padding-top: 2em;
+        padding-top: 2rem;
         &.box {
             background-color: white;
         }
@@ -210,8 +211,8 @@ header.page-header {
     position: fixed;
     justify-content: center;
     align-items: center;
-    right: 3em;
-    bottom: 3em;
+    right: 3rem;
+    bottom: 3rem;
     z-index: 9;
     color: var(--accent);
     background-color: rgba(255,255,255,0.7);
@@ -219,6 +220,6 @@ header.page-header {
     cursor: pointer;
     opacity: 0;
     i {
-        padding: 1em 1.25em 1.2em;
+        padding: 1em 1.25em 1.2rem;
     }
 }

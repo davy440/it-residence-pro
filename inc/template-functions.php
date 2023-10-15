@@ -37,33 +37,22 @@ function itre_pingback_header() {
 add_action( 'wp_head', 'itre_pingback_header' );
 
 function itre_get_header( $header = 'default' ) {
-	//$header = get_theme_mod('itre_front_header_layout', 'default');
 
 	switch ( $header ) :
 		case 'default' :
-
 			require_once get_template_directory() . '/framework/sections/header/header-default.php';
-
 		break;
 		case 'slider' :
-
 			require_once get_template_directory() . '/framework/sections/header/header-slider.php';
-
 		break;
 		case 'video' :
-
 			require_once get_template_directory() . '/framework/sections/header/header-video.php';
-
 		break;
 		case 'map' :
-
 			require_once get_template_directory() . '/framework/sections/header/header-map.php';
-
 		break;
 		default:
-
 			require_once get_template_directory() . '/framework/sections/header/header-default.php';
-
 	endswitch;
 }
 
