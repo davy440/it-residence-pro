@@ -171,8 +171,8 @@ select {
 
 #content {
     position: relative;
-    z-index: 1;
-    body:not(.page-template-template-property-front) & {
+    z-index: 2;
+    body:not(.page-template-template-property-listings) & {
         padding-top: 2rem;
         &.box {
             background-color: white;

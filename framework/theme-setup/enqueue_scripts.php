@@ -41,7 +41,6 @@ function itre_enqueue_fonts() {
 	fclose( $c );
 
 	$fileURI = get_template_directory_uri() . '/assets/cache/fontFiles/fonts.css';
-
 	wp_enqueue_style('itre-fonts', esc_url( $fileURI ), ITRE_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'itre_enqueue_fonts' );

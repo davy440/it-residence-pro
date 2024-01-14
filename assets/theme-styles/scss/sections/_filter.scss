@@ -5,10 +5,13 @@
 	border-radius: var(--border-radius);
 	padding-top: 1.2em;
 	padding-bottom: 1.2em;
-	margin-bottom: 2em;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
-	@media (min-width: 768px) {
-		width: 75%;
+
+	body.page-template-template-property-listings & {
+		margin-top: -3.5rem;
+	}
+
+	@media (min-width: 48rem) {
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -57,6 +60,10 @@
 	&.active {
 		background-color: rgba(162,54,198, 0.8);
 	}
+}
+
+.itre-property-listing {
+	margin-top: 2rem;
 }
 
 
@@ -121,8 +128,9 @@ body:not(.single-property) article.type-property {
 				line-height: 1.2;
 			}
 			h2 {
-				margin: 0.4em auto 0.24em;
-				font-size: 1.5em;
+				margin: 0.875rem auto 0.25rem;
+				font-size: 1.75rem;
+				line-height: 2rem;
 			    @extend %regular;
 			}
 			a {

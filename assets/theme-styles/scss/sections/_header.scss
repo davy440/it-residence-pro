@@ -7,20 +7,11 @@
     }
 }
 
-body.page-template-template-property-front {
-    #masthead {
-        margin-bottom: -3.5em;
-        position: relative;
-    }
-}
-
 #masthead {
     position: relative;
     background-color: var(--masthead-bg);
     & > * {
         position: relative;
-        padding-top: 0.65em;
-        padding-bottom: 0.65em;
     }
     .custom-logo {
         max-height: 120px;
@@ -70,16 +61,27 @@ body.page-template-template-property-front {
     }
     .layout2 {
         text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
         .site-branding {
-            margin-bottom: 0.65em;
+
+            @media (min-width: 64rem) {
+                margin-bottom: 0.65em;
+            }
         }
+        
         ul li {
             text-align: left;
         }
+
+        @media (min-width: 64rem) {
+            display: block;
+        }
     }
-    .layout3 {
-        padding-left: 2em;
-        padding-right: 2em;
+    .layout3 {padding: 0.75rem;
         button.mobile-nav-btn {
             display: block !important;
         }
@@ -92,9 +94,28 @@ body.page-template-template-property-front {
 }
 
 #header-slider {
+    position: relative;
     overflow: hidden;
+
     img {
         bottom: 0;
+    }
+
+    .itre-hero-area {
+        
+        @media (min-width: 64rem) {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
     }
 }
 

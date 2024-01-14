@@ -14,6 +14,14 @@ get_header(null, ['header' => $header]);
 		<?php
 		if ( post_type_exists('property') ) {
 			do_action('itre_property_filter');
+			the_content();
+
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'it-residence' ),
+				'after'  => '</div>',
+			)
+		);
 		}
 		?>
 

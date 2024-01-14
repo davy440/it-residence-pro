@@ -7,54 +7,53 @@ jQuery(document).ready(function() {
         loop: true
 	});
 
-    jQuery('.testimonials-wrapper').owlCarousel({
-		items: 2,
-		autoplay: true,
-        dots: true,
-        loop: true,
-        responsive:
-        {
-			0: {
-				items: 1
-			},
-			768: {
-				items: 2
-			}
-		}
-	});
-
 	jQuery('[data-vbg]').youtube_background({
 		'mobile':true,
 		'fit-box':true
 	});
 
-    const toggleNavMenu = (item) => {
+    const toggleNavMenu = item => {
         item.classList.toggle('is-visible');
     }
+
+    const toggleTabIndex = element => {
+        if (!element.hasAttribute('tabindex')) {
+            return element.setAttribute('tabindex', '0');
+        } 
+        element.removeAttribute('tabindex');
+        
+    };
 
     const mobileNav = () => {
         const body = document.querySelector('body');
         const navBtn = document.querySelector('.mobile-nav-btn');
         const mobileNav = document.querySelector('.panel');
+
+        if (!navBtn || !mobileNav) {
+            return;
+        }
+
         const navClose = mobileNav.querySelector('#close-menu');
         const goToBottom = mobileNav.querySelector('.go-to-bottom');
         const goToTop = mobileNav.querySelector('.go-to-top');
         const dropdowns = mobileNav.querySelectorAll('span');
 
-        navBtn.addEventListener('click', () => {
+        navBtn.addEventListener('click', function () {
             mobileNav.classList.add('expanded');
             navBtn.setAttribute('aria-expanded', true);
             mobileNav.setAttribute('aria-hidden', false);
             body.classList.add('no-scroll');
             navClose.focus();
+            dropdowns.forEach(dropdown => toggleTabIndex(dropdown));
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click',function (e) {
             if (!mobileNav.contains(e.target) && !navBtn.contains(e.target) && mobileNav.classList.contains('expanded')) {
                 mobileNav.classList.remove('expanded');
                 navBtn.setAttribute('aria-expanded', false);
                 mobileNav.setAttribute('aria-hidden', true);
                 body.classList.remove('no-scroll');
+                dropdowns.forEach(dropdown => toggleTabIndex(dropdown));
                 navBtn.focus();
             }
         });
@@ -65,6 +64,7 @@ jQuery(document).ready(function() {
             mobileNav.setAttribute('aria-hidden', true);
             body.classList.remove('no-scroll');
             navBtn.focus();
+            dropdowns.forEach(dropdown => toggleTabIndex(dropdown));
         });
 
         goToBottom.addEventListener('focus', () => {
@@ -76,71 +76,29 @@ jQuery(document).ready(function() {
         });
 
         // Accessing sub-menus
-        dropdowns.forEach(dropdown => {
-            const subMenu = dropdown.nextElementSibling;
-            dropdown.addEventListener('click', () => toggleNavMenu(subMenu));
-            dropdown.addEventListener('keydown', (e) => {
-                if (['Space', 'Enter'].includes(e.code)) {
-                    e.preventDefault();
+        if (dropdowns.length !== 0) {
+            dropdowns.forEach(dropdown => {
+                const subMenu = dropdown.nextElementSibling;
+                dropdown.addEventListener('click', () => {
                     toggleNavMenu(subMenu);
-                }
+                });
+                dropdown.addEventListener('keydown', (e) => {
+                    if (['Space', 'Enter'].includes(e.code)) {
+                        e.preventDefault();
+                        toggleNavMenu(subMenu);
+                    }
+                });
             });
-        });
+        }
     }
     mobileNav();
-
-    // // Navigation
-	// var clickedBtn;
-	// jQuery('.menu-link').bigSlide({
-	// 	easyClose	: true,
-	// 	width		: '25em',
-	// 	side		: 'right',
-	// 	beforeOpen	: function() {
-	// 		jQuery('.menu-overlay').show();
-	// 	},
-	// 	afterOpen	: function(e) {
-	// 			    	jQuery('#close-menu').focus();
-	// 			    	clickedBtn = jQuery(e.target).parent();
-	// 		    	},
-	// 	afterClose: function(e) {
-	// 			    	clickedBtn.focus()
-	// 		    }
-    // });
-
-  	// jQuery('.go-to-top').on('focus', function() {
-	// 	jQuery('#close-menu').focus();
-	// 	jQuery('.menu-overlay').hide();
-	// });
-
-	// jQuery('.go-to-bottom').on('focus', function() {
-	// 	jQuery('ul#menu-main > li:last-child > a').focus();
-	// });
-
-	// var parentElement =	jQuery('.panel li.menu-item-has-children'),
-    //   		dropdown  =	jQuery('.panel li.menu-item-has-children span');
-
-	// parentElement.children('ul').hide();
-	// dropdown.on({
-	// 	'click': function(e) {
-	// 		e.target.style.transform == 'rotate(0deg)' ? 'rotate(180deg)' : 'rotate(0deg)';
-	// 		jQuery(this).siblings('ul').slideToggle().toggleClass('expanded');
-	// 		e.stopPropagation();
-	// 	},
-	// 	'keydown': function(e) {
-	// 		if( e.keyCode == 32 || e.keyCode == 13 ) {
-	// 			e.preventDefault();
-	// 			jQuery(this).siblings('ul').slideToggle().toggleClass('expanded');
-	// 			e.stopPropagation();
-	// 		}
-	// 	}
-	// });
 
     //Fade In/Out for Go to Top Button
     const topBtn = document.querySelector( '#itre-back-to-top' );
 
     if ( topBtn !== null ) {
 
-        var count = 0
+        let count = 0
         window.onscroll = () => {
             if ( window.scrollY > 300 ) {
                 fadeIn( topBtn )
@@ -177,19 +135,19 @@ jQuery(document).ready(function() {
                 return
             }
 
-            var opacity = 1
+            let opacity = 1
             setTimeout( () => { element.style.display = "none" }, 200)
-            var timer = setInterval( function() {
+            let timer = setInterval( function() {
 
                 if ( opacity <= 0.001 ) {
-                    clearInterval( timer )
+                    clearInterval(timer)
                 }
 
                 element.style.opacity = opacity;
                 element.style.filter = 'alpha(opacity=' - opacity * 100 + ")";
                 opacity -= opacity * 0.1;
             })
-            count--
+            count--;
         }
 
         topBtn.addEventListener('click', function(e) {

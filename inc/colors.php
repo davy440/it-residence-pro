@@ -26,59 +26,23 @@ function itre_custom_colors() {
 
     $header_overlay = get_theme_mod('itre_header_overlay_color', 'rgba(20, 88, 112, 0.4)');
 
-    if ($text !== '#000000') {
-        $css .= ':root {--body-text: ' . $text . ';}';
-    }
+    $css .= ':root {';
+    $css .= $text !== '#000000' ? "--body-text:{$text};" : "";
+    $css .= $excerpt !== '#999999' ? "--excerpt:{$excerpt};" : "";
+    $css .= $accent !== '#2e6d87' ? "--accent:{$accent};" : "";
+    $css .= $meta_link !== '#999999' ? "--link:{$meta_link};" : "";
+    $css .= $meta_link_hvr !== '#555555' ? "--link-hvr:{$meta_link_hvr};" : "";
+    $css .= $header_bg !== '#ffffff' ? "--masthead-bg:{$header_bg};" : "";
+    $css .= $nav_bg !== '#2e6d87' ? "--nav-bg:{$nav_bg};" : "";
+    $css .= $nav_link !== '#2e6d87' ? "--nav-bg:{$nav_link}" : "";
+    $css .= $subnav_link !== '#ffffff' ? "--subnav-link:{$subnav_link};" : "";
+    $css .= $footer_bg !== '#08445d' ? "--footer-bg:{$footer_bg};}" : "";
+    $css .= $footer_link !== '#ffffff' ? "--footer-link:{$footer_link};}" : "";
+    $css .= $footer_text !== '#ffffff' ? "--footer-text:{$footer_text};}" : "";
+
+    $css .= '}';
 
     $css .= "#itre-featured-property .itre-feat-prop-info {background-color: #{$body_bg};}";
-
-    if ( $box_bg !== '#ffffff' && !is_page_template('template-property-front.php') ) {
-        $css .= "#content { background-color: {$box_bg} !important;}";
-    }
-
-    if ($excerpt !== '#999999') {
-        $css .= ":root {--excerpt: {$excerpt};}";
-    }
-
-    if ($accent !== '#2e6d87') {
-        $css .= ":root {--accent: {$accent};}";
-    }
-
-    if ($meta_link !== '#999999') {
-        $css .= ":root {--link: {$meta_link};}";
-    }
-
-    if ($meta_link_hvr !== '#555555') {
-        $css .= "root {--link-hvr: {$meta_link_hvr};}";
-    }
-
-    if ($header_bg !== '#ffffff') {
-        $css .= ":root {--masthead-bg: {$header_bg};}";
-    }
-
-    if ($nav_bg !== '#2e6d87') {
-        $css .= ":root {--nav-bg: {$nav_bg};}";
-    }
-
-    if ($nav_link !== '#2e6d87') {
-        $css .= ":root {--nav-link: {$nav_link};}";
-    }
-
-    if ($subnav_link !== '#ffffff') {
-        $css .= ":root {--subnav-link: {$subnav_link};}";
-    }
-
-    if ($footer_bg !== '#08445d') {
-        $css .= ":root {--footer-bg: {$footer_bg};}";
-    }
-
-    if ($footer_link !== '#ffffff') {
-        $css .= ":root {--footer-link: {$footer_link};}";
-    }
-
-    if ($footer_text !== '#ffffff') {
-        $css .= ':root {--footer-text: ' . $footer_text . ';}';
-    }
 
     if ( is_front_page() ||
      ( is_page() && get_post_meta( get_the_ID(), 'header-overlay', true ) ) ) {

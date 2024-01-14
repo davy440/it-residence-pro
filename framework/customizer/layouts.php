@@ -463,7 +463,7 @@ function itre_sidebr_customize_register( $wp_customize ) {
 		$wp_customize->add_section(
 	 		"itre_property", array(
 	 			"title"			=>	esc_html__("Property Archives", 'it-residence'),
-	 			"description"	=>	esc_html__("Layout Settings for the Proprties", 'it-residence'),
+	 			"description"	=>	esc_html__("Layout Settings for Properties", 'it-residence'),
 	 			"priority"		=>	50,
 	 			"panel"			=>	"itre_layouts_panel"
 	 		)
