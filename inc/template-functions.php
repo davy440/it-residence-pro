@@ -212,37 +212,13 @@ function itre_get_content_wrapper_start( $layout = 'box' ) {
 	else {
 		switch ( $layout ) :
 			case 'box' :
-			?>
-
-			<div id="content" class="container box">
-				<div class="row">
-
-			<?php
+				printf('<div id="content" class="container box"><div class="row">');
 			break;
 			case 'full' :
-			?>
-
-			<div id="content" class="full">
-				<div class="container">
-					<div class="row">
-
-			<?php
-			break;
-			case 'full_s' :
-			?>
-
-			<div id="content" class="container-fluid full_s">
-				<div class="row">
-
-			<?php
+				printf('<div id="content" class="container-fluid full"><div class="row">');
 			break;
 			default:
-			?>
-
-			<div id="content" class="container box default">
-				<div class="row">
-
-			<?php
+			printf('<div id="content" class="container default"><div class="row">');
 		endswitch;
 
 	}

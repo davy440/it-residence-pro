@@ -44,4 +44,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v1.5.1**
     Fixed Typography Control Class error
 
+* **v2.0**
+    Major Update - Added Property Blocks
+
 Good luck!

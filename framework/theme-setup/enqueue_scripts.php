@@ -27,9 +27,9 @@ function itre_enqueue_fonts() {
 		$fontCat = $value['cat'];
 
 		$fontFace .= '@font-face {';
-		$fontFace .= "font-family: ${fontFamily};";
-		$fontFace .= "font-weight: ${fontWeight};";
-		$fontFace .= "src: url(${fontURI}) format('woff2');";
+		$fontFace .= "font-family: {$fontFamily};";
+		$fontFace .= "font-weight: {$fontWeight};";
+		$fontFace .= "src: url({$fontURI}) format('woff2');";
 		$fontFace .= "font-display: swap;";
 		$fontFace .= "font-stretch: normal;";
 		$fontFace .= "}";

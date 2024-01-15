@@ -54,7 +54,6 @@ function itre_general_customize_register( $wp_customize ) {
 		    'choices'	=>	array(
 			    'box'	=>	__('Box Layout', 'it-residence'),
 			    'full'	=>	__('Full Width Layout', 'it-residence'),
-				'full_s'=>	__('Full Screen Layout', 'it-residence')
 		    )
 	    )
     );

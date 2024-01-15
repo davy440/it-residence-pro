@@ -109,7 +109,7 @@ if ( !function_exists('itre_property_listing') ) {
     function itre_property_listing() {
      	?>
 
-     	<div class="itre-property-listing section container">
+     	<div class="itre-property-listing section">
      		<div class="row">
      		<?php
      		$args = array(

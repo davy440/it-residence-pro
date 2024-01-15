@@ -4,9 +4,9 @@ Contributors: indithemes
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, portfolio, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, theme-options, editor-style, footer-widgets, block-styles, full-width-template
 
 Requires at least: 4.5
-Tested up to: 6.3
-Requires PHP: 5.6
-Stable tag: 1.5.1
+Tested up to: 6.4
+Requires PHP: 8.2
+Stable tag: 2.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -47,6 +47,9 @@ IT Residence Pro is the extended version of IT Residence. It expands upon the fu
 
 = v1.5.1 - October 15, 2023 =
 * Fixed Typography Control Class error
+
+= v2.0 - January 14, 2024 =
+* Major Update - Added Property Blocks
 
 
 == Credits ==
