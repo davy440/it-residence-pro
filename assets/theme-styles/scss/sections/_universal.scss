@@ -26,11 +26,15 @@ h1, h2, h3, h4, h5, h6 {
 a {
 	color: var(--accent);
     text-decoration: none;
-    @include transition(all 150ms $standard);
-}
+    transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -webkit-transition: all 100ms ease;
 
-a:visited {
-	text-decoration: underline;
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        outline: none;
+    }
 }
 
 %btn {
@@ -41,7 +45,7 @@ a:visited {
     @extend %bold;
     line-height: 1;
     color: white;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     &:hover {
         @include transform(scale(1.05));
     }
@@ -108,7 +112,7 @@ input[type="color"],
 select,
 textarea {
 	color: #666;
-	border-radius: 0px;
+	border-radius: 0;
 	padding: 0.7rem;
 }
 

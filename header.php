@@ -31,5 +31,5 @@
 		do_action('itre_after_header');
 
 		$layout = get_theme_mod( 'itre_site_layout', 'box' );
-		do_action('itre_content_wrapper_start', $layout);
 	?>
+	<div id="content">

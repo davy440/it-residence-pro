@@ -10,6 +10,11 @@
 #masthead {
     position: relative;
     background-color: var(--masthead-bg);
+
+    .top-wrapper {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
     & > * {
         position: relative;
     }
@@ -59,6 +64,7 @@
             }
         }
     }
+
     .layout2 {
         text-align: center;
         display: flex;
@@ -81,7 +87,9 @@
             display: block;
         }
     }
-    .layout3 {padding: 0.75rem;
+
+    .layout3 {
+
         button.mobile-nav-btn {
             display: block !important;
         }

@@ -9,8 +9,7 @@
  * @package IT_Residence
  */
 
-$layout = get_theme_mod( 'itre_site_layout', 'box' );
-do_action('itre_content_wrapper_end', $layout);
+printf('</div>');
 ?>
 
 <?php do_action('itre_footer'); ?>

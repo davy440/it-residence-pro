@@ -4,24 +4,20 @@
  *	Template for displaying property listing
  *
  */
+$layout = 'list';
 
-$layout = "col-md-4";
-if ( $args == 'col2') {
-    $layout = 'col-md-6';
+if (str_contains(get_theme_mod('itre_property_layout', 'col3'), 'col')) {
+	$layout = 'grid';
 }
 
-if ( $args == 'col3') {
-    $layout = 'col-md-4';
+if ($args == 'filter') {
+	$layout = 'grid';
 }
 
-if ( $args == 'col4') {
-    $layout = 'col-md-3';
-}
 $itre_stored_meta = get_post_meta( get_the_ID() );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($layout); ?>>
-
 	 <div class="listing-wrapper">
 		 <div class="itre-prop-thumb">
 

@@ -10,14 +10,18 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 <article id="post-<?php the_ID(); ?>" <?php post_class('list'); ?>>
 
 	 <div class="listing-wrapper">
-		 <div class="itre-prop-thumb col-md-4">
+		 <div class="itre-prop-thumb">
 
-
+		 	<?php
+			if (!empty($itre_stored_meta["for"][0])) {
+				itre_get_for( $itre_stored_meta["for"][0] );
+			}
+			?>
 
 			 <a href="<?php the_permalink(); ?>">
 			 <?php
 			 if ( has_post_thumbnail() ) {
-				 the_post_thumbnail('itre_prop_thumb');
+				printf('<figure>%s</figure>', get_the_post_thumbnail( get_the_ID(), 'itre_prop_thumb' ));
 			 }
 			 else {
 				 printf('<img src="%s" alt="%s">', esc_url(get_template_directory_uri() . '/images/ph_thumb.png'), esc_attr( get_the_title() ) );
@@ -27,7 +31,7 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 
 		 </div>
 
-         <div class="itre-prop-content col-md-8">
+         <div class="itre-prop-content">
     	 	<header class="entry-header">
     	 		<?php
     	 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -39,11 +43,6 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 			if (!empty( $itre_stored_meta['price'][0] ) ) {
 				itre_get_property_price( $itre_stored_meta['price'][0] );
 			}
-
-
-            if (!empty($itre_stored_meta["for"][0])) {
-                itre_get_for( $itre_stored_meta["for"][0] );
-            }
             ?>
             </div>
 
@@ -70,8 +69,4 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
     		</div>
         </div>
 	</div>
-
- 	<footer class="entry-footer">
- 		<?php itre_entry_footer(); ?>
- 	</footer><!-- .entry-footer -->
  </article><!-- #post-<?php the_ID(); ?> -->

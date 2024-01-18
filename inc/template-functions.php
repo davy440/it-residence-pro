@@ -63,7 +63,7 @@ function itre_get_top_bar() {
 	switch ($masthead) :
 		case '1':
 		?>
-		<div class="layout1 container-fluid">
+		<div class="top-wrapper layout1 container-fluid">
 			<div class="row align-items-center">
 
 				<?php
@@ -102,7 +102,7 @@ function itre_get_top_bar() {
 		break;
 		case '2':
 		?>
-		<div class="layout2 container">
+		<div class="top-wrapper layout2 container">
 				<div class="branding-wrapper">
 					<?php
 						get_template_part('framework/sections/header/modules/site', 'branding');
@@ -123,7 +123,7 @@ function itre_get_top_bar() {
 		break;
 		case '3':
 		?>
-		<div class="layout3">
+		<div class="top-wrapper layout3 container-fluid">
 			<div class="row align-items-center">
 
 				<?php
@@ -196,7 +196,7 @@ function itre_get_top_bar() {
 //Content Wrapper functions for the theme
 function itre_get_content_wrapper_start( $layout = 'box' ) {
 
-	if ( is_page_template('template-property-front.php') ) {
+	if ( is_page_template('template-property-listings.php') ) {
 	?>
 		<div id="content" class="container-fluid">
 			<div class="row">

@@ -40,7 +40,8 @@ if ( !function_exists('itre_property_filter_form') ) {
         if ( empty( get_theme_mod('itlst_prop_filter_enable', 1) ) ) {
             return;
         } ?>
-     	<div class="itre-property-filter container">
+        <div class="itre-property-filter-wrapper container">
+     	<div class="itre-property-filter">
     		<form id="itre-property-filter-form" method="post">
     			<div class="row align-items-center">
                     <div class="filter-fields col-md-9">
@@ -99,6 +100,7 @@ if ( !function_exists('itre_property_filter_form') ) {
     			</div>
     		</form>
      	</div>
+        </div>
     <?php
     }
 }
@@ -109,8 +111,7 @@ if ( !function_exists('itre_property_listing') ) {
     function itre_property_listing() {
      	?>
 
-     	<div class="itre-property-listing section">
-     		<div class="row">
+     	<div class="itre-property-listing section container">
      		<?php
      		$args = array(
      			'post_type'         => 'property',
@@ -134,7 +135,6 @@ if ( !function_exists('itre_property_listing') ) {
      			// Reset Post Data
      			wp_reset_postdata();
      		?>
-     		</div>
      	</div>
      <?php
     }
@@ -245,7 +245,7 @@ if ( !function_exists('get_itre_ajax_property') ) {
 
      	global $post;
 
-     	get_template_part('template-parts/property-layouts/content', 'property');
+     	get_template_part('template-parts/property-layouts/content', 'property', 'filter');
 
      	endwhile;
      	echo '</div>';

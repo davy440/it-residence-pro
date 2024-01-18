@@ -50,7 +50,7 @@
 
             <div class="itre-read-more">
                 <?php
-                printf('<a href="%s" rel="bookmark">%s</a>', get_the_permalink(), __('Read More', 'it-residence'));
+                printf('<a href="%s" rel="bookmark">%s</a>', esc_url( get_the_permalink() ), __('Read More', 'it-residence'));
                 ?>
             </div>
         </div>

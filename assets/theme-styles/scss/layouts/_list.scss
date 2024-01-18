@@ -1,15 +1,93 @@
 // Styling for List Layout
 
 article.list {
+    position: relative;
+    
+    @media (min-width: 48rem) {
+        min-height: 15rem;
+    }
+
+    .listing-wrapper {
+        border: solid 1px #eeeeee;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+
+        @media (min-width: 48rem) {
+            display: flex;
+            height: 100%;
+        }
+    }
+
+    h2 {
+        @extend %regular;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        margin-bottom: 0.5rem;
+
+        @media (min-width: 48rem) {
+            font-size: 1.75rem;
+            line-height: 2.25rem;
+        }
+    }
+
+    .prop-price-info {
+        display: flex;
+        align-items: center;
+    }
+    .prop-price {
+        color: var(--accent);
+        @extend %bold;
+        font-size: 2.125rem;
+        line-height: 1;
+
+        @media (min-width: 48rem) {
+            font-size: 2.125rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    .itre-prop-thumb {
+
+        @media (min-width: 48rem) {
+            flex-basis: 35%;
+            flex-shrink: 0;
+        }
+
+        figure {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            @media (min-width: 48rem) {
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .itre-prop-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+
+        @media (min-width: 48rem) {
+            flex-basis: 65%;
+            padding: 1rem 1rem 0;
+        }
+    }
+
     .entry-meta {
         > * {
             margin-left: 0.2em;
             margin-right: 1.4em;
         }
     }
-    a img {
-        border-radius: var(--border-radius);
-    }
+
     .entry-content {
         margin-top: 0;
     }

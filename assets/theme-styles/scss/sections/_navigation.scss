@@ -94,14 +94,19 @@ button.mobile-nav-btn {
 button#close-menu {
     background-color: transparent;
     border: 0;
-    margin: 16px auto;
+    margin: 1rem auto;
     color: white;
     background-color: rgba(255,255,255,0.1);
-    border-radius: 0 100% 100% 0;
+    border-radius: 50%;
+	padding: 0;
+	height: 2.75rem;
+	width: 2.75rem;
+	line-height: 0;
+	margin-left: 1rem;
+
     &:focus {
         outline: none;
     }
-
 }
 
 #menu {
@@ -116,9 +121,16 @@ button#close-menu {
 	background-color: var(--dark);
 	@include transform(translateX(100%));
 	@include transition(transform 300ms ease-out);
+
+	@media (min-width: 48rem) {
+		width: 25.625rem;
+	}
+
     .itre-cta {
         position: relative;
-        &:hover, &:focus {
+
+        &:hover,
+		&:focus {
             box-shadow: $shadow2;
         }
         margin: 1rem;
@@ -135,6 +147,7 @@ button#close-menu {
 		background: none;
 		float: right;
 		border: 0;
+
 		i {
 			color: white;
 		}
@@ -152,10 +165,10 @@ button#close-menu {
 				display: none;
 			}
 		    a {
-		        display: block;
+		        display: inline-block;
 		        color: white;
-		        padding: 0.5em 0.8em;
-		        width: 100%;
+		        padding: 0.5rem 0.75rem;
+		        width: auto;
 		        overflow: hidden;
 		        white-space: nowrap;
 		        text-overflow: ellipsis;

@@ -23,14 +23,14 @@
   font-family: var(--title-font);
 }
 
-body, body:not(.single-property) article.type-property[class^=col-] .listing-wrapper h2, body:not(.single-property) article.type-property.list h2, article[class^=col-].type-post h2 {
+body, body:not(.single-property) article.type-property.grid .listing-wrapper h2, article[class^=col-].type-post h2, article.list h2 {
   font-weight: var(--body-weight);
 }
 
 button,
 input[type=button],
 input[type=reset],
-input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body:not(.single-property) article.type-property.list .prop-price, body.single-property .prop-price, article[class^=col-].type-post .itre-read-more a, article.list .itre-read-more a {
+input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body.single-property .prop-price, article[class^=col-].type-post .itre-read-more a, article.list .prop-price, article.list .itre-read-more a {
   font-weight: var(--title-weight);
 }
 
@@ -59,15 +59,13 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  -moz-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  -ms-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -webkit-transition: all 100ms ease;
 }
-
-a:visited {
+a:hover, a:focus {
   text-decoration: underline;
+  outline: none;
 }
 
 article.list .itre-read-more a, #comments .comment .reply a, .itre-cta, #itre-front-blog .itre-front-blog-cta a {
@@ -77,7 +75,7 @@ article.list .itre-read-more a, #comments .comment .reply a, .itre-cta, #itre-fr
   text-transform: uppercase;
   line-height: 1;
   color: white;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 article.list .itre-read-more a:hover, #comments .comment .reply a:hover, .itre-cta:hover, #itre-front-blog .itre-front-blog-cta a:hover {
   transform: scale(1.05);
@@ -163,7 +161,7 @@ input[type=color],
 select,
 textarea {
   color: #666;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 0.7rem;
 }
 
@@ -270,6 +268,38 @@ header.page-header {
   padding: 1em 1.25em 1.2rem;
 }
 
+body.archive.post-type-archive-property .itre-property-archive-wrapper, body.archive.tax-location .itre-property-archive-wrapper, body.archive.tax-property-type .itre-property-archive-wrapper {
+  display: grid;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
+  max-width: 48rem;
+}
+@media (min-width: 48rem) {
+  body.archive.post-type-archive-property .itre-property-archive-wrapper.col2, body.archive.tax-location .itre-property-archive-wrapper.col2, body.archive.tax-property-type .itre-property-archive-wrapper.col2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 48rem) {
+  body.archive.post-type-archive-property .itre-property-archive-wrapper.col3, body.archive.tax-location .itre-property-archive-wrapper.col3, body.archive.tax-property-type .itre-property-archive-wrapper.col3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 64rem) {
+  body.archive.post-type-archive-property .itre-property-archive-wrapper.col3, body.archive.tax-location .itre-property-archive-wrapper.col3, body.archive.tax-property-type .itre-property-archive-wrapper.col3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 48rem) {
+  body.archive.post-type-archive-property .itre-property-archive-wrapper.col4, body.archive.tax-location .itre-property-archive-wrapper.col4, body.archive.tax-property-type .itre-property-archive-wrapper.col4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 64rem) {
+  body.archive.post-type-archive-property .itre-property-archive-wrapper.col4, body.archive.tax-location .itre-property-archive-wrapper.col4, body.archive.tax-property-type .itre-property-archive-wrapper.col4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 991px) {
   .itre-cta {
     font-size: 0.9em;
@@ -279,6 +309,10 @@ header.page-header {
 #masthead {
   position: relative;
   background-color: var(--masthead-bg);
+}
+#masthead .top-wrapper {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 #masthead > * {
   position: relative;
@@ -342,9 +376,6 @@ body #masthead .site-title a {
   #masthead .layout2 {
     display: block;
   }
-}
-#masthead .layout3 {
-  padding: 0.75rem;
 }
 #masthead .layout3 button.mobile-nav-btn {
   display: block !important;
@@ -499,10 +530,15 @@ button.mobile-nav-btn svg rect {
 button#close-menu {
   background-color: transparent;
   border: 0;
-  margin: 16px auto;
+  margin: 1rem auto;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0 100% 100% 0;
+  border-radius: 50%;
+  padding: 0;
+  height: 2.75rem;
+  width: 2.75rem;
+  line-height: 0;
+  margin-left: 1rem;
 }
 button#close-menu:focus {
   outline: none;
@@ -528,6 +564,11 @@ button#close-menu:focus {
   -moz-transition: transform 300ms ease-out;
   -ms-transition: transform 300ms ease-out;
   -o-transition: transform 300ms ease-out;
+}
+@media (min-width: 48rem) {
+  #menu {
+    width: 25.625rem;
+  }
 }
 #menu .itre-cta {
   position: relative;
@@ -567,10 +608,10 @@ button#close-menu:focus {
   display: none;
 }
 #menu ul li a {
-  display: block;
+  display: inline-block;
   color: white;
-  padding: 0.5em 0.8em;
-  width: 100%;
+  padding: 0.5rem 0.75rem;
+  width: auto;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -730,7 +771,7 @@ body.single #itre_related_posts_wrapper h3 a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-body.single #itre_related_posts_wrapper .entry-meta > *, body.single #itre_related_posts_wrapper body:not(.single):not(.page) #primary article footer > *, body:not(.single):not(.page) #primary article body.single #itre_related_posts_wrapper footer > * {
+body.single #itre_related_posts_wrapper .entry-meta > *, body.single #itre_related_posts_wrapper body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer > *, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single #itre_related_posts_wrapper footer > * {
   display: inline-block;
   width: auto;
 }
@@ -845,8 +886,7 @@ body.single #author_box img {
   position: relative;
   background-color: var(--accent);
   border-radius: var(--border-radius);
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
+  padding: 1.25rem;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
 }
 body.page-template-template-property-listings .itre-property-filter {
@@ -906,18 +946,33 @@ body.page-template-template-property-listings .itre-property-filter {
 
 .itre-property-listing {
   margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 48rem) {
+  .itre-property-listing {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 64rem) {
+  .itre-property-listing {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 body:not(.single-property) article.type-property .itre_address {
   color: #999999;
-  padding-bottom: 0.8em;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  white-space: pre-wrap;
+  margin-top: 0.75rem;
 }
 body:not(.single-property) article.type-property .itre_features {
-  margin-top: auto;
+  margin-top: 2rem;
   border-top: solid 1px #eeeeee;
   padding-top: 0.6em;
   padding-bottom: 0.8em;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 body:not(.single-property) article.type-property .itre_features i {
   color: var(--accent);
@@ -934,10 +989,20 @@ body:not(.single-property) article.type-property .itre_features > span {
 body:not(.single-property) article.type-property .itre_features > span span {
   margin: auto 0.25em;
 }
-body:not(.single-property) article.type-property[class^=col-] {
+@media (min-width: 48rem) {
+  body:not(.single-property) article.type-property .itre_features {
+    margin-top: auto;
+  }
+}
+body:not(.single-property) article.type-property .itre-for-tag {
+  position: absolute;
+  left: 0.6em;
+  top: 0.5em;
+}
+body:not(.single-property) article.type-property.grid {
   margin-bottom: 1.6em;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper {
+body:not(.single-property) article.type-property.grid .listing-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -946,10 +1011,10 @@ body:not(.single-property) article.type-property[class^=col-] .listing-wrapper {
   background-color: white;
   overflow: hidden;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre-prop-thumb {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre-prop-thumb {
   position: relative;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre-prop-thumb .prop-price {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre-prop-thumb .prop-price {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -960,39 +1025,34 @@ body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .
   padding: 0.4em 0.75em 0.3em;
   opacity: 0.85;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre-for-tag {
-  position: absolute;
-  left: 0.6em;
-  top: 0.5em;
-}
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper > *:not(.itre-prop-thumb) {
+body:not(.single-property) article.type-property.grid .listing-wrapper > *:not(.itre-prop-thumb) {
   padding: 0 15px;
   line-height: 1.2;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper h2 {
+body:not(.single-property) article.type-property.grid .listing-wrapper h2 {
   margin: 0.875rem auto 0.25rem;
   font-size: 1.75rem;
   line-height: 2rem;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper a {
+body:not(.single-property) article.type-property.grid .listing-wrapper a {
   color: black;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre_features {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre_features {
   margin-top: auto;
   border-top: solid 1px #eeeeee;
   padding-top: 0.6em;
   padding-bottom: 0.8em;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre_features i {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre_features i {
   color: var(--accent);
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre_features > span {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre_features > span {
   margin-right: 0.6em;
 }
-body:not(.single-property) article.type-property[class^=col-] .listing-wrapper .itre_features > span span {
+body:not(.single-property) article.type-property.grid .listing-wrapper .itre_features > span span {
   margin: auto 0.25em;
 }
-body:not(.single-property) article.type-property[class^=col-].property-tab .entry-header {
+body:not(.single-property) article.type-property.grid.property-tab .entry-header {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1000,48 +1060,20 @@ body:not(.single-property) article.type-property[class^=col-].property-tab .entr
   padding-top: 2em;
   padding-bottom: 0.8em;
 }
-body:not(.single-property) article.type-property[class^=col-].property-tab .listing-wrapper {
+body:not(.single-property) article.type-property.grid.property-tab .listing-wrapper {
   position: relative;
   height: auto;
 }
-body:not(.single-property) article.type-property[class^=col-].property-tab .itre-for-tag {
+body:not(.single-property) article.type-property.grid.property-tab .itre-for-tag {
   left: unset;
   right: 0.6em;
 }
-body:not(.single-property) article.type-property[class^=col-].property-tab .prop-price {
+body:not(.single-property) article.type-property.grid.property-tab .prop-price {
   bottom: unset !important;
   top: 0;
 }
-body:not(.single-property) article.type-property[class^=col-].property-tab h2 {
+body:not(.single-property) article.type-property.grid.property-tab h2 {
   color: white;
-}
-body:not(.single-property) article.type-property.list .listing-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  body:not(.single-property) article.type-property.list .listing-wrapper {
-    flex-direction: row;
-  }
-}
-body:not(.single-property) article.type-property.list .itre-prop-content {
-  display: flex;
-  flex-direction: column;
-  padding-left: 15px;
-}
-body:not(.single-property) article.type-property.list .prop-price-info {
-  display: flex;
-  align-items: center;
-}
-body:not(.single-property) article.type-property.list .prop-price {
-  color: var(--accent);
-  font-size: 1.2em;
-  margin-right: 0.4em;
-  margin-top: 5px;
-  line-height: 1;
-}
-body:not(.single-property) article.type-property.list .itre_features {
-  padding-bottom: 0;
 }
 
 body.single-property .post-thumbnail img {
@@ -1054,20 +1086,20 @@ body.single-property .itre-for-tag {
   text-transform: uppercase;
   font-size: 0.85em;
 }
-body.single-property .entry-meta, body.single-property body:not(.single):not(.page) #primary article footer, body:not(.single):not(.page) #primary article body.single-property footer {
+body.single-property .entry-meta, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer {
   color: var(--link);
 }
-body.single-property .entry-meta i, body.single-property body:not(.single):not(.page) #primary article footer i, body:not(.single):not(.page) #primary article body.single-property footer i {
+body.single-property .entry-meta i, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer i, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer i {
   color: var(--accent);
 }
-body.single-property .entry-meta svg, body.single-property body:not(.single):not(.page) #primary article footer svg, body:not(.single):not(.page) #primary article body.single-property footer svg {
+body.single-property .entry-meta svg, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg {
   margin-right: 5px;
   margin-bottom: 5px;
 }
-body.single-property .entry-meta svg polygon, body.single-property body:not(.single):not(.page) #primary article footer svg polygon, body:not(.single):not(.page) #primary article body.single-property footer svg polygon, body.single-property .entry-meta svg path, body.single-property body:not(.single):not(.page) #primary article footer svg path, body:not(.single):not(.page) #primary article body.single-property footer svg path {
+body.single-property .entry-meta svg polygon, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg polygon, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg polygon, body.single-property .entry-meta svg path, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg path, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg path {
   fill: var(--accent);
 }
-body.single-property .entry-meta a, body.single-property body:not(.single):not(.page) #primary article footer a, body:not(.single):not(.page) #primary article body.single-property footer a {
+body.single-property .entry-meta a, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer a {
   text-decoration: underline;
 }
 body.single-property .prop-price {
@@ -1076,6 +1108,38 @@ body.single-property .prop-price {
 body.single-property #property-map {
   height: 500px;
   width: 100%;
+}
+
+.itre-pagination .nav-links {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.itre-pagination .nav-links > * {
+  display: flex;
+  align-items: center;
+}
+.itre-pagination .nav-links > *:not(:last-child) {
+  margin-right: 1.25rem;
+}
+.itre-pagination .nav-links a.page-numbers:not(.next):not(.prev) {
+  background-color: var(--accent);
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+.itre-pagination .nav-links a.page-numbers:not(.next):not(.prev) span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.itre-pagination .nav-links a.page-numbers:not(.next):not(.prev):hover {
+  filter: brightness(110%);
 }
 
 .itre_contact_form {
@@ -1139,7 +1203,7 @@ article[class^=col-].type-post .entry-content {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-article[class^=col-].type-post .entry-meta > *:first-child, body:not(.single):not(.page) #primary article[class^=col-].type-post footer > *:first-child {
+article[class^=col-].type-post .entry-meta > *:first-child, body:not(.single):not(.page):not(.post-type-archive-property) #primary article[class^=col-].type-post footer > *:first-child {
   margin-left: 0;
 }
 article[class^=col-].type-post .entry-content {
@@ -1169,47 +1233,119 @@ article.classic .entry-content {
   margin-top: 0.5em;
 }
 
-body:not(.single):not(.page) #primary article {
-  margin-bottom: 3em;
+body:not(.single):not(.page):not(.post-type-archive-property) #primary article {
+  margin-bottom: 3rem;
 }
-body:not(.single):not(.page) #primary article footer a {
-  margin: auto 0.2em;
+body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a {
+  margin: auto 0.1875rem;
 }
 
 .entry-title a {
   color: var(--body-text);
 }
 
-.entry-meta, body:not(.single):not(.page) #primary article footer, footer.entry-footer, .comment-meta {
+.entry-meta, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer, footer.entry-footer, .comment-meta {
   color: var(--accent);
   margin: 0.8em auto;
 }
-.entry-meta a, body:not(.single):not(.page) #primary article footer a, footer.entry-footer a, .comment-meta a {
+.entry-meta a, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a, footer.entry-footer a, .comment-meta a {
   margin-right: 0.25em;
 }
-.entry-meta span, body:not(.single):not(.page) #primary article footer span, footer.entry-footer span, .comment-meta span {
+.entry-meta span, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer span, footer.entry-footer span, .comment-meta span {
   margin-right: 0.8em;
 }
-.entry-meta i, body:not(.single):not(.page) #primary article footer i, footer.entry-footer i, .comment-meta i {
+.entry-meta i, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer i, footer.entry-footer i, .comment-meta i {
   display: inline-block;
   font-size: 1.3em;
   position: relative;
   top: 1px;
   margin-right: 5px;
 }
-.entry-meta a:not(.post-edit-link), body:not(.single):not(.page) #primary article footer a:not(.post-edit-link), footer.entry-footer a:not(.post-edit-link), .comment-meta a:not(.post-edit-link) {
+.entry-meta a:not(.post-edit-link), body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a:not(.post-edit-link), footer.entry-footer a:not(.post-edit-link), .comment-meta a:not(.post-edit-link) {
   color: var(--link);
 }
-.entry-meta a:not(.post-edit-link):hover, body:not(.single):not(.page) #primary article footer a:not(.post-edit-link):hover, footer.entry-footer a:not(.post-edit-link):hover, .comment-meta a:not(.post-edit-link):hover {
+.entry-meta a:not(.post-edit-link):hover, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a:not(.post-edit-link):hover, footer.entry-footer a:not(.post-edit-link):hover, .comment-meta a:not(.post-edit-link):hover {
   color: var(--link-hvr);
 }
 
-article.list .entry-meta > *, body:not(.single):not(.page) #primary article.list footer > * {
+article.list {
+  position: relative;
+}
+@media (min-width: 48rem) {
+  article.list {
+    min-height: 15rem;
+  }
+}
+article.list .listing-wrapper {
+  border: solid 1px #eeeeee;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+@media (min-width: 48rem) {
+  article.list .listing-wrapper {
+    display: flex;
+    height: 100%;
+  }
+}
+article.list h2 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 48rem) {
+  article.list h2 {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+article.list .prop-price-info {
+  display: flex;
+  align-items: center;
+}
+article.list .prop-price {
+  color: var(--accent);
+  font-size: 2.125rem;
+  line-height: 1;
+}
+@media (min-width: 48rem) {
+  article.list .prop-price {
+    font-size: 2.125rem;
+    line-height: 2.5rem;
+  }
+}
+@media (min-width: 48rem) {
+  article.list .itre-prop-thumb {
+    flex-basis: 35%;
+    flex-shrink: 0;
+  }
+}
+article.list .itre-prop-thumb figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 48rem) {
+  article.list .itre-prop-thumb figure img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+article.list .itre-prop-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+@media (min-width: 48rem) {
+  article.list .itre-prop-content {
+    flex-basis: 65%;
+    padding: 1rem 1rem 0;
+  }
+}
+article.list .entry-meta > *, body:not(.single):not(.page):not(.post-type-archive-property) #primary article.list footer > * {
   margin-left: 0.2em;
   margin-right: 1.4em;
-}
-article.list a img {
-  border-radius: var(--border-radius);
 }
 article.list .entry-content {
   margin-top: 0;

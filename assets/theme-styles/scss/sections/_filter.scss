@@ -3,8 +3,7 @@
 	position: relative;
 	background-color: var(--accent);
 	border-radius: var(--border-radius);
-	padding-top: 1.2em;
-	padding-bottom: 1.2em;
+	padding: 1.25rem;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
 
 	body.page-template-template-property-listings & {
@@ -64,20 +63,33 @@
 
 .itre-property-listing {
 	margin-top: 2rem;
+	display: grid;
+	gap: 1.25rem;
+
+	@media (min-width: 48rem) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media (min-width: 64rem) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 
 body:not(.single-property) article.type-property {
 	.itre_address {
 		color: #999999;
-		padding-bottom: 0.8em;
+		font-size: 1rem;
+		line-height: 1.375rem;
+		white-space: pre-wrap;
+		margin-top: 0.75rem;
 	}
 	.itre_features {
-		margin-top: auto;
+		margin-top: 2rem;
 		border-top: solid 1px #eeeeee;
 		padding-top: 0.6em;
 		padding-bottom: 0.8em;
-		font-size: 0.9rem;
+		font-size: 0.875rem;
 		i {
 			color: var(--accent);
 		}
@@ -93,9 +105,21 @@ body:not(.single-property) article.type-property {
 				margin: auto 0.25em;
 			}
 		}
+
+		@media (min-width: 48rem) {
+			margin-top: auto;
+		}
 	}
-	&[class^="col-"] {
+
+	.itre-for-tag {
+		position: absolute;
+		left: 0.6em;
+		top: 0.5em;
+	}
+
+	&.grid {
 		margin-bottom: 1.6em;
+
 		.listing-wrapper {
 			display: flex;
 			flex-direction: column;
@@ -117,11 +141,6 @@ body:not(.single-property) article.type-property {
 					padding: 0.4em 0.75em 0.3em;
 					opacity: 0.85;
 				}
-			}
-			.itre-for-tag {
-				position: absolute;
-				left: 0.6em;
-				top: 0.5em;
 			}
 			> *:not(.itre-prop-thumb) {
 				padding: 0 15px;
@@ -176,38 +195,6 @@ body:not(.single-property) article.type-property {
 			h2 {
 				color: white;
 			}
-		}
-	}
-	&.list {
-		.listing-wrapper {
-			display: flex;
-			flex-direction: column;
-			@media (min-width: 768px) {
-				flex-direction: row;
-			}
-		}
-		h2 {
-			@extend %regular;
-		}
-		.itre-prop-content {
-			display: flex;
-			flex-direction: column;
-			padding-left: 15px;
-		}
-		.prop-price-info {
-			display: flex;
-			align-items: center;
-		}
-		.prop-price {
-			color: var(--accent);
-			@extend %bold;
-			font-size: 1.2em;
-			margin-right: 0.4em;
-			margin-top: 5px;
-			line-height: 1;
-		}
-		.itre_features {
-			padding-bottom: 0;
 		}
 	}
 }

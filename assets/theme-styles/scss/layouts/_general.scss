@@ -1,12 +1,12 @@
 // General Styling for Blog Layouts
 
-body:not(.single):not(.page) {
+body:not(.single):not(.page):not(.post-type-archive-property) {
     #primary article {
-        margin-bottom: 3em;
+        margin-bottom: 3rem;
         footer {
             @extend .entry-meta;
             a {
-                margin: auto 0.2em;
+                margin: auto 0.1875rem;
             }
         }
     }
