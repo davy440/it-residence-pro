@@ -947,7 +947,7 @@ body.page-template-template-property-listings .itre-property-filter {
 .itre-property-listing {
   margin-top: 2rem;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 @media (min-width: 48rem) {
   .itre-property-listing {

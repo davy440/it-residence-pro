@@ -4,20 +4,11 @@
  *	Template for displaying property listing
  *
  */
-$layout = 'list';
-
-if (str_contains(get_theme_mod('itre_property_layout', 'col3'), 'col')) {
-	$layout = 'grid';
-}
-
-if ($args == 'filter') {
-	$layout = 'grid';
-}
 
 $itre_stored_meta = get_post_meta( get_the_ID() );
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class($layout); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('grid'); ?>>
 	 <div class="listing-wrapper">
 		 <div class="itre-prop-thumb">
 

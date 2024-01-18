@@ -10,6 +10,7 @@ get_header(null, ['header' => $header]);
 ?>
 
 	<main id="primary" class="site-main">
+		<div class="wp-block-group">
 
 		<?php
 		if ( post_type_exists('property') ) {
@@ -24,7 +25,7 @@ get_header(null, ['header' => $header]);
 		);
 		}
 		?>
-
+		</div><!-- .wp-block-group -->
 	</main><!-- #main -->
 
 <?php

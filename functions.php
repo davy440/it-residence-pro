@@ -105,6 +105,9 @@ function itre_setup() {
 	add_image_size( 'related_logo', 400, 150, true );
 	add_image_size( 'itre_feat_thumb', 400, 500, true );
 	add_image_size( 'itre_sq_thumb', 500, 500, true );
+
+	// Add Support for wide alignment
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'itre_setup' );
 
