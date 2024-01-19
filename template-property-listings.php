@@ -9,9 +9,7 @@
 get_header(null, ['header' => $header]);
 ?>
 
-	<main id="primary" class="site-main">
-		<div class="wp-block-group">
-
+	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
 		<?php
 		if ( post_type_exists('property') ) {
 			do_action('itre_property_filter');
@@ -25,7 +23,6 @@ get_header(null, ['header' => $header]);
 		);
 		}
 		?>
-		</div><!-- .wp-block-group -->
 	</main><!-- #main -->
 
 <?php

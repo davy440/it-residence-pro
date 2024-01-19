@@ -101,7 +101,7 @@ function itre_setup() {
 		)
 	);
 
-	add_image_size('itre_prop_thumb', 600, 420, true);
+	add_image_size( 'itre_prop_thumb', 600, 420, true );
 	add_image_size( 'related_logo', 400, 150, true );
 	add_image_size( 'itre_feat_thumb', 400, 500, true );
 	add_image_size( 'itre_sq_thumb', 500, 500, true );

@@ -58,7 +58,8 @@
             ]
         },
         "layout": {
-            "contentSize": "120rem"
+            "contentSize": "1320px",
+            "wideSize": "1920px"
         }
     }
 }

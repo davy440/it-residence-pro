@@ -12,7 +12,7 @@ $headerMap = empty(get_post_meta($post->ID, "header", true)) ? "" : "map";
 get_header( NULL, ["header"	=>	$headerMap] );
 ?>
 
-<main id="primary" class="property-content container" role="main">
+<main id="primary" class="property-content container wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" role="main">
 
 	<?php
 	if ( have_posts() ) {
