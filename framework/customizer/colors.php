@@ -23,23 +23,6 @@ function itre_colors_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
-		'itre_box_bg_color', array(
-			'default'	=>	'#ffffff',
-			'sanitize_callback'	=>	'sanitize_hex_color'
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize, 'itre_box_bg_color', array(
-				'label'		=>	__('Box Background Color', 'it-residence'),
-				'section'	=>	'colors',
-				'settings'	=>	'itre_box_bg_color'
-			)
-		)
-	);
-
-	$wp_customize->add_setting(
 		'itre_body_excerpt_color', array(
 			'default'	=>	'#999999',
 			'sanitize_callback'	=>	'sanitize_hex_color'
@@ -143,7 +126,7 @@ function itre_colors_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting(
 		'itre_nav_link_clr', array(
-			'default'	=>	'#2e6d87',
+			'default'			=>	'#2e6d87',
 			'sanitize_callback'	=>	'sanitize_hex_color'
 		)
 	);

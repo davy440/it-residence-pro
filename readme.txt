@@ -3,14 +3,14 @@
 Contributors: indithemes
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, blog, portfolio, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, theme-options, editor-style, footer-widgets, block-styles, full-width-template
 
-Requires at least: 4.5
+Requires at least: 6.0
 Tested up to: 6.4
-Requires PHP: 8.2
-Stable tag: 2.0
+Requires PHP: 8.0
+Stable tag: 2.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-IT Residence WordPress Theme, Copyright 2022 IndiThemes
+IT Residence WordPress Theme, Copyright 2024 IndiThemes
 IT Residence is distributed under the terms of the GNU GPL
 
 == Description ==
@@ -50,6 +50,12 @@ IT Residence Pro is the extended version of IT Residence. It expands upon the fu
 
 = v2.0 - January 14, 2024 =
 * Major Update - Added Property Blocks
+
+= 2.0.1 - February 1, 2024 =
+* Improved Compatibility and bug fixes
+
+= 2.1 - February 28, 2024 =
+* Added Theme Page and Plugin Installers
 
 
 == Credits ==

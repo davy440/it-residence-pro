@@ -36,9 +36,9 @@ function itre_header_customize_register( $wp_customize ) {
             'type'      =>  'radio',
             'section'   =>  'itre_header_options',
             'choices'   =>  array(
-                '1'     =>  __('Layout 1', 'it-residence'),
-                '2'     =>  __('Layout 2', 'it-residence'),
-                '3'     =>  __('Layout 3', 'it-residence')
+                '1'     =>  __('Top', 'it-residence'),
+                '2'     =>  __('Center', 'it-residence'),
+                '3'     =>  __('Full', 'it-residence')
             )
         )
     );
@@ -58,10 +58,29 @@ function itre_header_customize_register( $wp_customize ) {
             'choices'   =>  array(
                 'default'   =>  __('Default', 'it-residence'),
                 'slider'    =>  __('Slider', 'it-residence'),
-                'video'     =>  __('Video', 'it-residence')
+                'video'     =>  __('Video', 'it-residence'),
+                'widget'    =>  __('Header Widget', 'it-residence')
             )
         )
     );
+
+    // Button to control Header Widget
+    $wp_customize->add_control(
+        new ITRE_Custom_Button_Control(
+            $wp_customize, 'itre_header_widget', array(
+                'label'     =>  __('Manage Header Widget', 'it-residence'),
+                'section'   =>  'itre_header_options',
+                'type'      =>  'itre-button',
+                'settings'  =>  []
+            )
+        )
+    );
+
+    $control = $wp_customize->get_control('itre_header_widget');
+    $control->active_callback = function( $control ) {
+        $setting = $control->manager->get_setting( 'itre_front_header_layout' );
+        return $setting->value() == 'widget' ? true : false;
+    };
 
     $wp_customize->add_setting(
         'itre_sidebar_width', array(

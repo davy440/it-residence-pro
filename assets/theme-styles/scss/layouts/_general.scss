@@ -20,22 +20,27 @@ body:not(.single):not(.page):not(.post-type-archive-property) {
 
 .entry-meta, footer.entry-footer, .comment-meta {
     color: var(--accent);
-    margin: 0.8em auto;
+    margin: 0.75rem auto;
+    
     a {
-        margin-right: 0.25em;
+        margin-right: 0.25rem;
     }
+
     span {
-        margin-right: 0.8em;
+        margin-right: 0.875rem;
     }
+
     i {
         display: inline-block;
-         font-size: 1.3em;
+         font-size: 1.3125rem;
          position: relative;
          top: 1px;
          margin-right: 5px;
     }
+
     a:not(.post-edit-link) {
         color: var(--link);
+
         &:hover {
             color: var(--link-hvr);
         }

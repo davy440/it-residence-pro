@@ -9,8 +9,30 @@
 
 if ( ! defined( 'ITRE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'ITRE_VERSION', '2.0' );
+	define( 'ITRE_VERSION', '2.2' );
 }
+
+if ( !defined( 'ITRE_PATH' ) ) {
+	define( 'ITRE_PATH', trailingslashit( get_template_directory() ) );
+}
+
+if ( !defined( 'ITRE_URL' ) ) {
+	define( 'ITRE_URL', trailingslashit( get_template_directory_uri() ) );
+}
+
+/**
+ * Redirect to Theme Page on Theme Activation
+ */
+if ( !function_exists('itre_activation_redirect') ) {
+	function itre_activation_redirect() {
+
+		global $pagenow;
+		if ( 'themes.php' == $pagenow && is_admin() && isset($_GET['activated']) && $_GET['activated'] == true) {
+			wp_redirect( esc_url_raw( add_query_arg( 'page', 'itre_options', admin_url('themes.php') ) ) );
+		}
+	}
+}
+add_action('admin_init', 'itre_activation_redirect');
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -137,23 +159,23 @@ require get_template_directory() . '/framework/theme-setup/admin_scripts.php';
 /**
  *	Register Sidebars
  */
- require get_template_directory() . '/framework/theme-setup/register_sidebars.php';
+ require_once ITRE_PATH . 'framework/theme-setup/register_sidebars.php';
 
 /**
  * Include Metabox for Pages
  */
-require get_template_directory() . '/framework/metabox/display-options.php';
+require_once ITRE_PATH . 'framework/metabox/display-options.php';
 
 /**
- *	Including Properties
+ *	Including Properties and related stuff
  */
  function itre_property_functions() {
 
-	 if (!post_type_exists('property')) {
-		 return;
-	 }
+	if (!post_type_exists('property')) {
+		return;
+	}
 
-	 require get_template_directory() . '/inc/property-functions.php';
+	require_once ITRE_PATH . 'inc/property-functions.php';
  }
  add_action('init', 'itre_property_functions');
 
@@ -203,10 +225,19 @@ require get_template_directory() . '/inc/block-styles.php';
 require get_template_directory() . '/framework/customizer/customizer.php';
 
 /**
- * Add TGMPA - Plugin Activation
+ * Theme Page
  */
-require get_template_directory() . '/inc/tgmpa.php';
-require get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+require get_template_directory() . '/inc/theme-page.php';
+
+/**
+ * Add Agents Post Type
+ */
+require_once ITRE_PATH . 'inc/agents-cpt.php';
+
+/**
+ * Add Plugins Install Class
+ */
+require get_template_directory() . '/inc/class-plugins-install.php';
 
 /**
  * Load Jetpack compatibility file.

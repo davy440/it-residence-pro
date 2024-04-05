@@ -1,0 +1,30 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/featured-property",
+    "title": "Featured Property",
+    "category": "it-listings",
+    "keywords": [
+      "featured area",
+      "properties",
+      "property",
+      "categories"
+    ],
+    "attributes": {
+      "align": {
+        "type": "string",
+        "default": "center"
+      },
+      "property": {
+        "type": "number",
+        "default": 0
+      }
+    },
+    "supports": {
+      "align": ["full", "wide"],
+      "alignWide": true
+    },
+    "editorStyle": "itre-editor-featured-property-css",
+    "style": "itre-featured-property-css",
+    "editorScript": "itre-featured-property-js",
+    "render": "./featured-property.php"
+}

@@ -4,7 +4,6 @@
  *
  * @package IT_Residence
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -19,8 +18,6 @@
 				?>
 			</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
-
-	<?php itre_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

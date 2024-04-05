@@ -53,20 +53,6 @@ function itre_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
-// function itre_dynamic_setting_args( $setting_args, $setting_id ) {
-//
-// 	if ( $setting_id === 'itreHeaderLayout' ) {
-// 		$settings_args = array(
-// 			'type'		=>	'theme_mod',
-// 			'default'	=>	'itreHeader',
-// 			'sanitize_callback'	=>	'itre_sanitize_radio'
-// 		);
-// 	}
-//
-// 	return $setting_args;
-// }
-// add_filter('customize_dynamic_setting_args', 'itre_dynamic_setting_args', 10, 2);
-
 /**
  * Render the site tagline for the selective refresh partial.
  *

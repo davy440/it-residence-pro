@@ -10,16 +10,20 @@
 .main-navigation {
 	width: auto;
 	@extend %heading-font;
+
 	a {
-		color: var(--nav-link);
-		padding: 0.5em 1em;
+		padding: 0.5rem 1rem;
 	}
+
 	@media (min-width: 992px) {
+
 		ul#primary-menu {
+
 			& > li {
                 display: inline-block;
 				margin: 0;
 				float: none;
+
 				&.menu-item-has-children > a, &.page_item_has_children > a {
 					&:after {
 						position: relative;
@@ -29,19 +33,26 @@
                         line-height: 1;
 					}
 				}
+
+				> a {
+					color: var(--nav-link);
+				}
 			}
+
 			> li:hover {
 				background-color: rgba(0,0,0,0.05);
 			}
+
 			ul {
 				flex-direction: column;
 				opacity: 0;
 				text-transform: none;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-				background-color: var(--nav-bg);
 				@include transform(translateY(-15px));
 				@include transition(opacity 300ms $standard, transform 300ms $decelerate);
 				font-weight: 400;
+				background-color: var(--nav-bg);
+
                 a {
                     color: var(--subnav-link);
                     &:hover {

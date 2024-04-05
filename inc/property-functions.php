@@ -95,7 +95,7 @@ if ( !function_exists('itre_property_filter_form') ) {
                     </div>
 
                     <div class="filter-btn col-md-3">
-                        <button type="button"><?php esc_html_e('Submit', 'it-residence'); ?></button>
+                        <input type="submit" value="<?php esc_html_e('Submit', 'it-residence'); ?>"/>
                     </div>
     			</div>
     		</form>
@@ -142,135 +142,111 @@ if ( !function_exists('itre_property_listing') ) {
 add_action('itre_property_filter', 'itre_property_listing', 20);
 
 // AJAX Query for filtered properties
-if ( !function_exists('get_itre_ajax_property') ) {
-    function get_itre_ajax_property() {
+function itre_get_filtered_properties() {
+	if (!wp_create_nonce($_POST['nonce'], 'filter_properties')) {
+		exit;
+	}
 
-         check_ajax_referer( 'itre_ajax_property', 'security' );
+	$args = array(
+		'post_type'				=>	'property',
+		'ignore_sticky_posts'	=>	true,
+		'posts_per_page'		=>	-1
+	);
 
-     	$type 		= $_POST['type'];
-        $nonce      = $_POST['nonce'];
-     	$beds 		= intval($_POST['beds']);
-     	$minPrice	= intval($_POST['minPrice']);
-     	$maxPrice	= intval($_POST['maxPrice']);
-     	$minArea	= intval($_POST['minArea']);
-     	$maxArea	= intval($_POST['maxArea']);
+	if (!empty($_POST['bedrooms'])) {
+		$args['meta_query'][] = array(
+			'key'	=>	'bedrooms',
+			'value'	=>	intval($_POST['bedrooms']),
+			'type'		=>	'NUMERIC',
+		);
+	}
 
-     	$price		= array($minPrice, $maxPrice);
-     	$area		= [intval($_POST['minArea']), intval($_POST['maxArea'])];
+	if (!empty($_POST['type'])) {
+		$args['meta_query'][][] = array(
+			'key'	=>	'type',
+			'value'	=>	$_POST['type'],
+			'type'	=>	'CHAR',
+		);
+	}
 
-     	$args = array(
-     		'post_type'		=>	'property',
-     		'posts_per_page'=>	-1
-     	);
+	if (!empty($_POST['min-price']) && !empty($_POST['max-price'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'price',
+			'value'		=>	[intval($_POST['min-price']), intval($_POST['max-price'])],
+			'compare'	=>	'BETWEEN'
+		);
+	}
 
-     	if ( !empty($type) ) {
-     		$args['tax_query'] = array(
-     			array(
-     				'taxonomy'	=>	'property-type',
-     				'field'		=>	'slug',
-     				'terms'		=>	$type
-     			)
-     		);
-     	}
+	if (!empty($_POST['min-price']) && empty($_POST['max-price'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'price',
+			'value'		=>	intval($_POST['min-price']),
+			'compare'	=>	'>='
+		);
+	}
+	
+	if (empty($_POST['min-price']) && !empty($_POST['max-price'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'price',
+			'value'		=>	intval($_POST['max-price']),
+			'compare'	=>	'<='
+		);
+	}
 
-     	if ( !empty($beds) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'	=>	'bedrooms',
-     			'value'	=>	$beds,
-     			'type'	=>	'NUMERIC'
-     		);
-     	}
+	if (!empty($_POST['min-area']) && !empty($_POST['max-area'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'area',
+			'value'		=>	[intval($_POST['min-area']), intval($_POST['max-area'])],
+			'compare'	=>	'BETWEEN'
+		);
+	}
 
-     	if ( !empty($minPrice) && !empty($maxPrice) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'price',
-     			'value'		=>	$price,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'BETWEEN'
-     		);
-     	}
+	if (!empty($_POST['min-area']) && empty($_POST['max-area'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'area',
+			'value'		=>	intval($_POST['min-area']),
+			'type'		=>	'NUMERIC',
+			'compare'	=>	'>='
+		);
+	}
+	
+	if (empty($_POST['min-area']) && !empty($_POST['max-area'])) {
+		$args['meta_query'][][] = array(
+			'key'		=>	'area',
+			'value'		=>	intval($_POST['max-area']),
+			'compare'	=>	'<='
+		);
+	}
 
-     	if ( !empty($minPrice) && empty($maxPrice) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'price',
-     			'value'		=>	$minPrice,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'>='
-     		);
-     	}
+	$filter_query = new WP_Query( $args );
 
-     	if ( empty($minPrice) && !empty($maxPrice) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'price',
-     			'value'		=>	$maxPrice,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'<='
-     		);
-     	}
+	// The Loop
+	if ( $filter_query->have_posts() ) :
+	while ( $filter_query->have_posts() ) : $filter_query->the_post();
+	global $post;
+		get_template_part('template-parts/property-layouts/content', 'property');
+	endwhile;
+	endif;
 
-     	if ( !empty($minArea) && !empty($maxArea) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'area',
-     			'value'		=>	$area,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'BETWEEN'
-     		);
-     	}
-
-     	if ( !empty($minArea) && empty($maxArea) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'area',
-     			'value'		=>	$minArea,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'>='
-     		);
-     	}
-
-     	if ( empty($minArea) && !empty($maxArea) ) {
-     		$args['meta_query'][]	=	array(
-     			'key'		=>	'area',
-     			'value'		=>	$maxArea,
-     			'type'		=>	'numeric',
-     			'compare'	=>	'<='
-     		);
-     	}
-
-     	$prop_query = new WP_Query( $args );
-
-     	// The Loop
-     	if ( $prop_query->have_posts() ) :
-
-     	echo '<div class="row">';
-     	while ( $prop_query->have_posts() ) : $prop_query->the_post();
-
-     	global $post;
-
-     	get_template_part('template-parts/property-layouts/content', 'property', 'filter');
-
-     	endwhile;
-     	echo '</div>';
-     	endif;
-
-     	// Reset Post Data
-     	wp_reset_postdata();
-
-     	wp_die();
-    }
+	// Reset Post Data
+	wp_reset_postdata();
+		
+	
+	wp_die();
 }
- add_action('wp_ajax_itre_ajax_property', 'get_itre_ajax_property');
- add_action('wp_ajax_nopriv_itre_ajax_property', 'get_itre_ajax_property');
+ add_action('wp_ajax_filter_properties', 'itre_get_filtered_properties');
+ add_action('wp_ajax_nopriv_filter_properties', 'itre_get_filtered_properties');
 
 //Pass Variables to JS for use in AJAX
-if ( !function_exists('itre_localize_ajax_data') ) {
-    function itre_localize_ajax_data() {
-
-         $data['nonce']     = wp_create_nonce('itre_ajax_property');
-         $data['ajaxurl']    = admin_url('admin-ajax.php');
-         wp_localize_script( 'itre-property-js', 'itre', $data );
-
-    }
-}
-add_action('wp_enqueue_scripts', 'itre_localize_ajax_data', 20);
+function itre_localize_ajax_data() {
+	
+    $data['action_filter']    	= 'filter_properties';
+    $data['nonce_filter']		= wp_create_nonce('filter_properties');
+    $data['ajaxurl']    		= admin_url('admin-ajax.php');
+	
+    wp_localize_script( 'itre-property-js', 'filter', $data );
+ }
+ add_action('wp_enqueue_scripts', 'itre_localize_ajax_data');
 
 function itre_get_currency() {
 

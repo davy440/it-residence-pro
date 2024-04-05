@@ -47,4 +47,13 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.0**
     Major Update - Added Property Blocks
 
+* **v2.0.1**
+    Improved Compatibility and bug fixes
+
+* **v2.1**
+    Added Theme Page and Plugin Installers
+
+* **v2.2**
+    Color Controls fix and added additional header layout
+
 Good luck!

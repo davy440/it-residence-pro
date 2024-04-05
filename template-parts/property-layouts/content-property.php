@@ -72,8 +72,4 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 			?>
 		</div>
 	</div>
-
- 	<footer class="entry-footer">
- 		<?php itre_entry_footer(); ?>
- 	</footer><!-- .entry-footer -->
  </article><!-- #post-<?php the_ID(); ?> -->

@@ -79,7 +79,7 @@ if ( class_exists('WP_Customize_Control') ) {
      		}
       }
 
-      class itre_Custom_Button_Control extends WP_Customize_Control {
+      class ITRE_Custom_Button_Control extends WP_Customize_Control {
 
 	    public $type = "itre-button";
 
@@ -162,7 +162,7 @@ if ( class_exists('WP_Customize_Control') ) {
 			if ( !in_array( $this->value('font'), array_keys( $this->fonts ) ) ) {
 				$selectedFont = $this->value('font');
 				$selectedFont = str_replace(' ', '+', $selectedFont);
-				$url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyA9-9K8wV9KWKWY84Sp5TLSS7p9GguLRh4&family=${selectedFont}&capability=WOFF2";
+				$url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyA9-9K8wV9KWKWY84Sp5TLSS7p9GguLRh4&family={$selectedFont}&capability=WOFF2";
 				$content = wp_remote_get( $url, array( 'sslverify' => false ) );
 				$fileDir = get_template_directory() . '/assets/cache/fontFiles/';
 				$contentBody = json_decode($content['body'])->items;

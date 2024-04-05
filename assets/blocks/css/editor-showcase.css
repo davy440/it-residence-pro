@@ -1,0 +1,17 @@
+@media (min-width: 48rem) {
+  .itre-editor-showcase__sections {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+.itre-editor-showcase__section {
+  border: solid 1px black;
+  border-radius: 2px;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+.itre-editor-showcase__section span {
+  margin-right: 0.25rem;
+}

@@ -18,8 +18,10 @@ function itre_body_classes( $classes ) {
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'no-sidebar';
+	if ( ( is_home() && is_active_sidebar( 'sidebar-blog' ) && !empty(get_theme_mod('itre_blog_sidebar_enable', '') ) ) ||
+		( ( is_post_type_archive('property') || is_tax('location') || is_tax('property-type') ) && is_active_sidebar( 'sidebar-property' ) && !empty(get_theme_mod('itre_property_sidebar_enable', '') ) ) ||
+		( is_search() && is_active_sidebar( 'sidebar-search' ) && !empty(get_theme_mod('itre_search_sidebar_enable', '') ) ) ) {
+		$classes[] = 'has-sidebar';
 	}
 
 	return $classes;
@@ -36,23 +38,62 @@ function itre_pingback_header() {
 }
 add_action( 'wp_head', 'itre_pingback_header' );
 
+function itlst_body_classes( $classes ) {
+	$classes[] = 'has-plugin-itlst-pro';
+	return $classes;
+}
+
+function itre_register_blocks() {
+	$block_paths = glob(ITRE_PATH . 'assets/blocks/js/**/index.js', GLOB_BRACE);
+	
+	// Regsitering JS files for blocks
+	foreach($block_paths as $block) {
+		$block = str_replace(ITRE_PATH, ITRE_URL, $block);
+		preg_match( '/([a-z0-9_+-]*)\/index.js/i', $block, $match);
+		$id = $match[1];
+		wp_register_script("itre-{$id}-js", $block, array(), ITRE_VERSION, true);
+	}
+
+	// Regsitering custom files
+	wp_register_script("itre-featured-tabs-front-js", ITRE_URL . 'assets/blocks/jsx/featured-tabs/custom.js', array(), ITRE_VERSION, true);
+
+	// Registering CSS files for blocks
+	$css_paths = glob(ITRE_PATH . 'assets/blocks/css/*.css', GLOB_BRACE);
+	foreach($css_paths as $path) {
+		$block = str_replace(ITRE_PATH, ITRE_URL, $path);
+		preg_match('/([a-z0-9_+-]*)\.css/i', $block, $match);
+		$id = $match[1];
+		wp_register_style("itre-{$id}-css", $block, array(), ITRE_VERSION);
+	}
+	
+	// Registering blocks
+	$blocks = glob(ITRE_PATH . 'inc/blocks/**/', GLOB_BRACE);
+	foreach($blocks as $path) {
+		register_block_type($path);
+	}
+}
+add_action('init', 'itre_register_blocks');
+
 function itre_get_header( $header = 'default' ) {
 
 	switch ( $header ) :
 		case 'default' :
-			require_once get_template_directory() . '/framework/sections/header/header-default.php';
+			require_once ITRE_PATH . 'framework/sections/header/header-default.php';
 		break;
 		case 'slider' :
-			require_once get_template_directory() . '/framework/sections/header/header-slider.php';
+			require_once ITRE_PATH . 'framework/sections/header/header-slider.php';
 		break;
 		case 'video' :
-			require_once get_template_directory() . '/framework/sections/header/header-video.php';
+			require_once ITRE_PATH . 'framework/sections/header/header-video.php';
 		break;
 		case 'map' :
-			require_once get_template_directory() . '/framework/sections/header/header-map.php';
+			require_once ITRE_PATH . 'framework/sections/header/header-map.php';
+		break;
+		case 'widget' :
+			require_once ITRE_PATH . 'framework/sections/header/header-widget.php';
 		break;
 		default:
-			require_once get_template_directory() . '/framework/sections/header/header-default.php';
+			require_once ITRE_PATH . 'framework/sections/header/header-default.php';
 	endswitch;
 }
 
@@ -63,7 +104,7 @@ function itre_get_top_bar() {
 	switch ($masthead) :
 		case '1':
 		?>
-		<div class="top-wrapper layout1 container-fluid">
+		<div class="top-wrapper layout1 container-lg">
 			<div class="row align-items-center">
 
 				<?php
@@ -123,7 +164,7 @@ function itre_get_top_bar() {
 		break;
 		case '3':
 		?>
-		<div class="top-wrapper layout3 container-fluid">
+		<div class="top-wrapper layout3 container-lg">
 			<div class="row align-items-center">
 
 				<?php
@@ -574,18 +615,18 @@ function itre_get_related_properties() {
 	wp_reset_postdata();
 }
 
-//Function for Author Box in Single Post
+// Function for Author Box in Single Post
 function itre_about_author( $post ) { ?>
-	<div id="author_box" class="row g-0">
-		<div class="author_avatar col-2">
+	<div id="author_box" class="row">
+		<div class="author_avatar col-1">
 			<?php echo get_avatar( intval($post->post_author), 128 ); ?>
 		</div>
-		<div class="author_info col-10">
+		<div class="author_info col-11">
 			<h4 class="author_name title-font">
-				<?php echo get_the_author_meta( 'display_name', intval($post->post_author) ); ?>
+				<?php echo esc_html( get_the_author_meta( 'display_name', intval($post->post_author) ) ); ?>
 			</h4>
 			<div class="author_bio">
-				<?php echo get_the_author_meta( 'description', intval($post->post_author) ); ?>
+				<?php echo esc_html( get_the_author_meta( 'description', intval($post->post_author) ) ); ?>
 			</div>
 		</div>
 	</div>

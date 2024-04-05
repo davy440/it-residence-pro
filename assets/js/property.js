@@ -1,74 +1,48 @@
 // Frontend JS for IT Listings plugin
 
-jQuery(document).ready(function() {
+// JS for Property Filter
+(function() {
+    const filterDiv = document.querySelector('.itre-property-filter');
+    if (!filterDiv) {
+        return;
+    }
+	
+    const form = filterDiv.querySelector('form');
+    const propertyContainer = document.querySelector('.itre-property-listing');
+	
+    const { ajaxurl, action_filter, nonce_filter } = filter;
 
-	var propType, minArea, maxArea, beds, minPrice, maxPrice, filterBtn, filterForm, listingContainer
+    const filterProperties = async (body) => {
+        const response = await fetch(ajaxurl, {
+            method: 'POST',
+            credrentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body
+        });
+        const results = await response.text();
+        return results;
+    };
+	
+    form.addEventListener('submit', async (e) => {
+		console.log(e);
+        e.preventDefault();
+        let requestBody = '';
+        const data = new FormData(form);
+        for (const pair of data.entries()) {
+            if (pair[1] !== "" && pair[1] !== "0") {
+                requestBody += `&${pair[0]}=${pair[1]}`;
+            }
+        }
+		
+        if (requestBody === "") {
+            return;
+        }
 
-	listingDiv	= jQuery('.itre-property-listing'),
-	filterForm	= jQuery("#itre-property-filter-form"),
-	filterBtn 	= jQuery(".filter-btn"),
-	propType 	= filterForm.find('#property-type'),
-	minArea		= filterForm.find('#min-area'),
-	maxArea		= filterForm.find('#max-area'),
-	beds		= filterForm.find('#bedrooms'),
-	baths		= filterForm.find('#bathrooms'),
-	minPrice	= filterForm.find('#min-price'),
-	maxPrice	= filterForm.find('#max-price')
-
-
-	filterBtn.on("click", function() {
-
-		var data = {
-			action	: 'itre_ajax_property',
-            security: itre.nonce,
-			type	: propType.val(),
-			minArea	: parseInt(minArea.val()),
-			maxArea	: parseInt(maxArea.val()),
-			beds	: parseInt(beds.val()),
-			minPrice: parseInt(minPrice.val()),
-			maxPrice: parseInt(maxPrice.val())
-		}
-
-		if ( data.minArea > data.maxArea ) {
-			return filterError( minArea, maxArea )
-		}
-
-		if ( data.minPrice > data.maxPrice ) {
-			return filterError( minPrice, maxPrice )
-		}
-
-		filterForm.find('input').css('background-color', 'white');
-
-		jQuery.post(
-			itre.ajaxurl,
-			data,
-			function( response ) {
-				listingDiv.html( response )
-
-				if ( response == "" ) {
-					listingDiv.html( '<p>Oops, tt seems the property you are looking for is not listed here.</p>' );
-				}
-			}
-		)
-	})
-
-	function filterError( field1, field2 ) {
-		field1.css('background-color', '#fdd4d4')
-		field2.css('background-color', '#fdd4d4')
-	}
-
-	jQuery( "#itre_locations_tabs_wrapper" ).tabs({
-		   classes: {
-			   "ui-tabs-active": "is-active"
-		   },
-		   create: function( event, ui ) {
-
-
-		   },
-		   beforeActivate: function( event, ui ) {
-			   jQuery(ui.oldPanel[0]).fadeOut()
-			   jQuery(ui.newPanel[0]).fadeIn()
-		   },
-		   activate: function( event, ui ) {}
-	 });
-})
+		propertyContainer.innerHTML = "";
+        const body = `action=${action_filter}&nonce=${nonce_filter}${requestBody}`;
+    	const filteredProperties = await filterProperties(body);
+		propertyContainer.innerHTML = filteredProperties;
+    });
+})();

@@ -1,0 +1,55 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/showcase",
+    "title": "Showcase",
+    "category": "it-listings",
+    "keywords": [
+      "featured area",
+      "properties",
+      "property"
+    ],
+    "attributes": {
+      "title": {
+        "type": "string",
+        "default": ""
+      },
+      "align": {
+        "type": "string",
+        "default": "center"
+      },
+      "sections": {
+        "type": "array",
+        "default": [
+          {
+              "order": 1,
+              "mediaId": 0,
+              "mediaURL": "",
+              "sectionTitle": "",
+              "sectionDesc": ""
+          },
+          {
+              "order": 2,
+              "mediaId": 0,
+              "mediaURL": "",
+              "sectionTitle": "",
+              "sectionDesc": ""
+          },
+          {
+              "order": 3,
+              "mediaId": 0,
+              "mediaURL": "",
+              "sectionTitle": "",
+              "sectionDesc": ""
+          }
+        ]
+      }
+    },
+    "supports": {
+      "align": ["full", "wide"],
+      "alignWide": true
+    },
+    "editorStyle": "itre-editor-showcase-css",
+    "style": "itre-showcase-css",
+    "editorScript": "itre-showcase-js",
+    "render": "./showcase.php"
+}

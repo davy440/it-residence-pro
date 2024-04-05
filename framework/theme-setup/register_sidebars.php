@@ -65,20 +65,30 @@
  	);
 
     if (post_type_exists('property')) {
-
-    register_sidebar(
- 		array(
- 			'name'          => esc_html__( 'Property Sidebar', 'it-residence' ),
- 			'id'            => 'sidebar-property',
- 			'description'   => esc_html__( 'This is the sidebar for Property Archive and Single Pages. Add widgets here.', 'it-residence' ),
- 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
- 			'after_widget'  => '</section>',
- 			'before_title'  => '<h4 class="widget-title"><span>',
- 			'after_title'   => '</span></h4>',
- 		)
- 	);
-
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Property Sidebar', 'it-residence' ),
+				'id'            => 'sidebar-property',
+				'description'   => esc_html__( 'This is the sidebar for Property Archive and Single Pages. Add widgets here.', 'it-residence' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h4 class="widget-title"><span>',
+				'after_title'   => '</span></h4>',
+			)
+		);
     }
+
+	register_sidebar(
+        array(
+            'name'          => esc_html__( 'Header Sidebar', 'it-residence'  ),
+            'id'            => 'header',
+            'description'   => esc_html__( 'Header Widget Area', 'it-residence'  ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h4 class="widget-title"><span>',
+            'after_title'   => '</span></h4>',
+        )
+    );
 
  	register_sidebar(
  		array(

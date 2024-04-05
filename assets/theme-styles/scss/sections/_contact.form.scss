@@ -1,29 +1,13 @@
 //Contact Form Styling
 
-.itre_contact_form {
-    background-color: var(--accent);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-
-    @media (min-width: 60rem) {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    &__wrapper {
-        max-width: 62.5rem;
-        margin: 0 auto;
-        color: white;
-        max-width: 52.5rem;
-
-        h2,
-        p,
-        .submit-wrap {
-            text-align: center;
+.wpcf7 {
+    label, span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) {
+        width: 100%;
+        > input:not([type="checkbox"]):not([type="radio"]), > select {
+            width: 100%;
         }
     }
-
-    .nf-error-msg, .ninja-forms-req-symbol {
-        color: #ff3636;
+    input[type="submit"] {
+        @extend %btn;
     }
 }

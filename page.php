@@ -11,14 +11,7 @@
  *
  * @package IT_Residence
  */
-
- $sidebar_align = get_theme_mod( 'itre_page_sidebar_layout', 'right' );
-
 get_header();
-
-if ( $sidebar_align == 'left' ) {
-	itre_get_sidebar('page');
-}
 ?>
 
 	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
@@ -38,10 +31,5 @@ if ( $sidebar_align == 'left' ) {
 		?>
 
 	</main><!-- #main -->
-
 <?php
-if ( $sidebar_align == 'right' ) {
-	itre_get_sidebar('page');
-}
-
 get_footer();

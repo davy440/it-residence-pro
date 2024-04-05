@@ -1,19 +1,22 @@
-article[class^='col-'].type-post {
+article[class^='col-'].type-post,
+article[class^='col-'].type-page {
     margin-bottom: 1.8em;
     .listing-wrapper {
         flex-direction: column;
         background-color: white;
-        margin-bottom: 1.6em;
+        margin-bottom: 1.625rem;
     }
     .itre-col-thumb {
+        
         img {
             width: 100%;
         }
     }
     h2 {
-        font-size: 1.5em;
-        margin: 0.35em auto;
+        font-size: 1.5rem;
+        margin: 0.5rem auto;
         @extend %regular;
+
         a {
             color: black;
         }

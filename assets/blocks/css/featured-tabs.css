@@ -1,0 +1,71 @@
+.itre-featured-tabs__tab-titles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.itre-featured-tabs__tab-titles span {
+  position: relative;
+  margin: auto 0.75em;
+  font-size: 1.25rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+.itre-featured-tabs__tab-titles span.is-active:before, .itre-featured-tabs__tab-titles span.is-active:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  top: 100%;
+  height: 3px;
+  background-color: var(--accent);
+  animation: activeTab 300ms ease-out forwards;
+}
+.itre-featured-tabs__tab-titles span.is-active:before {
+  left: 50%;
+}
+.itre-featured-tabs__tab-titles span.is-active:after {
+  right: 50%;
+}
+.itre-featured-tabs__posts {
+  display: grid;
+  column-gap: 1.5rem;
+  opacity: 1;
+  transition: all 300ms ease;
+}
+@media (min-width: 48rem) {
+  .itre-featured-tabs__posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 60rem) {
+  .itre-featured-tabs__posts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.itre-featured-tabs__posts:not(:first-child) {
+  display: none;
+  opacity: 0;
+}
+.itre-featured-tabs__post {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+.itre-featured-tabs__post a:hover h3 {
+  padding-top: 8rem;
+}
+.itre-featured-tabs .itre-for-tag {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.itre-featured-tabs__post-title {
+  position: absolute;
+  bottom: 0;
+  color: var(--wp--preset--color--white);
+  font-weight: 400;
+  background: linear-gradient(to top, hsla(0deg, 0%, 0%, 0.63) 0%, hsla(0deg, 0%, 0%, 0.621) 0.8%, hsla(0deg, 0%, 0%, 0.597) 2.9%, hsla(0deg, 0%, 0%, 0.562) 6.4%, hsla(0deg, 0%, 0%, 0.517) 11%, hsla(0deg, 0%, 0%, 0.464) 16.6%, hsla(0deg, 0%, 0%, 0.406) 23.1%, hsla(0deg, 0%, 0%, 0.344) 30.4%, hsla(0deg, 0%, 0%, 0.281) 38.3%, hsla(0deg, 0%, 0%, 0.22) 46.7%, hsla(0deg, 0%, 0%, 0.162) 55.4%, hsla(0deg, 0%, 0%, 0.11) 64.4%, hsla(0deg, 0%, 0%, 0.065) 73.5%, hsla(0deg, 0%, 0%, 0.03) 82.5%, hsla(0deg, 0%, 0%, 0.008) 91.4%, hsla(0deg, 0%, 0%, 0) 100%);
+  width: 100%;
+  margin: 0;
+  padding: 5.75rem 1rem 0.75rem;
+  transition: padding 300ms ease;
+}

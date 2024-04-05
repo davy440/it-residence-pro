@@ -6,7 +6,7 @@
  */
 
 function itre_custom_colors() {
-
+    
     $css = "";
 
     $body_bg       = get_theme_mod('background_color', '#ffffff');
@@ -34,7 +34,7 @@ function itre_custom_colors() {
     $css .= $meta_link_hvr !== '#555555' ? "--link-hvr:{$meta_link_hvr};" : "";
     $css .= $header_bg !== '#ffffff' ? "--masthead-bg:{$header_bg};" : "";
     $css .= $nav_bg !== '#2e6d87' ? "--nav-bg:{$nav_bg};" : "";
-    $css .= $nav_link !== '#2e6d87' ? "--nav-bg:{$nav_link}" : "";
+    $css .= $nav_link !== '#2e6d87' ? "--nav-link:{$nav_link};" : "";
     $css .= $subnav_link !== '#ffffff' ? "--subnav-link:{$subnav_link};" : "";
     $css .= $footer_bg !== '#08445d' ? "--footer-bg:{$footer_bg};}" : "";
     $css .= $footer_link !== '#ffffff' ? "--footer-link:{$footer_link};}" : "";

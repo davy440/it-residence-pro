@@ -1,0 +1,14 @@
+.itre-editor-agents__wrapper {
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 48rem) {
+  .itre-editor-agents__wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 60rem) {
+  .itre-editor-agents__wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
