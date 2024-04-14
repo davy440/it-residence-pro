@@ -225,15 +225,15 @@ function itre_header_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting(
         'itre_cta_id', array(
-            'default'   =>  0,
-            'sanitize_callback' =>  'itre_sanitize_dropdown_pages'
+            'default'           =>  '',
+            'sanitize_callback' =>  'esc_url_raw'
         )
     );
 
     $wp_customize->add_control(
         'itre_cta_id', array(
-            'label'     =>  __('Page CTA Button links to', 'it-residence'),
-            'type'      =>  'dropdown-pages',
+            'label'     =>  __('CTA URL', 'it-residence'),
+            'type'      =>  'url',
             'section'   =>  'itre_header_options',
         )
     );

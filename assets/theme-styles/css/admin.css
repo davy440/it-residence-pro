@@ -155,26 +155,6 @@ button.def-btn {
   }
 }
 
-#itre-admin-theme-info {
-  margin-right: 6rem;
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
-}
-#itre-admin-theme-info span {
-  color: var(--accent);
-}
-#itre-admin-theme-info span.dashicons-star-filled {
-  color: #fec11b;
-}
-#itre-admin-theme-info h2 {
-  font-size: 1rem;
-}
-@media (min-width: 48rem) {
-  #itre-admin-theme-info h2 {
-    font-size: 1.5rem;
-  }
-}
-
 .itre-theme-demos {
   display: flex;
   flex-wrap: wrap;
@@ -287,10 +267,18 @@ li#menu-appearance ul > li a[href="themes.php?page=itre_options"]:hover, li#menu
 
 #itre-admin-theme-info {
   margin-top: 2rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
 }
 #itre-admin-theme-info h1 {
   border-bottom: solid 1px #aaaaaa;
   padding: 1rem;
+}
+#itre-admin-theme-info p,
+#itre-admin-theme-info a,
+#itre-admin-theme-info th,
+#itre-admin-theme-info td {
+  font-size: 1rem;
 }
 
 .itre-support-plugins-form table {

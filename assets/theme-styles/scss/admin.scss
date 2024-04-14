@@ -138,27 +138,6 @@ button.def-btn {
     }
 }
 
-#itre-admin-theme-info {
-  margin-right: 6rem;
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
-
-  span {
-      color: var(--accent);
-
-  &.dashicons-star-filled {
-    color: #fec11b;
-  }
-  }
-
-  h2 {
-      font-size: 1rem;
-
-      @media (min-width: 48rem) {
-          font-size: 1.5rem;
-      }
-  }
-}
 .itre-theme-demos {
   display: flex;
   flex-wrap: wrap;
@@ -294,10 +273,19 @@ li#menu-appearance {
 
 #itre-admin-theme-info {
   margin-top: 2rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
 
   h1 {
       border-bottom: solid 1px #aaaaaa;
       padding: 1rem;
+  }
+
+  p,
+  a,
+  th,
+  td {
+    font-size: 1rem;
   }
 }
 

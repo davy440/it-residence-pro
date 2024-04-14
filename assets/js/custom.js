@@ -155,4 +155,24 @@ jQuery(document).ready(function() {
           jQuery('html').animate({scrollTop:0}, 300, 'linear');
         });
     }
+
+    // Lightbox feature for Gallery block
+    const Lightbox = () => {
+        const selector = document.querySelector('.is-style-lightbox a');
+        console.log('7765432');
+        if (!selector) {
+            return;
+        }
+        console.log('Hello');
+        
+        const lightbox = GLightbox({
+            selector: '.is-style-lightbox a',
+            touchNavigation: true,
+            keyboardNavigation: true,
+            width: "auto",
+            height: "auto",
+            draggable: false,
+        });
+    }
+    Lightbox();
 });

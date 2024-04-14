@@ -8,6 +8,10 @@ script.async = true;
 window.initMap = function() {
     const mapContainer  =   document.getElementById('property-map');
 
+    if (!mapContainer) {
+        return;
+    }
+
     let mapProp = {
         center: new google.maps.LatLng(  itreMap.lat[0], itreMap.long[0] ),
         minZoom: 4,
@@ -70,8 +74,8 @@ window.initMap = function() {
 
 
     const headerMapContainer = document.getElementById('header-map')
-
-    let headerMap = new google.maps.Map(headerMapContainer, mapProp);
+    console.log(headerMapContainer);
+    let headerMap = new google.maps.Map(mapContainer, mapProp);
 
     let headerMarkerProps = {
         position: new google.maps.LatLng(  itreMap.lat[0], itreMap.long[0] ),
