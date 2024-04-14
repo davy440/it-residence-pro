@@ -56,4 +56,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.2**
     Color Controls fix and added additional header layout
 
+* **v2.3**
+    Added new styles and fixed bugs
+
 Good luck!

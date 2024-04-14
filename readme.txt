@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.1
+Stable tag: 2.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -56,6 +56,9 @@ IT Residence Pro is the extended version of IT Residence. It expands upon the fu
 
 = 2.1 - February 28, 2024 =
 * Added Theme Page and Plugin Installers
+
+= 2.3 = April 14, 2024 =
+* Added new styles and fixed bugs
 
 
 == Credits ==
