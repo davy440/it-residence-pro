@@ -267,6 +267,7 @@ li#menu-appearance ul > li a[href="themes.php?page=itre_options"]:hover, li#menu
 
 #itre-admin-theme-info {
   margin-top: 2rem;
+  margin-right: 2rem;
   background-color: white;
   padding: 1rem 1.5rem;
 }

@@ -159,11 +159,9 @@ jQuery(document).ready(function() {
     // Lightbox feature for Gallery block
     const Lightbox = () => {
         const selector = document.querySelector('.is-style-lightbox a');
-        console.log('7765432');
         if (!selector) {
             return;
         }
-        console.log('Hello');
         
         const lightbox = GLightbox({
             selector: '.is-style-lightbox a',
@@ -175,4 +173,33 @@ jQuery(document).ready(function() {
         });
     }
     Lightbox();
+
+    // Gallery - Slider Style
+    const gallerySlider = () => {
+        const slider = document.querySelector('.is-style-slider');
+        if (!slider) {
+            return;
+        }
+
+        const sliderContent = slider.innerHTML;
+
+        const contentWrapper = document.createElement('div');
+        contentWrapper.classList.add('swiper-wrapper');
+        contentWrapper.innerHTML = sliderContent;
+        console.log(contentWrapper.children);
+        [...contentWrapper.children].forEach(item => {
+            item.classList.add('swiper-slide');
+        });
+        slider.innerHTML = '';
+        slider.appendChild(contentWrapper);
+    
+        const swiper = new Swiper (
+            '.is-style-slider', {
+                slidesPerView: 2,
+                slideClass: 'wp-block-image'
+            }
+        );
+    }
+
+    gallerySlider();
 });

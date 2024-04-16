@@ -88,11 +88,21 @@
 }
 
 .is-style-two-col-list {
-    grid-template-columns: 1fr 1fr;
+
+    @media (min-width: 48rem) {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .is-style-three-col-list {
-    grid-template-columns: 1fr 1fr 1fr;
+    
+    @media (min-width: 48rem) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 60rem) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .is-style-two-col-list,

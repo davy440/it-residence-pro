@@ -73,8 +73,7 @@ window.initMap = function() {
     let marker = new google.maps.Marker(markerProps)
 
 
-    const headerMapContainer = document.getElementById('header-map')
-    console.log(headerMapContainer);
+    const headerMapContainer = document.getElementById('header-map');
     let headerMap = new google.maps.Map(mapContainer, mapProp);
 
     let headerMarkerProps = {

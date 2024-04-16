@@ -66,6 +66,16 @@ if ( !function_exists('itre_block_style') ) {
                 'style-handle'  =>  'itre-block-style'
             )
         );
+        
+        // Gallery Slider
+        register_block_style(
+            'core/gallery',
+            array(
+                'name'			=>	'slider',
+                'label'			=>	__('Slider', 'it-residence'),
+                'style-handle'  =>  'itre-block-style'
+            )
+        );
 
         // Sticky Column Style
         register_block_style(

@@ -81,12 +81,21 @@
   padding: 0.5rem 0.6em;
 }
 
-.is-style-two-col-list {
-  grid-template-columns: 1fr 1fr;
+@media (min-width: 48rem) {
+  .is-style-two-col-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.is-style-three-col-list {
-  grid-template-columns: 1fr 1fr 1fr;
+@media (min-width: 48rem) {
+  .is-style-three-col-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 60rem) {
+  .is-style-three-col-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .is-style-two-col-list,

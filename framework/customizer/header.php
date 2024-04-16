@@ -64,6 +64,25 @@ function itre_header_customize_register( $wp_customize ) {
         )
     );
 
+    $wp_customize->add_setting(
+        'itre_blog_header_layout', array(
+            'default'           =>  'default',
+            'sanitize_callback' =>  'itre_sanitize_radio'
+        )
+    );
+
+    $wp_customize->add_control(
+        'itre_blog_header_layout', array(
+            'label'     =>  __('Header Layout (Blogs & Properties)', 'it-residence'),
+            'type'      =>  'radio',
+            'section'   =>  'itre_header_options',
+            'choices'   =>  array(
+                'default'   =>  __('Default Header Image', 'it-residence'),
+                'image'     =>  __('Featured Image', 'it-residence')
+            )
+        )
+    );
+
     // Button to control Header Widget
     $wp_customize->add_control(
         new ITRE_Custom_Button_Control(

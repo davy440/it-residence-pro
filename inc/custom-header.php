@@ -46,19 +46,8 @@ if ( ! function_exists( 'itre_header_style' ) ) :
 		// If we get this far, we have custom styles. Let's do this.
 		?>
 		<style type="text/css">
-
-			<?php
-				$header_image = is_singular(['post', 'page','property']) && has_post_thumbnail() ? get_the_post_thumbnail_url() : get_header_image();
-			?>
-
-			#header-image {
-				background-image: url(<?php echo esc_url( $header_image ) ?>);
-				background-size: cover;
-				background-repeat: repeat;
-				background-position: center center;
-			}
-
-			<?php
+			
+		<?php
 		 /*
  		 * If no custom options for text are set, let's bail.
  		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).

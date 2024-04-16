@@ -7,10 +7,10 @@
  * @package IT_Residence
  */
 
-get_header(null, array('header' => 'default'));
+get_header(NULL, ['header' => 'single']);
 ?>
 
-	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained">
 
 		<?php
 		while ( have_posts() ) :

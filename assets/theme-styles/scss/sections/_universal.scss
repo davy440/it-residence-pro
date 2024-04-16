@@ -114,6 +114,8 @@ textarea {
 	color: #666;
 	border-radius: 0;
 	padding: 0.7rem;
+    outline: none;
+    @include transition(all 100ms ease);
 }
 
 input[type="text"]:focus,

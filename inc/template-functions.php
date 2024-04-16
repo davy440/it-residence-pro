@@ -56,6 +56,7 @@ function itre_register_blocks() {
 
 	// Regsitering custom files
 	wp_register_script("itre-featured-tabs-front-js", ITRE_URL . 'assets/blocks/jsx/featured-tabs/custom.js', array(), ITRE_VERSION, true);
+	wp_enqueue_script('itre-block-filters-js', ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-edit-post'), ITRE_VERSION, true);
 
 	// Registering CSS files for blocks
 	$css_paths = glob(ITRE_PATH . 'assets/blocks/css/*.css', GLOB_BRACE);
@@ -74,27 +75,22 @@ function itre_register_blocks() {
 }
 add_action('init', 'itre_register_blocks');
 
-function itre_get_header( $header = 'default' ) {
+// function itre_enqueue_block_filters() {
+// 	wp_enqueue_script( 'itre-block-filters-js', esc_url( ITRE_URL . 'assets/js/block-filters.js' ), array('wp-edit-post'), ITRE_VERSION, true );
+// }
+// add_action('enqueue_block_editor_assets', 'itre_enqueue_block_filters');
 
-	switch ( $header ) :
-		case 'default' :
-			require_once ITRE_PATH . 'framework/sections/header/header-default.php';
-		break;
-		case 'slider' :
-			require_once ITRE_PATH . 'framework/sections/header/header-slider.php';
-		break;
-		case 'video' :
-			require_once ITRE_PATH . 'framework/sections/header/header-video.php';
-		break;
-		case 'map' :
-			require_once ITRE_PATH . 'framework/sections/header/header-map.php';
-		break;
-		case 'widget' :
-			require_once ITRE_PATH . 'framework/sections/header/header-widget.php';
-		break;
-		default:
-			require_once ITRE_PATH . 'framework/sections/header/header-default.php';
-	endswitch;
+// function itre_module_loader( $tag, $handle, $src ) {
+// 	if ( $handle === 'itre-block-filters-js' ) {
+// 		$tag = str_replace( '<script ', '<script type="module" ', $tag );
+// 	}
+// 	return $tag;
+// }
+// add_filter('script_loader_tag', 'itre_module_loader', 10, 3);
+
+function itre_get_header( $header = 'default' ) {
+	//var_dump($header);
+	require_once ITRE_PATH . "framework/sections/header/header-{$header}.php";
 }
 
 function itre_get_top_bar() {
@@ -637,7 +633,8 @@ function itre_about_author( $post ) { ?>
  *	Map just over footer for Properties
  */
 function itre_single_property_map() {
-	if ( post_type_exists( "property" ) && is_singular("property") && !empty( get_post_meta( get_the_ID(), "maps", true ) ) && empty( get_post_meta( get_the_ID(), "header", true ) ) ) {
+	$map_in_footer = get_post_meta(get_the_ID(), 'location', true) === 'footer';
+	if ( post_type_exists( "property" ) && is_singular("property") && !empty( get_post_meta( get_the_ID(), "maps", true ) ) && $map_in_footer ) {
 	    echo '<div id="property-map"></div>';
 	}
 }

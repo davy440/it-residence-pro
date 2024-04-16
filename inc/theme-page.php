@@ -9,6 +9,8 @@ function itre_admin_theme_page() {
 add_action('admin_menu', 'itre_admin_theme_page');
 
 function itre_theme_info() {
+    $url = admin_url('themes.php');
+    $url = add_query_arg('page', 'demo-importer', $url);
     ?>
     <div id="itre-admin-theme-info">
         <h1 class="irew-theme-page-title"><?php _e('IT Residence Pro Options'); ?></h1>
@@ -32,9 +34,6 @@ function itre_theme_info() {
             </form>
             <?php
                 if (is_plugin_active('it-listings/it-listings.php') && is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
-                    $url = admin_url('themes.php');
-                    $url = add_query_arg('page', 'demo-importer', $url);
-                    
                     printf('<div class="itre-demo-import">');
                     echo '<p>Plugins Installed! You are ready to start with your website! Create something awesome!</p>';
                     echo '<p>You can also import content from our pre-made demos.</p>';
@@ -47,17 +46,26 @@ function itre_theme_info() {
         <div class="sep"></div>
 
         <h2>
-            <?php echo __('IT Residence Pro Demo', 'it-residence'); ?>
+            <?php echo __('Pro Features', 'it-residence'); ?>
         </h2>
-        <div class="itre-theme-demos">
-
-            <figure class="demo-1">
-                <a href="http://demo.indithemes.com/it-residence-pro" target="_blank" rel="external">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/demos/1.png'); ?>" alt="<?php echo __('IT Residence Pro Demo', 'it-residence') ?>">
-                </a>
-                <figcaption>Demo - Default</figcaption>
-            </figure>
-        </div>
+        <ul class="itre-pro-features">
+            <li>Everything included in IT Residence</li>
+            <li>
+                <h3>More Header Layouts</h3>
+                <p>IT Residence Provides more options to set Headers and Banners for your website.<br>
+                    Go to Appearance > Customize.<br>
+                    Go to Header > header Options<br>
+                    Here, you can customize the Header of the theme.
+                </p>
+            </li>
+            <li>More Custom Blocks</li>
+            <li>More Typography Options</li>
+            <li>More Typography Options</li>
+            <li>More Color Options</li>
+            <li>More Optimization Options</li>
+            <li>Premium Support</li>
+            <li>and much more!</li>
+        </ul>
 
         <div class="sep"></div>
 

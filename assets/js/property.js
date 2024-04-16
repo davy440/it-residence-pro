@@ -26,7 +26,6 @@
     };
 	
     form.addEventListener('submit', async (e) => {
-		console.log(e);
         e.preventDefault();
         let requestBody = '';
         const data = new FormData(form);
