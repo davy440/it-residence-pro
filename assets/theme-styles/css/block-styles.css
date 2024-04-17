@@ -141,6 +141,9 @@ body.admin-bar .is-style-sticky {
   }
 }
 
+.is-style-slider {
+  overflow: hidden;
+}
 .is-style-slider figure {
   position: relative;
 }
