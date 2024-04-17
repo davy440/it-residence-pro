@@ -10,6 +10,9 @@
     <?php itre_get_top_bar(); ?>
     
     <div id="header-image">
+        <?php
+            require_once ITRE_PATH . 'framework/sections/header/modules/header-image.php';
+        ?>
         <div class="header-wrapper container">
             <div class="header-hero-wrapper">
                 <div class="header-hero-area itre-hero-area">

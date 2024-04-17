@@ -338,7 +338,7 @@ body.archive.post-type-archive-property .itre-property-archive-wrapper, body.arc
 #masthead .custom-logo {
   max-height: 7.5rem;
 }
-#masthead #header-video > *, #masthead #header-image > *, #masthead .slide-img > * {
+#masthead #header-video > *:not(img), #masthead #header-image > *:not(img), #masthead .slide-img > *:not(img) {
   position: relative;
 }
 #masthead #header-video:before, #masthead #header-image:before, #masthead .slide-img:before {
@@ -462,7 +462,17 @@ body #masthead .site-title a {
 }
 
 #header-image {
-  height: 250px;
+  height: 15.625rem;
+  position: relative;
+}
+#header-image > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  top: 0;
+  left: 0;
 }
 
 #header-slider {
