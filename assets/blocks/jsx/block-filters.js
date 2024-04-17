@@ -1,8 +1,12 @@
+import { createHigherOrderComponent, compose } from '@wordpress/compose';
+import { InspectorControls } from '@wordpress/blockEditor';
+import { PanelBody, PanelRow, __experimentalNumberControl as NumberControl } from '@wordpress/components';
+
 const addSliderAtts = ( settings, name ) => {
     if ( name !== 'core/gallery' ) {
         return settings;
     }
-    settings.attributes = {...settings.attributes, numberOfSlides: 3};
+    settings.attributes = {...settings.attributes, numberOfSlides: {'default': 3, type: 'number'}};
     return settings;
 }
 
@@ -12,13 +16,15 @@ wp.hooks.addFilter(
     addSliderAtts
 );
 
-const addSliderControls = (BlockEdit) => {
-    const { createHigherOrderComponent } = wp.compose;
-    const { InspectorControls } = wp.blockEditor;
-    const { Panel, PanelBody, PanelRow } = wp.components;
-    
+const addSliderControls = createHigherOrderComponent((BlockEdit) => {
     return (props) => {
-        const { isSelected } = props;
+        const { isSelected, attributes, setAttributes } = props;
+        const { numberOfSlides } = attributes;
+        console.log(attributes);
+        const onChangeSlides = (newVal) => {
+            setAttributes({...attributes, numberOfSlides: newVal, className: `is-style-slider slides-${newVal}`})
+        }
+
         return (
             <>
             <BlockEdit {...props}/>
@@ -26,21 +32,28 @@ const addSliderControls = (BlockEdit) => {
             (props.name === 'core/gallery') &&
             (props.attributes.className === 'is-style-slider') &&
             <InspectorControls group="styles">
-                <Panel children={children}>
-                    {console.log(children)}
-                    <PanelBody>
-                        <PanelRow header="Slider Options">
-                            <h3>Slider Options</h3>
-                        </PanelRow>
-                    </PanelBody>
-                </Panel>
+                <PanelBody>
+                    <PanelRow>
+                        <h3>Slider Options</h3>
+                    </PanelRow>
+                    <PanelRow>
+                        <NumberControl
+                            label="Number of Slides"
+                            value={numberOfSlides}
+                            onChange={(newSlides) => onChangeSlides(newSlides)}
+                            min="1"
+                            max="5"
+                        />
+                    </PanelRow>
+                </PanelBody>
             </InspectorControls>
             }
             </>
         )
     }
 
-}
+}, 'addSliderControls');
+
 wp.hooks.addFilter(
     'editor.BlockEdit',
     'itre/addSliderControls/gallery-block',

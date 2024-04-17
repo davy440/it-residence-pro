@@ -108,31 +108,58 @@ button.def-btn {
 }
 
 #itre_prop_meta {
+
     input:not([type="checkbox"]):not([type="radio"]), textarea {
-		width: 100%;
+		  width: 100%;
     }
+
     .row {
-		display: flex;
-		flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1.25rem;
+
         & > * {
             box-sizing: border-box;
             padding-left: 15px;
             padding-right: 15px;
-            display: inline-block;
         }
     }
+
+    #map-controls {
+      width: 100%;
+    }
+
+    .color-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      & > * {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @media (min-width: 48rem) {
+          flex-direction: row;
+        }
+      }
+    }
+
     .full-width {
         width: 100%;
     }
+
     .half-width {
         width: 100%;
-        @media (min-width: 768px) {
+
+        @media (min-width: 48rem) {
             width: 50%;
         }
     }
-	.quarter-width {
+	  .quarter-width {
         width: 50%;
-        @media (min-width: 768px) {
+
+        @media (min-width: 48rem) {
             width: 25%;
         }
     }

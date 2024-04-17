@@ -128,12 +128,30 @@ button.def-btn {
 #itre_prop_meta .row {
   display: flex;
   flex-wrap: wrap;
+  row-gap: 1.25rem;
 }
 #itre_prop_meta .row > * {
   box-sizing: border-box;
   padding-left: 15px;
   padding-right: 15px;
-  display: inline-block;
+}
+#itre_prop_meta #map-controls {
+  width: 100%;
+}
+#itre_prop_meta .color-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#itre_prop_meta .color-group > * {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 48rem) {
+  #itre_prop_meta .color-group > * {
+    flex-direction: row;
+  }
 }
 #itre_prop_meta .full-width {
   width: 100%;
@@ -141,7 +159,7 @@ button.def-btn {
 #itre_prop_meta .half-width {
   width: 100%;
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   #itre_prop_meta .half-width {
     width: 50%;
   }
@@ -149,7 +167,7 @@ button.def-btn {
 #itre_prop_meta .quarter-width {
   width: 50%;
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   #itre_prop_meta .quarter-width {
     width: 25%;
   }

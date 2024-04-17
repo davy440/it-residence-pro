@@ -140,3 +140,7 @@ body.admin-bar .is-style-sticky {
     top: 3rem;
   }
 }
+
+.is-style-slider figure {
+  position: relative;
+}

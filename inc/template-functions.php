@@ -56,7 +56,7 @@ function itre_register_blocks() {
 
 	// Regsitering custom files
 	wp_register_script("itre-featured-tabs-front-js", ITRE_URL . 'assets/blocks/jsx/featured-tabs/custom.js', array(), ITRE_VERSION, true);
-	wp_enqueue_script('itre-block-filters-js', ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-edit-post'), ITRE_VERSION, true);
+	// wp_enqueue_script('itre-block-filters-js', ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-edit-post'), ITRE_VERSION, true);
 
 	// Registering CSS files for blocks
 	$css_paths = glob(ITRE_PATH . 'assets/blocks/css/*.css', GLOB_BRACE);

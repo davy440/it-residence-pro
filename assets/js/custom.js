@@ -159,6 +159,7 @@ jQuery(document).ready(function() {
     // Lightbox feature for Gallery block
     const Lightbox = () => {
         const selector = document.querySelector('.is-style-lightbox a');
+        console.log(selector);
         if (!selector) {
             return;
         }
@@ -172,34 +173,46 @@ jQuery(document).ready(function() {
             draggable: false,
         });
     }
-    Lightbox();
 
     // Gallery - Slider Style
     const gallerySlider = () => {
-        const slider = document.querySelector('.is-style-slider');
-        if (!slider) {
+        const sliders = document.querySelectorAll('.is-style-slider');
+        if (sliders.length === 0) {
             return;
         }
 
-        const sliderContent = slider.innerHTML;
+        sliders.forEach(slider => {
 
-        const contentWrapper = document.createElement('div');
-        contentWrapper.classList.add('swiper-wrapper');
-        contentWrapper.innerHTML = sliderContent;
-        console.log(contentWrapper.children);
-        [...contentWrapper.children].forEach(item => {
-            item.classList.add('swiper-slide');
-        });
-        slider.innerHTML = '';
-        slider.appendChild(contentWrapper);
-    
-        const swiper = new Swiper (
-            '.is-style-slider', {
-                slidesPerView: 2,
-                slideClass: 'wp-block-image'
+            // Manipulate the Gllery Wrapper div to make it compatible with Swiper slider
+            const sliderContent = slider.innerHTML;
+            const contentWrapper = document.createElement('div');
+            contentWrapper.classList.add('swiper-wrapper', 'is-style-lightbox');
+            contentWrapper.innerHTML = sliderContent;
+
+            if (!contentWrapper.innerHTML) {
+                return;
             }
-        );
+
+            [...contentWrapper.children].forEach(item => {
+                item.classList.add('swiper-slide');
+            });
+            
+            let slides = [...slider.classList].filter(item => item.includes('columns')).toString().split('-')[1];
+            slides = slides === 'default' ? 3 : parseInt(slides)
+            slider.innerHTML = '';
+            slider.appendChild(contentWrapper);
+        
+            const swiper = new Swiper (
+                '.is-style-slider', {
+                    slidesPerView: slides,
+                    slideClass: 'wp-block-image',
+                    spaceBetween: 2,
+                    loop: true
+                }
+            );
+        });
     }
 
     gallerySlider();
+    Lightbox();
 });

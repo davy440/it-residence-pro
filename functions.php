@@ -167,6 +167,13 @@ require get_template_directory() . '/framework/theme-setup/admin_scripts.php';
 require_once ITRE_PATH . 'framework/metabox/display-options.php';
 
 /**
+ * Include Metabox for properties
+ */
+if (class_exists('IT_Listings')) {
+	require get_template_directory() . '/framework/metabox/property-metabox.php';
+}
+
+/**
  *	Including Properties and related stuff
  */
  function itre_property_functions() {
