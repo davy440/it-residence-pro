@@ -25,6 +25,7 @@ if ( !function_exists('itlst_meta_callback') ) {
         $area	    =	isset( $itlst_stored_meta['area']) ? $itlst_stored_meta['area'][0] : 0;
         $bedrooms	=	isset( $itlst_stored_meta['bedrooms']) ? $itlst_stored_meta['bedrooms'][0] : 0;
         $bathrooms	=	isset( $itlst_stored_meta['bathrooms']) ? $itlst_stored_meta['bathrooms'][0] : 0;
+        $address	=	isset( $itlst_stored_meta['address']) ? $itlst_stored_meta['address'][0] : "";
         $maps       =   isset( $itlst_stored_meta['maps']) ? $itlst_stored_meta['maps'][0] : "";
         $location   =   isset( $itlst_stored_meta['location']) ? $itlst_stored_meta['location'][0] : "footer";
         $color   =   isset( $itlst_stored_meta['color']) ? $itlst_stored_meta['color'][0] : "default";
@@ -75,6 +76,13 @@ if ( !function_exists('itlst_meta_callback') ) {
     		    	<input type="number" name="bathrooms" id="bathrooms" autocomplete="on" value="<?php echo esc_attr($bathrooms) ?>" placeholder="2">
     		    </label><br/>
                 </div>
+
+                <div class="full-width">
+        		    <label for="address">
+        		    	<h4><?php _e('Address', 'it-listings'); ?></h4>
+        		    	<textarea name="address" id="address" rows="4"><?php echo esc_attr($address) ?></textarea>
+        		    </label><br/>
+                    </div>
 
                     <div class="full-width">
         		    <label for="maps">
@@ -243,6 +251,13 @@ if ( !function_exists('itlst_meta_save') ) {
     	    $bathrooms	=	0;
     	}
     	update_post_meta( $post_id, 'bathrooms', $bathrooms);
+
+        if ( isset($_POST['address'])) {
+    	    $address	=	sanitize_textarea_field($_POST['address']);
+        } else {
+    	    $address	=	"";
+    	}
+    	update_post_meta( $post_id, 'address', $address);
     	
 
         if ( isset($_POST['long'])) {
