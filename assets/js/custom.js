@@ -183,7 +183,7 @@ jQuery(document).ready(function() {
 
         sliders.forEach(slider => {
 
-            // Manipulate the Gllery Wrapper div to make it compatible with Swiper slider
+            // Manipulate the Gallery Wrapper div to make it compatible with Swiper slider
             const sliderContent = slider.innerHTML;
             const contentWrapper = document.createElement('div');
             contentWrapper.classList.add('swiper-wrapper', 'is-style-lightbox');

@@ -59,4 +59,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.3**
     Added new styles and fixed bugs
 
+* **v2.4**
+    Moved Property metabox to theme
+
 Good luck!
