@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.4
+Stable tag: 2.4.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -63,6 +63,9 @@ IT Residence Pro is the extended version of IT Residence. It expands upon the fu
 = 2.4 = April 18, 2024 =
 Moved Property metabox to theme
 
+= 2.4.1 = July 4, 2024 =
+Fixed Default Header Image Issue
+
 
 == Credits ==
 
@@ -91,8 +94,6 @@ Source: https://pxhere.com/en/photo/599831
 * Magnific Popup https://dimsemenov.com/plugins/magnific-popup/, Dmitry Semenov, [MIT](https://dimsemenov.com/plugins/magnific-popup/)
 
 * jquery.youtube-background.js v1.0.14, Nikola Stamatovic <@stamat>, [MIT](https://github.com/stamat/youtube-background)
-
-*
 
 * Font Awesome v5.1.3 https://www.fontawesome.com, Fonticons Inc., [MIT](https://github.com/twbs/bootstrap/blob/main/LICENSE)
 

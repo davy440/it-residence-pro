@@ -67,6 +67,11 @@ function itre_theme_info() {
             <li>and much more!</li>
         </ul>
 
+        <?php
+        $customizer_url = admin_url('customize.php');
+        printf('<a href="%s" class="button button-primary">%s</a>', esc_url( $customizer_url ), __('Go to Customizer', 'it-residence'));
+        ?>
+
         <div class="sep"></div>
 
         <br>

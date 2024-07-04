@@ -28,7 +28,7 @@ if ( !function_exists('itlst_meta_callback') ) {
         $address	=	isset( $itlst_stored_meta['address']) ? $itlst_stored_meta['address'][0] : "";
         $maps       =   isset( $itlst_stored_meta['maps']) ? $itlst_stored_meta['maps'][0] : "";
         $location   =   isset( $itlst_stored_meta['location']) ? $itlst_stored_meta['location'][0] : "footer";
-        $color   =   isset( $itlst_stored_meta['color']) ? $itlst_stored_meta['color'][0] : "default";
+        $color      =   isset( $itlst_stored_meta['color']) ? $itlst_stored_meta['color'][0] : "default";
         $long		=	isset( $itlst_stored_meta['long']) ? $itlst_stored_meta['long'][0] : 0;
         $lat		=	isset( $itlst_stored_meta['lat']) ? $itlst_stored_meta['lat'][0] : 0;
         $zoom		=	isset( $itlst_stored_meta['zoom']) ? $itlst_stored_meta['zoom'][0] : 14;
@@ -39,7 +39,7 @@ if ( !function_exists('itlst_meta_callback') ) {
     	    <div class="row">
 
                 <div class="half-width">
-                    <h4> <?php _e('Sale / Rent', 'itre'); ?></h4>
+                    <h4> <?php _e('Sale / Rent', 'it-residence'); ?></h4>
 
                     <input type="radio" id="sale" name="for" value="sale" <?php if ( isset( $itlst_stored_meta['for'][0] ) ) checked( $itlst_stored_meta['for'][0], "sale" ); ?>>
                     <label for="for" class="color-label"><?php _e("Sale", "it-residence"); ?></label>

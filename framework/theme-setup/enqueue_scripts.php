@@ -6,8 +6,8 @@
  */
 function itre_enqueue_fonts() {
 	$fonts = ITRE_Google_Fonts::itre_get_font_settings();
-	$filePaths = glob(get_template_directory() . '/assets/cache/fontFiles/*.woff2');
-	$fileURI = get_template_directory_uri() . '/assets/cache/fontFiles/';
+	$filePaths = glob(ITRE_PATH . 'assets/cache/fontFiles/*.woff2');
+	$fileURI = ITRE_URL . 'assets/cache/fontFiles/';
 	$fontFace = '';
 
 	foreach($filePaths as $path) {
@@ -50,25 +50,25 @@ function itre_scripts() {
 
 	wp_enqueue_style( 'itre-style', get_stylesheet_uri(), array(), ITRE_VERSION );
 	wp_style_add_data( 'itre-style', 'rtl', 'replace' );
-    wp_enqueue_style( 'bootstrap', esc_url(get_template_directory_uri() . '/assets/bootstrap.css'), array(), ITRE_VERSION );
-	wp_enqueue_style( 'font-awesome', esc_url(get_template_directory_uri() . '/assets/font-awesome.css'), array(), ITRE_VERSION );
-	wp_enqueue_style( 'owl-css', esc_url(get_template_directory_uri() . '/assets/owl.carousel.css'), array(), ITRE_VERSION );
-    wp_enqueue_style( 'itre-main', esc_url(get_template_directory_uri() . '/assets/theme-styles/css/main.css'), array(), ITRE_VERSION );
-	wp_enqueue_style( 'glightbox-css', esc_url(get_template_directory_uri() . '/assets/theme-styles/css/glightbox.min.css'), array(), ITRE_VERSION );
-	wp_enqueue_script( 'owl-js', esc_url(get_template_directory_uri() . '/assets/js/owl.carousel.js'), array('jquery'), ITRE_VERSION );
-	wp_enqueue_script( 'glightbox-js', esc_url(get_template_directory_uri() . '/assets/js/glightbox.min.js'), array(), ITRE_VERSION, true );
-	wp_enqueue_script( 'video-bg-js', esc_url(get_template_directory_uri() . '/assets/js/jquery.youtube-background.js'), array('jquery', 'glightbox-js'), ITRE_VERSION, true );
-	wp_enqueue_script( 'itre-navigation', esc_url(get_template_directory_uri() . '/assets/js/navigation.js'), array(), ITRE_VERSION, true );
-	wp_enqueue_script( 'itre-custom-js', esc_url( get_template_directory_uri() . '/assets/js/custom.js'), array('jquery'), ITRE_VERSION, true );
+    wp_enqueue_style( 'bootstrap', esc_url(ITRE_URL . 'assets/bootstrap.css'), array(), ITRE_VERSION );
+	wp_enqueue_style( 'font-awesome', esc_url(ITRE_URL . 'assets/font-awesome.css'), array(), ITRE_VERSION );
+	wp_enqueue_style( 'owl-css', esc_url(ITRE_URL . 'assets/owl.carousel.css'), array(), ITRE_VERSION );
+    wp_enqueue_style( 'itre-main', esc_url(ITRE_URL . 'assets/theme-styles/css/main.css'), array(), ITRE_VERSION );
+	wp_enqueue_style( 'glightbox-css', esc_url(ITRE_URL . 'assets/theme-styles/css/glightbox.min.css'), array(), ITRE_VERSION );
+	wp_enqueue_script( 'owl-js', esc_url(ITRE_URL . 'assets/js/owl.carousel.js'), array('jquery'), ITRE_VERSION );
+	wp_enqueue_script( 'glightbox-js', esc_url(ITRE_URL . 'assets/js/glightbox.min.js'), array(), ITRE_VERSION, true );
+	wp_enqueue_script( 'video-bg-js', esc_url(ITRE_URL . 'assets/js/jquery.youtube-background.js'), array('jquery', 'glightbox-js'), ITRE_VERSION, true );
+	wp_enqueue_script( 'itre-navigation', esc_url(ITRE_URL . 'assets/js/navigation.js'), array(), ITRE_VERSION, true );
+	wp_enqueue_script( 'itre-custom-js', esc_url( ITRE_URL . 'assets/js/custom.js'), array('jquery'), ITRE_VERSION, true );
 
 	if (post_type_exists('property')) {
         wp_enqueue_script('jquery-ui-tabs');
-		wp_enqueue_script( 'itre-property-js', esc_url( get_template_directory_uri() . '/assets/js/property.js'), array('jquery'), ITRE_VERSION, true );
+		wp_enqueue_script( 'itre-property-js', esc_url(ITRE_URL . 'assets/js/property.js'), array('jquery'), ITRE_VERSION, true );
 
 		if ( is_singular(['property']) ) {
 
 			global $post;
-            wp_enqueue_script( 'itre-property-map-js', esc_url( get_template_directory_uri() . '/assets/js/property-map.js'), array('jquery'), ITRE_VERSION, true );
+            wp_enqueue_script( 'itre-property-map-js', esc_url(ITRE_URL . 'assets/js/property-map.js'), array('jquery'), ITRE_VERSION, true );
 			$data = get_post_meta($post->ID);
 
 			wp_localize_script( 'itre-property-map-js', 'itreMap', $data );

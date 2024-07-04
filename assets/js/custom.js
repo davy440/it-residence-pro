@@ -159,7 +159,7 @@ jQuery(document).ready(function() {
     // Lightbox feature for Gallery block
     const Lightbox = () => {
         const selector = document.querySelector('.is-style-lightbox a');
-        console.log(selector);
+        
         if (!selector) {
             return;
         }
