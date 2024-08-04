@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -65,6 +65,9 @@ Moved Property metabox to theme
 
 = 2.4.1 = July 4, 2024 =
 Fixed Default Header Image Issue
+
+= 2.4.2 = August 3, 2024 =
+Fixed Header Image for Pages and Posts
 
 
 == Credits ==

@@ -11,7 +11,7 @@
  *
  * @package IT_Residence
  */
-get_header();
+get_header(NULL, ['header' => 'singular']);
 ?>
 
 	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">

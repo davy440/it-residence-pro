@@ -46,7 +46,7 @@ function itre_custom_colors() {
 
     if ( is_front_page() ||
      ( is_page() && get_post_meta( get_the_ID(), 'header-overlay', true ) ) ) {
-         $css .= "#header-video:before, #header-image:before, .slide-img:before { background-color: " . esc_html( $header_overlay ) . ";}";
+         $css .= "#header-video:before, #header-image:before, .slide-img:before, .itre-banner:before { background-color: " . esc_html( $header_overlay ) . ";}";
      }
 
     wp_add_inline_style('itre-main', $css);

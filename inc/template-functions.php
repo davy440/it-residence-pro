@@ -75,21 +75,8 @@ function itre_register_blocks() {
 }
 add_action('init', 'itre_register_blocks');
 
-// function itre_enqueue_block_filters() {
-// 	wp_enqueue_script( 'itre-block-filters-js', esc_url( ITRE_URL . 'assets/js/block-filters.js' ), array('wp-edit-post'), ITRE_VERSION, true );
-// }
-// add_action('enqueue_block_editor_assets', 'itre_enqueue_block_filters');
-
-// function itre_module_loader( $tag, $handle, $src ) {
-// 	if ( $handle === 'itre-block-filters-js' ) {
-// 		$tag = str_replace( '<script ', '<script type="module" ', $tag );
-// 	}
-// 	return $tag;
-// }
-// add_filter('script_loader_tag', 'itre_module_loader', 10, 3);
 
 function itre_get_header( $header = 'default' ) {
-	//var_dump($header);
 	require_once ITRE_PATH . "framework/sections/header/header-{$header}.php";
 }
 

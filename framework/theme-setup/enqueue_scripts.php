@@ -45,7 +45,9 @@ function itre_enqueue_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'itre_enqueue_fonts' );
 
-
+/**
+ * Enqueuing required scripts
+ */
 function itre_scripts() {
 
 	wp_enqueue_style( 'itre-style', get_stylesheet_uri(), array(), ITRE_VERSION );

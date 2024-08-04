@@ -62,4 +62,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.4**
     Moved Property metabox to theme
 
+* **v2.4.2**
+    Fixed Header Image for Pages and Posts
+
 Good luck!

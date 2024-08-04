@@ -1,21 +1,20 @@
-// Styling of Single Post Pages
+// Single Post Pages
+.itre-banner {
+    position: relative;
+    height: 31.25rem;
+    overflow: hidden;
+
+    
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
 
 body.single {
-
-    .itre-banner {
-        position: relative;
-        height: 31.25rem;
-        overflow: hidden;
-
-        
-        img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-        }
-    }
 
     .header-map {
 
@@ -67,5 +66,5 @@ body.single {
             display: inline-block;
             border-radius: 50%;
         }
-	}
+    }
 }

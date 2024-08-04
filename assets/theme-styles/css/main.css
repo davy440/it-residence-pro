@@ -338,10 +338,10 @@ body.archive.post-type-archive-property .itre-property-archive-wrapper, body.arc
 #masthead .custom-logo {
   max-height: 7.5rem;
 }
-#masthead #header-video > *:not(img), #masthead #header-image > *:not(img), #masthead .slide-img > *:not(img) {
+#masthead #header-video > *:not(img), #masthead #header-image > *:not(img), #masthead .slide-img > *:not(img), #masthead .itre-banner > *:not(img) {
   position: relative;
 }
-#masthead #header-video:before, #masthead #header-image:before, #masthead .slide-img:before {
+#masthead #header-video:before, #masthead #header-image:before, #masthead .slide-img:before, #masthead .itre-banner:before {
   content: "";
   position: absolute;
   left: 0;
@@ -832,18 +832,19 @@ button#close-menu:focus {
   margin-bottom: 0;
 }
 
-body.single .itre-banner {
+.itre-banner {
   position: relative;
   height: 31.25rem;
   overflow: hidden;
 }
-body.single .itre-banner img {
+.itre-banner img {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
 }
+
 @media (min-width: 48rem) {
   body.single .header-map {
     display: grid;
