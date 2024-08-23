@@ -35,17 +35,23 @@ if ( !function_exists('itlst_meta_callback') ) {
         $labels		=	isset( $itlst_stored_meta['labels']) ? $itlst_stored_meta['labels'][0] : "";
         $controls	=	isset( $itlst_stored_meta['controls']) ? $itlst_stored_meta['controls'][0] : "";
         ?>
-
+            
     	    <div class="row">
 
                 <div class="half-width">
-                    <h4> <?php _e('Sale / Rent', 'it-residence'); ?></h4>
+                    <h4> <?php _e('Status', 'it-residence'); ?></h4>
 
                     <input type="radio" id="sale" name="for" value="sale" <?php if ( isset( $itlst_stored_meta['for'][0] ) ) checked( $itlst_stored_meta['for'][0], "sale" ); ?>>
                     <label for="for" class="color-label"><?php _e("Sale", "it-residence"); ?></label>
 
                     <input type="radio" id="rent" name="for" value="rent" <?php if ( isset( $itlst_stored_meta['for'][0] ) ) checked( $itlst_stored_meta['for'][0], "rent" ); ?>>
                     <label for="rent" class="color-label"><?php _e("Rent", "it-residence"); ?></label>
+                    
+                    <input type="radio" id="sold" name="for" value="sold" <?php if ( isset( $itlst_stored_meta['for'][0] ) ) checked( $itlst_stored_meta['for'][0], "sold" ); ?>>
+                    <label for="sold" class="color-label"><?php _e("Sold", "it-residence"); ?></label>
+                    
+                    <input type="radio" id="coming-soon" name="for" value="coming-soon" <?php if ( isset( $itlst_stored_meta['for'][0] ) ) checked( $itlst_stored_meta['for'][0], "coming-soon" ); ?>>
+                    <label for="coming-soon" class="color-label"><?php _e("Coming Soon", "it-residence"); ?></label>
 
                 </div>
 
@@ -215,12 +221,8 @@ if ( !function_exists('itlst_meta_save') ) {
             return;
         }
 
-        if ( isset($_POST['for'])) {
-    	    $for	=	sanitize_text_field($_POST['for']);
-        } else {
-    	    $for	=	"sale";
-    	}
-    	update_post_meta( $post_id, 'for', $for);
+        $for = isset($_POST['for']) ? $_POST['for'] : 'sale';
+    	update_post_meta( $post_id, 'for', sanitize_text_field($for));
 
         // Checks for input and saves
         if ( isset($_POST['price'])) {

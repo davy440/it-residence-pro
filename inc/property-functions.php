@@ -17,9 +17,6 @@ if ( !function_exists('itre_get_for') ) {
             case "coming-soon":
                 $for = "coming soon";
             break;
-            case "active":
-                $for = "active";
-            break;
             case "sale":
                 $for = "sale";
             break;
@@ -30,7 +27,7 @@ if ( !function_exists('itre_get_for') ) {
             $for = "";
         endswitch;
 
-        printf('<span class="itre-for-tag %s">%s</span>', esc_attr( $value ),  esc_html( $for ) );
+        printf('<span class="itre-for-tag %s">%s</span>', esc_attr( $value ),  esc_html( $for ));
     }
 }
 
@@ -45,8 +42,8 @@ if ( !function_exists('itre_property_filter_form') ) {
     		<form id="itre-property-filter-form" method="post">
     			<div class="row align-items-center">
                     <div class="filter-fields col-md-9">
-                        <div class="row">
-                            <div class="itre-type form-control-wrapper col-md-4">
+                        <div class="filter-fields-wrapper">
+                            <div class="itre-type form-control-wrapper p-0">
                                 <?php
                                 $types_list = [];
                                 $types = get_terms('property-type');
@@ -64,15 +61,35 @@ if ( !function_exists('itre_property_filter_form') ) {
                                 </select>
                             </div>
 
-                            <div class="itre-min-area form-control-wrapper col-md-4">
-                                <input class="form-control-min-area" type="number" name="min-area" id="min-area" placeholder="<?php esc_attr_e("Min Area", 'it-residence'); ?>" autocomplete="off" value="" />
+                            <div class="itre-type form-control-wrapper p-0">
+                                <?php
+                                $locations_list = [];
+                                $locations = get_terms('location');
+                                foreach($locations as $location) {
+                                    $locations_list[$location->slug] = $location->name;
+                                }
+                                ?>
+                                <select id="location" name="location">
+                                    <option value="0"><?php _e('Location', 'it-residence'); ?>
+                                    <?php foreach($locations_list as $key => $value) { ?>
+                                        <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                             </div>
 
-                            <div class="itre-max-area form-control-wrapper col-md-4">
-                                <input class="form-control-max-area" type="number" name="max-area" id="max-area" placeholder="<?php esc_attr_e('Max Area', 'it-residence'); ?>" autocomplete="off" value="" />
+                            <div class="itre-status form-control-wrapper p-0">
+                                <select class="form-control-for" name="for" id="for" placeholder="<?php esc_attr_e("Status", 'it-residence'); ?>">
+                                    <option value="0"><?php _e("Status", 'it-residence'); ?></option>
+                                    <option value="sale"><?php _e("For Sale", 'it-residence'); ?></option>
+                                    <option value="rent"><?php _e("For Rent", 'it-residence'); ?></option>
+                                    <option value="sold"><?php _e("Sold", 'it-residence'); ?></option>
+                                    <option value="coming-soon"><?php _e("Coming Soon", 'it-residence'); ?></option>
+                                </select>
                             </div>
 
-                            <div class="itre-bedrooms form-control-wrapper col-md-4">
+                            <div class="itre-bedrooms form-control-wrapper p-0">
                                 <select class="form-control-bedrooms" name="bedrooms" id="bedrooms" placeholder="<?php esc_attr_e("Bedrooms", 'it-residence'); ?>">
                                     <option value="0"><?php _e("Bedrooms", 'it-residence'); ?></option>
                                     <option value="1"><?php _e("1", 'it-residence'); ?></option>
@@ -84,11 +101,19 @@ if ( !function_exists('itre_property_filter_form') ) {
                                 </select>
                             </div>
 
-                            <div class="itre-min-price form-control-wrapper col-md-4">
+                            <div class="itre-min-area form-control-wrapper p-0">
+                                <input class="form-control-min-area" type="number" name="min-area" id="min-area" placeholder="<?php esc_attr_e("Min Area", 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
+
+                            <div class="itre-max-area form-control-wrapper p-0">
+                                <input class="form-control-max-area" type="number" name="max-area" id="max-area" placeholder="<?php esc_attr_e('Max Area', 'it-residence'); ?>" autocomplete="off" value="" />
+                            </div>
+
+                            <div class="itre-min-price form-control-wrapper p-0">
                                 <input class="form-control-min-price" type="number" name="min-price" id="min-price" placeholder="<?php esc_attr_e('Min Price', 'it-residence'); ?>" autocomplete="off" value="" />
                             </div>
 
-                            <div class="itre-max-price form-control-wrapper col-md-4">
+                            <div class="itre-max-price form-control-wrapper p-0">
                                 <input class="form-control-max-area" type="number" name="max-price" id="max-price" placeholder="<?php esc_attr_e('Max Price', 'it-residence'); ?>" autocomplete="off" value="" />
                             </div>
                         </div>
@@ -146,7 +171,6 @@ function itre_get_filtered_properties() {
 	if (!wp_create_nonce($_POST['nonce'], 'filter_properties')) {
 		exit;
 	}
-
 	$args = array(
         'post_type'				=>	'property',
         'ignore_sticky_posts'	=>	true,
@@ -166,6 +190,21 @@ function itre_get_filtered_properties() {
             'taxonomy'	=>	'property-type',
             'field'	=>	'slug',
             'terms'	=>	$_POST['type']
+        );
+    }
+
+    if (!empty($_POST['location'])) {
+        $args['tax_query'][] = array(
+            'taxonomy'	=>	'location',
+            'field'	=>	'slug',
+            'terms'	=>	$_POST['location']
+        );
+    }
+
+    if (!empty($_POST['for'])) {
+        $args['meta_query'][] = array(
+            'key'   =>  'for',
+            'value' =>  $_POST['for']
         );
     }
 

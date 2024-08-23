@@ -991,6 +991,16 @@ body.single #author_box img {
 body.page-template-template-property-listings .itre-property-filter {
   margin-top: -3.5rem;
 }
+.itre-property-filter .filter-fields-wrapper {
+  display: grid;
+  grid-gap: 0.5rem;
+}
+@media (min-width: 60rem) {
+  .itre-property-filter .filter-fields-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
 @media (min-width: 48rem) {
   .itre-property-filter {
     margin-left: auto;
@@ -1010,10 +1020,6 @@ body.page-template-template-property-listings .itre-property-filter {
   .itre-property-filter button {
     margin-top: 4px;
   }
-}
-.itre-property-filter .form-control-wrapper {
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
 }
 .itre-property-filter button[type=button] {
   text-transform: uppercase;
