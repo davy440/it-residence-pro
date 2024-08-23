@@ -148,76 +148,75 @@ function itre_get_filtered_properties() {
 	}
 
 	$args = array(
-		'post_type'				=>	'property',
-		'ignore_sticky_posts'	=>	true,
-		'posts_per_page'		=>	-1
-	);
+        'post_type'				=>	'property',
+        'ignore_sticky_posts'	=>	true,
+        'posts_per_page'		=>	-1
+    );
 
-	if (!empty($_POST['bedrooms'])) {
-		$args['meta_query'][] = array(
-			'key'	=>	'bedrooms',
-			'value'	=>	intval($_POST['bedrooms']),
-			'type'		=>	'NUMERIC',
-		);
-	}
+    if (!empty($_POST['bedrooms'])) {
+        $args['meta_query'][] = array(
+            'key'	=>	'bedrooms',
+            'value'	=>	intval($_POST['bedrooms']),
+            'type'	=>	'NUMERIC',
+        );
+    }
 
-	if (!empty($_POST['type'])) {
-		$args['meta_query'][][] = array(
-			'key'	=>	'type',
-			'value'	=>	$_POST['type'],
-			'type'	=>	'CHAR',
-		);
-	}
+    if (!empty($_POST['type'])) {
+        $args['tax_query'][] = array(
+            'taxonomy'	=>	'property-type',
+            'field'	=>	'slug',
+            'terms'	=>	$_POST['type']
+        );
+    }
 
-	if (!empty($_POST['min-price']) && !empty($_POST['max-price'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'price',
-			'value'		=>	[intval($_POST['min-price']), intval($_POST['max-price'])],
-			'compare'	=>	'BETWEEN'
-		);
-	}
+    if (!empty($_POST['min-price']) && !empty($_POST['max-price'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'price',
+            'value'		=>	[intval($_POST['min-price']), intval($_POST['max-price'])],
+            'compare'	=>	'BETWEEN'
+        );
+    }
 
-	if (!empty($_POST['min-price']) && empty($_POST['max-price'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'price',
-			'value'		=>	intval($_POST['min-price']),
-			'compare'	=>	'>='
-		);
-	}
-	
-	if (empty($_POST['min-price']) && !empty($_POST['max-price'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'price',
-			'value'		=>	intval($_POST['max-price']),
-			'compare'	=>	'<='
-		);
-	}
+    if (!empty($_POST['min-price']) && empty($_POST['max-price'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'price',
+            'value'		=>	intval($_POST['min-price']),
+            'compare'	=>	'>='
+        );
+    }
+    
+    if (empty($_POST['min-price']) && !empty($_POST['max-price'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'price',
+            'value'		=>	intval($_POST['max-price']),
+            'compare'	=>	'<='
+        );
+    }
 
-	if (!empty($_POST['min-area']) && !empty($_POST['max-area'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'area',
-			'value'		=>	[intval($_POST['min-area']), intval($_POST['max-area'])],
-			'compare'	=>	'BETWEEN'
-		);
-	}
+    if (!empty($_POST['min-area']) && !empty($_POST['max-area'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'area',
+            'value'		=>	[intval($_POST['min-area']), intval($_POST['max-area'])],
+            'compare'	=>	'BETWEEN'
+        );
+    }
 
-	if (!empty($_POST['min-area']) && empty($_POST['max-area'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'area',
-			'value'		=>	intval($_POST['min-area']),
-			'type'		=>	'NUMERIC',
-			'compare'	=>	'>='
-		);
-	}
-	
-	if (empty($_POST['min-area']) && !empty($_POST['max-area'])) {
-		$args['meta_query'][][] = array(
-			'key'		=>	'area',
-			'value'		=>	intval($_POST['max-area']),
-			'compare'	=>	'<='
-		);
-	}
-
+    if (!empty($_POST['min-area']) && empty($_POST['max-area'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'area',
+            'value'		=>	intval($_POST['min-area']),
+            'type'		=>	'NUMERIC',
+            'compare'	=>	'>='
+        );
+    }
+    
+    if (empty($_POST['min-area']) && !empty($_POST['max-area'])) {
+        $args['meta_query'][] = array(
+            'key'		=>	'area',
+            'value'		=>	intval($_POST['max-area']),
+            'compare'	=>	'<='
+        );
+    }
 	$filter_query = new WP_Query( $args );
 
 	// The Loop

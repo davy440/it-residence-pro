@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
         element.removeAttribute('tabindex');
         
     };
-
+    
     const mobileNav = () => {
         const body = document.querySelector('body');
         const navBtn = document.querySelector('.mobile-nav-btn');
