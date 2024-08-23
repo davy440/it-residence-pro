@@ -991,11 +991,20 @@ body.single #author_box img {
 body.page-template-template-property-listings .itre-property-filter {
   margin-top: -3.5rem;
 }
+.itre-property-filter-form-wrapper {
+  gap: 1rem;
+}
+@media (min-width: 62rem) {
+  .itre-property-filter-form-wrapper {
+    grid-template-columns: 3fr 1fr;
+  }
+}
 .itre-property-filter .filter-fields-wrapper {
   display: grid;
   grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
 }
-@media (min-width: 60rem) {
+@media (min-width: 62rem) {
   .itre-property-filter .filter-fields-wrapper {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);

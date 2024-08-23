@@ -40,8 +40,8 @@ if ( !function_exists('itre_property_filter_form') ) {
         <div class="itre-property-filter-wrapper container">
      	<div class="itre-property-filter">
     		<form id="itre-property-filter-form" method="post">
-    			<div class="row align-items-center">
-                    <div class="filter-fields col-md-9">
+    			<div class="itre-property-filter-form-wrapper d-grid align-items-lg-center">
+                    <div class="filter-fields p-0">
                         <div class="filter-fields-wrapper">
                             <div class="itre-type form-control-wrapper p-0">
                                 <?php
@@ -119,7 +119,7 @@ if ( !function_exists('itre_property_filter_form') ) {
                         </div>
                     </div>
 
-                    <div class="filter-btn col-md-3">
+                    <div class="filter-btn p-0">
                         <input type="submit" value="<?php esc_html_e('Submit', 'it-residence'); ?>"/>
                     </div>
     			</div>

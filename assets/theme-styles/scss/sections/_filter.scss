@@ -10,11 +10,23 @@
 		margin-top: -3.5rem;
 	}
 
+	&-form {
+
+		&-wrapper {
+			gap: 1rem;
+
+			@media (min-width: 62rem) {
+				grid-template-columns: 3fr 1fr;
+			}
+		}
+	}
+
 	.filter-fields-wrapper {
 		display: grid;
 		grid-gap: 0.5rem;
+		grid-template-columns: 1fr 1fr;
 		
-		@media (min-width: 60rem) {
+		@media (min-width: 62rem) {
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-rows: repeat(2, 1fr);
 		}
@@ -24,6 +36,7 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	select, input, button {
 		height: 100%;
 		width: 100%;
