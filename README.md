@@ -65,4 +65,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.4.2**
     Fixed Header Image for Pages and Posts
 
+* **v2.4.3**
+    Property Filter features added
+
 Good luck!
