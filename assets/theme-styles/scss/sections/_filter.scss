@@ -58,6 +58,29 @@
 	}
 }
 
+.itre {
+	
+	&-nghbrhoods {
+		min-height: 2.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-top: 1rem;
+	}
+
+	&-nghbrhood {
+		padding: 0.375rem 0.875rem;
+		background-color: #dddddd;
+		border-radius: 2rem;
+		margin-bottom: 0.25rem;
+		cursor: pointer;
+
+		&.selected {
+			background-color: #cccccc;
+		}
+	}
+}
+
 .itre-for-tag {
 	color: white;
 	line-height: 1;
@@ -83,7 +106,7 @@
 }
 
 .itre-property-listing {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	display: grid;
 	gap: 1.5rem;
 

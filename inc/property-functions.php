@@ -125,6 +125,7 @@ if ( !function_exists('itre_property_filter_form') ) {
     			</div>
     		</form>
      	</div>
+        <div class="itre-nghbrhoods"></div>
         </div>
     <?php
     }
@@ -173,7 +174,7 @@ function itre_get_filtered_properties() {
 	}
 	$args = array(
         'post_type'				=>	'property',
-        'ignore_sticky_posts'	=>	true,
+        'ignore_sticky_posts'	=>	false,
         'posts_per_page'		=>	-1
     );
 
@@ -256,6 +257,7 @@ function itre_get_filtered_properties() {
             'compare'	=>	'<='
         );
     }
+
 	$filter_query = new WP_Query( $args );
 
 	// The Loop
@@ -272,14 +274,43 @@ function itre_get_filtered_properties() {
 	
 	wp_die();
 }
- add_action('wp_ajax_filter_properties', 'itre_get_filtered_properties');
- add_action('wp_ajax_nopriv_filter_properties', 'itre_get_filtered_properties');
+add_action('wp_ajax_filter_properties', 'itre_get_filtered_properties');
+add_action('wp_ajax_nopriv_filter_properties', 'itre_get_filtered_properties');
+
+
+/**
+ * Fetch Request for getting the neighbourhoods of a location
+ *
+ * @return  void
+ */
+ function itre_get_neighbours() {
+    if (!wp_create_nonce($_POST['nonce'], 'nghbr_nonce')) {
+		exit;
+	}
+
+    $location = get_term_by('slug', $_POST['location'], 'location')->term_id;
+    $children = get_term_children($location, 'location');
+    
+    $children_tags = '';
+    foreach($children as $child) {
+        $child_name = get_term($child)->name;
+        $child_slug = get_term($child)->slug;
+        $children_tags .= "<span class='itre-nghbrhood' data-location={$child_slug}>{$child_name}</span>";
+    }
+    echo $children_tags;
+
+    die();
+ }
+add_action('wp_ajax_get_neighbours', 'itre_get_neighbours');
+add_action('wp_ajax_nopriv_get_neighbours', 'itre_get_neighbours');
 
 //Pass Variables to JS for use in AJAX
 function itre_localize_ajax_data() {
 	
     $data['action_filter']    	= 'filter_properties';
     $data['nonce_filter']		= wp_create_nonce('filter_properties');
+    $data['nghbr_action']       = 'get_neighbours';
+    $data['nghbr_nonce']       = wp_create_nonce('get_neighbours');
     $data['ajaxurl']    		= admin_url('admin-ajax.php');
 	
     wp_localize_script( 'itre-property-js', 'filter', $data );

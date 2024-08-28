@@ -50,6 +50,7 @@
     },
     "editorStyle": "itre-editor-showcase-css",
     "style": "itre-showcase-css",
+    "viewScript": "file:property-filter.js",
     "editorScript": "itre-showcase-js",
     "render": "./showcase.php"
 }
