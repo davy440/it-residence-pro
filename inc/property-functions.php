@@ -66,6 +66,9 @@ if ( !function_exists('itre_property_filter_form') ) {
                                 $locations_list = [];
                                 $locations = get_terms('location');
                                 foreach($locations as $location) {
+                                    if (!empty($location->parent)) {
+                                        continue;
+                                    }
                                     $locations_list[$location->slug] = $location->name;
                                 }
                                 ?>
