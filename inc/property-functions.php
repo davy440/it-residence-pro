@@ -324,7 +324,6 @@ function itre_get_currency() {
 
     $val = get_theme_mod('itre_currency', 'dollar');
     $currency = [];
-
     switch ( $val ) {
         case 'dollar':
         $currency['locale'] =   'en_US';
@@ -351,6 +350,11 @@ function itre_get_currency() {
         $currency['code']   =   'JPY';
         break;
 
+        case 'custom':
+            $currency['locale'] = get_theme_mod('itre_custom_currency_locale', 'en-US');
+            $currency['code']   = get_theme_mod('itre_custom_currency_code', 'USD');
+        break;
+        
         default:
         $currency['locale'] =   'en_US';
         $currency['code']   =   'USD';

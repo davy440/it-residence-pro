@@ -79,8 +79,41 @@ function itre_general_customize_register( $wp_customize ) {
 				'ruble'		=>	__('Russian Ruble', 'it-residence'),
 				'yen'		=>	__('Chinese Yen', 'it-residence'),
 				'euro'		=>	__('Euro', 'it-residence'),
+				'custom'	=> __('Custom', 'it-residence')
 		    )
 	    )
+	);
+
+	$wp_customize->add_setting(
+		'itre_custom_currency_locale', array(
+			'default'		=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_custom_currency_locale', array(
+			'label'		=>	__('Currency Locale', 'it-residence'),
+			'description'	=>	__('You can find it <a href="https://simplelocalize.io/data/locales/">here</a> ("Country Locale" column)', 'it-residence'),
+			'section'		=>	'itre_general_options',
+			'priority'		=> 15
+		)
+	);
+
+	$wp_customize->add_setting(
+		'itre_custom_currency_code', array(
+			'default'		=>	'',
+			'sanitize_callback'	=>	'sanitize_text_field'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_custom_currency_code', array(
+			'label'		=>	__('Currency Code', 'it-residence'),
+			'description'	=>	__('You can find it <a href="https://simplelocalize.io/data/locales/">here</a> ("Country Code" column)', 'it-residence'),
+			'section'		=>	'itre_general_options',
+			'priority'		=> 15
+		)
 	);
 
 	$wp_customize->add_setting(
@@ -89,6 +122,15 @@ function itre_general_customize_register( $wp_customize ) {
 		    'sanitize_callback'	=>	'itre_sanitize_checkbox'
 	    )
     );
+
+	$currency_controls = [$wp_customize->get_control('itre_custom_currency_locale'), $wp_customize->get_control('itre_custom_currency_code')];
+
+	foreach($currency_controls as $currency_control) {
+		$currency_control->active_callback = function( $control ) {
+			$setting = $control->manager->get_setting('itre_currency');
+			return $setting->value() === 'custom' ? true : false;
+		};
+	}
 
     $wp_customize->add_control(
 	    'itre_back_to_top', array(

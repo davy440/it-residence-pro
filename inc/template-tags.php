@@ -187,11 +187,12 @@ endif;
 
 function itre_get_property_price( $data ) {
 	$currency = itre_get_currency();
-    $price = new NumberFormatter( $locale = $currency['locale'], NumberFormatter::CURRENCY );
+	$format = get_theme_mod('itre_currency_format', 'symbol');
+	$price = new NumberFormatter( $locale = $currency['locale'], NumberFormatter::CURRENCY );
     $price->setTextAttribute( NumberFormatter::CURRENCY_CODE, $currency['code']);
     $price->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, 0);
-
-    $price_string = sprintf('<span class="prop-price"><span>%s</span></span>', $price->format( $data ) );
+	
+    $price_string = sprintf('<span class="prop-price"><span>%s</span></span>', $price->formatCurrency( $data, $currency['code'] ) );
 
     echo $price_string;
 
