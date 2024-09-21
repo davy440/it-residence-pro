@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
-import { getBlockType, registerBlockType, unregisterBlockType } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 import {__} from '@wordpress/i18n';
-import { select, subscribe, dispatch } from '@wordpress/data';
 import { useBlockProps } from '@wordpress/block-editor';
 import { SelectControl, TextControl } from '@wordpress/components';
 import metadata from '../../../../inc/blocks/property-filter/block.json';
 
-let registered = false;
 const slug = 'it-listings/property-filter';
  
 const blockData = {
@@ -26,7 +24,7 @@ const blockData = {
             <>
             <section {...useBlockProps({ className: "itre-editor-property-filter section" })}>
                 <p>
-                <h2>{__("Property Filter")}</h2>
+                
                 <SelectControl
                     label={__("Filter by")}
                     value={[...filters]}
@@ -57,45 +55,6 @@ const blockData = {
             </>
         )
     },
-    save: () => null,
     ...metadata
 }
 registerBlockType(slug, blockData);
-
-// Subscribe to State Changes
-subscribe(() => {
-    const blocks = select('core/block-editor').getBlocks();
-
-    if (!select('core/editor')) {
-        return;
-    }
-    const template = select('core/editor').getEditedPostAttribute('template');
-    
-    if (!template) {
-        return;
-    }
-
-    if (template === 'template-property-listings.php' && registered === false) {
-        registered = true;
-        if (getBlockType(slug)) {
-            return;
-        }
-        registerBlockType(slug, blockData);
-    }
-    
-    if (template !== 'template-property-listings.php') {
-
-        if (blocks.length !== 0) {
-            const filteredBlocks = blocks.filter(block => block.name === slug);
-            filteredBlocks.forEach( block => {
-                const { clientId } = block;
-                dispatch('core/editor').removeBlock(clientId);
-            });
-        }
-        
-        if (getBlockType(slug)) {
-            unregisterBlockType(slug);
-            registered = false;
-        }
-    }
-});

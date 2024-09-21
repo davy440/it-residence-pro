@@ -2,10 +2,7 @@ import { md5 } from "js-md5";
 
 // Adding blockId attribute to blocks
 
-function addUniqueID( attributes, block) {
-    if (block['name'] !== 'it-listings/property-filter') {
-        return attributes;
-    }
+function addUniqueID( attributes ) {
 
     const hash = md5(JSON.stringify(Object.keys(attributes).sort().reduce((acc, currVal) => {
         acc[currVal] = attributes[currVal]
@@ -16,8 +13,8 @@ function addUniqueID( attributes, block) {
     return newAttrs;
 }
 
-// wp.hooks.addFilter(
-//     'blocks.getBlockAttributes',
-//     'it-residence/add-unique-id',
-//     addUniqueID
-// );
+wp.hooks.addFilter(
+    'blocks.getBlockAttributes',
+    'it-residence/add-unique-id',
+    addUniqueID
+);

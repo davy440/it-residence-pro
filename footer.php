@@ -34,7 +34,7 @@ printf('</div>');
 
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'it-residence' ), 'it-residence', '<a href="http://underscores.me/">Underscores.me</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'it-residence' ), 'it-residence', '<a href="https://indithemes.com/">IndiThemes.com</a>' );
 				?>
 		</div><!-- .site-info -->
 		<?php endif; ?>

@@ -1,11 +1,10 @@
-import { getBlockType, registerBlockType, unregisterBlockType } from '@wordpress/blocks';
+import { registerBlockType } from '@wordpress/blocks';
 import { SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
-import { useSelect, subscribe, select, dispatch } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import metadata from '../../../../inc/blocks/featured-property/block.json';
 
-let registered = false;
 const slug = 'it-listings/featured-property';
 
 const blockData = {
@@ -46,42 +45,3 @@ const blockData = {
     ...metadata
 }
 registerBlockType(slug, blockData);
-
-// Listen for subsequent saves and template changes
-subscribe(() => {
-    const blocks = select('core/block-editor').getBlocks();
-
-    if (!select('core/editor')) {
-        return;
-    }
-    
-    const template = select('core/editor').getEditedPostAttribute('template');
-    
-    if (template === undefined) {
-        return;
-    }
-
-    if (template === 'template-property-listings.php' && registered === false) {
-        registered = true;
-        if (getBlockType(slug)) {
-            return;
-        }
-        registerBlockType(slug, blockData);
-    }
-    
-    if (template !== 'template-property-listings.php') {
-
-        if (blocks.length !== 0) {
-            const filteredBlocks = blocks.filter(block => block.name === slug);
-            filteredBlocks.forEach( block => {
-                const { clientId } = block;
-                dispatch('core/editor').removeBlock(clientId);
-            });
-        }
-        
-        if (getBlockType(slug)) {
-            unregisterBlockType(slug);
-            registered = false;
-        }
-    }
-});

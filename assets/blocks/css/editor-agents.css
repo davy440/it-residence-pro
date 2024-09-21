@@ -1,3 +1,24 @@
+:root {
+  --title-font: "League Spartan", sans-serif;
+  --body-font: "League Spartan", sans-serif;
+  --title-weight: 700;
+  --body-weight: 400;
+  --border-radius: 10px;
+  --body-text: #000000;
+  --excerpt: #999999;
+  --accent: #2e6d87;
+  --dark: #08445d;
+  --masthead-bg: white;
+  --link: #999999;
+  --link-hvr: #555555;
+  --nav-bg: #2e6d87;
+  --nav-link: #2e6d87;
+  --subnav-link: white;
+  --footer-bg: #08445d;
+  --footer-link: white;
+  --footer-text: white;
+}
+
 .itre-editor-agents__wrapper {
   display: grid;
   gap: 1.25rem;

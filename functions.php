@@ -252,3 +252,12 @@ require get_template_directory() . '/inc/class-plugins-install.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+require ITRE_PATH . '/inc/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://storage.googleapis.com/indithemes/resources/it-residence/update-checker.json',
+	__FILE__, //Full path to the main plugin file or functions.php.
+	'it-residence'
+);

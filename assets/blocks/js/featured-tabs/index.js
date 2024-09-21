@@ -22,13 +22,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
-/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _types_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./types-select */ "./assets/blocks/jsx/featured-tabs/types-select.js");
-/* harmony import */ var _locations_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./locations-select */ "./assets/blocks/jsx/featured-tabs/locations-select.js");
-/* harmony import */ var _inc_blocks_featured_tabs_block_json__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../inc/blocks/featured-tabs/block.json */ "./inc/blocks/featured-tabs/block.json");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _types_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./types-select */ "./assets/blocks/jsx/featured-tabs/types-select.js");
+/* harmony import */ var _locations_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./locations-select */ "./assets/blocks/jsx/featured-tabs/locations-select.js");
+/* harmony import */ var _inc_blocks_featured_tabs_block_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../inc/blocks/featured-tabs/block.json */ "./inc/blocks/featured-tabs/block.json");
 
 
 
@@ -38,8 +36,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-let registered = false;
 const slug = 'it-listings/featured-tabs';
 const attsContext = (0,react__WEBPACK_IMPORTED_MODULE_4__.createContext)();
 const blockData = {
@@ -68,13 +64,13 @@ const blockData = {
     } = attributes;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
       className: 'itre-editor-featured-tabs'
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Featured Tabs")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.CheckboxControl, {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Featured Tabs")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.CheckboxControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Include 'All' Tab"),
       checked: all,
       onChange: () => setAttributes({
         all: !all
       })
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Title"),
       value: title,
       onChange: value => setAttributes({
@@ -85,7 +81,7 @@ const blockData = {
         attributes,
         setAttributes
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.SelectControl, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Tabs to Show"),
       value: taxonomy,
       onChange: value => setAttributes({
@@ -97,46 +93,12 @@ const blockData = {
       value: "property-type"
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Property Type")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
       value: "location"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Location"))), taxonomy === 'property-type' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_types_select__WEBPACK_IMPORTED_MODULE_7__["default"], null), taxonomy === 'location' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_locations_select__WEBPACK_IMPORTED_MODULE_8__["default"], null)));
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Location"))), taxonomy === 'property-type' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_types_select__WEBPACK_IMPORTED_MODULE_6__["default"], null), taxonomy === 'location' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_locations_select__WEBPACK_IMPORTED_MODULE_7__["default"], null)));
   },
   save: () => null,
-  ..._inc_blocks_featured_tabs_block_json__WEBPACK_IMPORTED_MODULE_9__
+  ..._inc_blocks_featured_tabs_block_json__WEBPACK_IMPORTED_MODULE_8__
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
-
-// Subscribe to State Changes
-(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.subscribe)(() => {
-  const blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.select)('core/block-editor').getBlocks();
-  if (!(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.select)('core/editor')) {
-    return;
-  }
-  const template = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.select)('core/editor').getEditedPostAttribute('template');
-  if (template === undefined) {
-    return;
-  }
-  if (template === 'template-property-listings.php' && registered === false) {
-    registered = true;
-    if ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.getBlockType)(slug)) {
-      return;
-    }
-    (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
-  }
-  if (template !== 'template-property-listings.php') {
-    if (blocks.length !== 0) {
-      const filteredBlocks = blocks.filter(block => block.name === slug);
-      filteredBlocks.forEach(block => {
-        const {
-          clientId
-        } = block;
-        (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.dispatch)('core/editor').removeBlock(clientId);
-      });
-    }
-    if ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.getBlockType)(slug)) {
-      (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.unregisterBlockType)(slug);
-      registered = false;
-    }
-  }
-});
 
 /***/ }),
 

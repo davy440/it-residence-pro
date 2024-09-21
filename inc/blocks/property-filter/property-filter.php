@@ -6,7 +6,6 @@
  * @param   string  $content        The block default content.
  * @param   object  $block          WP_Block - The block instance.
  */
-
 $filters = $attributes['filterby'];
 $count = $attributes['count'];
 $id = $attributes['blockId'];
@@ -52,7 +51,6 @@ $id = str_replace('-', '_', $id);
                                 ?>
                             </select>
                         </div>
-
                         <div class="itre-status form-control-wrapper p-0">
                             <select class="form-control-for" name="for" id="for" placeholder="<?php esc_attr_e("Status", 'it-residence'); ?>">
                                 <option value="0"><?php _e("Status", 'it-residence'); ?></option>
@@ -62,7 +60,6 @@ $id = str_replace('-', '_', $id);
                                 <option value="coming-soon"><?php _e("Coming Soon", 'it-residence'); ?></option>
                             </select>
                         </div>
-
                         <div class="itre-bedrooms form-control-wrapper p-0">
                             <select class="form-control-bedrooms" name="bedrooms" id="bedrooms" placeholder="<?php esc_attr_e("Bedrooms", 'it-residence'); ?>">
                                 <option value="0"><?php _e("Bedrooms", 'it-residence'); ?></option>
@@ -74,7 +71,7 @@ $id = str_replace('-', '_', $id);
                                 <option value="5+"><?php _e("5+", 'it-residence'); ?></option>
                             </select>
                         </div>
-
+                        
                         <div class="itre-min-area form-control-wrapper p-0">
                             <input class="form-control-min-area" type="number" name="min-area" id="min-area" placeholder="<?php esc_attr_e("Min Area", 'it-residence'); ?>" autocomplete="off" value="" />
                         </div>
@@ -92,7 +89,6 @@ $id = str_replace('-', '_', $id);
                         </div>
                     </div>
                 </div>
-
                 <div class="filter-btn p-0">
                     <input type="submit" value="<?php esc_html_e('Submit', 'it-residence'); ?>"/>
                 </div>
@@ -130,3 +126,17 @@ $id = str_replace('-', '_', $id);
 <?php
 $data[] = $id;
 wp_localize_script('itre-property-filter-front-js', 'filterIDs', $data);
+
+if (!empty($attributes['style'])) {
+    $css = "#{$id} {";
+    if (!empty($attributes['style']['spacing']['margin']['top'])) {
+        $marginTop = $attributes['style']['spacing']['margin']['top'];
+        $css .= "margin-top: {$marginTop};";
+    }
+    if (!empty($attributes['style']['spacing']['margin']['bottom'])) {
+        $marginBottom = $attributes['style']['spacing']['margin']['bottom'];
+        $css .= "margin-bottom: {$marginBottom}";
+    }
+    $css .= '}';
+    wp_add_inline_style('itre-property-filter-css', $css);
+}

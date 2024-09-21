@@ -1,0 +1,43 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/property-filter",
+    "title": "Property Filter",
+    "category": "it-listings",
+    "keywords": [
+      "featured",
+      "locatiions",
+      "tabs",
+      "properties",
+      "property"
+    ],
+    "attributes": {
+      "blockId": {
+        "type": "string",
+        "default": ""
+      },
+      "filterby": {
+        "type": "array",
+        "default": ["type", "price"]
+      },
+      "count": {
+        "type": "number",
+        "default": 9
+      },
+      "align": {
+        "type": "string",
+        "default": "center"
+      }
+    },
+    "supports": {
+      "align": ["full", "wide"],
+      "alignWide": true,
+      "spacing": {
+        "margin": ["top", "bottom"]
+      }
+    },
+    "editorStyle": "itre-editor-property-filter-css",
+    "viewStyle": "itre-property-filter-css",
+    "editorScript": "itre-property-filter-js",
+    "viewScript": "itre-property-filter-front-js",
+    "render": "./property-filter.php"
+}

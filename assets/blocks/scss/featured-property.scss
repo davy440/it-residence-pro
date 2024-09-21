@@ -1,5 +1,6 @@
 // Featured Property Section
-@import 'variables';
+@import '../../theme-styles/scss/variables';
+@import '../../theme-styles/scss/functions';
 
 .itre-featured-property {
     display: flex;

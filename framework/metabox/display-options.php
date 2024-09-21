@@ -16,8 +16,9 @@ function itre_meta_callback( $post ) {
     $defaults = array(
         'enable-sidebar'    =>  ['yes'],
         'align-sidebar'     =>  ['right'],
-        'header-overlay'     =>  ['yes'],
+        'header-overlay'    =>	['yes'],
         'page-head'         =>  ['default'],
+		'enable-title'		=>	['yes']
     );
 
     $itre_stored_meta = wp_parse_args( get_post_meta( $post->ID ), $defaults );
@@ -26,16 +27,26 @@ function itre_meta_callback( $post ) {
     <p>
 	    <div class="itre-row-content">
 
-		    <label>
-                <strong><?php _e( 'Enable the Sidebar', 'it-residence' ) ?></strong>
-	            <input type="checkbox" name="enable-sidebar" id="enable-sidebar" value="yes" <?php if ( isset( $itre_stored_meta['enable-sidebar'] ) ) checked( $itre_stored_meta['enable-sidebar'][0], 'yes' ); ?> />
-	        </label>
-	        <br />
-            <label>
-                <strong><?php _e( 'Enable Header Overlay', 'it-residence' ) ?></strong>
-               <input type="checkbox" name="header-overlay" id="header-overlay" value="yes" <?php if ( isset( $itre_stored_meta['header-overlay'] ) ) checked( $itre_stored_meta['header-overlay'][0], 'yes' ); ?> />
-           </label>
-            <br />
+			<p>
+				<label>
+					<?php _e( 'Enable Page Title', 'it-residence' ) ?>
+					<input type="checkbox" name="enable-title" id="enable-title" value="yes" <?php if ( isset( $itre_stored_meta['enable-title'] ) ) checked( $itre_stored_meta['enable-title'][0], 'yes' ); ?> />
+				</label>
+			</p>
+			
+			<p>
+				<label>
+					<?php _e( 'Enable Header Overlay', 'it-residence' ) ?>
+					<input type="checkbox" name="header-overlay" id="header-overlay" value="yes" <?php if ( isset( $itre_stored_meta['header-overlay'] ) ) checked( $itre_stored_meta['header-overlay'][0], 'yes' ); ?> />
+				</label>
+			</p>
+
+			<p>
+			<label>
+				<?php _e( 'Enable the Sidebar', 'it-residence' ) ?>
+				<input type="checkbox" name="enable-sidebar" id="enable-sidebar" value="yes" <?php if ( isset( $itre_stored_meta['enable-sidebar'] ) ) checked( $itre_stored_meta['enable-sidebar'][0], 'yes' ); ?> />
+			</label>
+			</p>
 
             <div class="page-sidebar-align">
 	            <h4> <?php _e('Sidebar Alignment', 'it-residence'); ?></h4>
@@ -59,7 +70,7 @@ function itre_meta_callback( $post ) {
 				toggled	=	jQuery('#itre_meta').find('.page-sidebar-align');
 
 				function checked( a, b ) {
-					if ( jQuery(a).is(':checked') ) {
+					if (jQuery(a).is(':checked')) {
 						b.slideDown(100);
 					} else {
 						b.slideUp(100);
@@ -93,19 +104,14 @@ function itre_meta_save( $post_id ) {
     }
 
     // Checks for input and saves
-	if ( array_key_exists('enable-sidebar', $_POST) ) {
-	    update_post_meta( $post_id, 'enable-sidebar', 'yes' );
-	}
-    else {
-	    update_post_meta( $post_id, 'enable-sidebar', '' );
-	}
+	$enable_title = isset($_POST['enable-title']) ? 'yes' : '';
+	update_post_meta( $post_id, 'enable-title', $enable_title );
+	
+	$header_overlay = array_key_exists('header-overlay', $_POST) ? 'yes' : '';
+	update_post_meta( $post_id, 'header-overlay', $header_overlay );
 
-    if ( array_key_exists('header-overlay', $_POST) ) {
-	    update_post_meta( $post_id, 'header-overlay', 'yes' );
-	}
-    else {
-	    update_post_meta( $post_id, 'header-overlay', '' );
-	}
+	$enable_sidebar = array_key_exists('enable-sidebar', $_POST) ? 'yes' : '';
+	update_post_meta( $post_id, 'enable-sidebar', $enable_sidebar );
 
 	// Checks for input and saves
 	if ( array_key_exists('align-sidebar', $_POST) ) {
