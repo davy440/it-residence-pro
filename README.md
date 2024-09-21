@@ -71,4 +71,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **v2.4.4**
     Added Custom Currencies
 
+* **2.4.5.**
+    Update Checker and property filter block added
+
 Good luck!
