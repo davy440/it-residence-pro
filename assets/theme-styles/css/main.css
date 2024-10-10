@@ -946,7 +946,6 @@ body.single #author_box img {
 #footer-sidebar {
   background-color: var(--footer-bg);
   padding-top: 3rem;
-  margin-top: 2rem;
   color: var(--footer-text);
   text-align: center;
 }
