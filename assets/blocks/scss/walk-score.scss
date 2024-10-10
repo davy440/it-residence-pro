@@ -1,8 +1,11 @@
 .itre-walk-score {
+    padding: 2.5rem 0;
+    border: solid 1px rgba(0,0,0,0.1);
 
     &__wrapper {
         display: grid;
         text-align: center;
+        gap: 1.25rem 2.5rem;
 
         @media (min-width: 48rem) {
             grid-template-columns: repeat(3, 1fr);
@@ -22,6 +25,7 @@
     &__desc {
         font-size: 1.25rem;
         margin-top: 1rem;
+        margin-bottom: 0;
     }
 
     &__score {
