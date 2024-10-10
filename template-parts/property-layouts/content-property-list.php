@@ -24,7 +24,7 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 				printf('<figure>%s</figure>', get_the_post_thumbnail( get_the_ID(), 'itre_prop_thumb' ));
 			 }
 			 else {
-				 printf('<img src="%s" alt="%s">', esc_url(get_template_directory_uri() . '/images/ph_thumb.png'), esc_attr( get_the_title() ) );
+				 printf('<img src="%s" alt="%s">', esc_url(get_template_directory_uri() . '/assets/images/ph_thumb.png'), esc_attr( get_the_title() ) );
 			 }
 			 ?>
 		 </a>

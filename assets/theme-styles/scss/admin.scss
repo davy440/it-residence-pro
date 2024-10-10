@@ -116,7 +116,6 @@ button.def-btn {
     .row {
       display: flex;
       flex-wrap: wrap;
-      row-gap: 1.25rem;
 
         & > * {
             box-sizing: border-box;
@@ -425,6 +424,19 @@ li#menu-appearance {
       margin-right: 0.5rem;
       font-size: 2rem;
       line-height: 0;
+  }
+}
+
+.address {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: 48rem) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  select {
+    width: 100%;
   }
 }
 

@@ -128,7 +128,6 @@ button.def-btn {
 #itre_prop_meta .row {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 1.25rem;
 }
 #itre_prop_meta .row > * {
   box-sizing: border-box;
@@ -386,6 +385,19 @@ li#menu-appearance ul > li a[href="themes.php?page=itre_options"]:hover, li#menu
   margin-right: 0.5rem;
   font-size: 2rem;
   line-height: 0;
+}
+
+.address {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 48rem) {
+  .address {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.address select {
+  width: 100%;
 }
 
 @keyframes svgRotate {

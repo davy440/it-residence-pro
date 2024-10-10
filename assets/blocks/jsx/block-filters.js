@@ -1,20 +1,25 @@
-import { md5 } from "js-md5";
+import { getBlockTypes, unregisterBlockType } from '@wordpress/blocks';
+import { subscribe } from '@wordpress/data';
+import domReady from '@wordpress/dom-ready';
 
-// Adding blockId attribute to blocks
+const getPostType = () => wp.data.select('core/editor').getCurrentPostType();
+let postType = null;
 
-function addUniqueID( attributes ) {
+domReady(() => {
+    let unregistered = false;
+    const unsubscribe = subscribe(() => {
 
-    const hash = md5(JSON.stringify(Object.keys(attributes).sort().reduce((acc, currVal) => {
-        acc[currVal] = attributes[currVal]
-        return acc;
-    }, {})));
-    const blockId = `block_${hash}`;
-    const newAttrs = {blockId, ...attributes};
-    return newAttrs;
-}
-
-wp.hooks.addFilter(
-    'blocks.getBlockAttributes',
-    'it-residence/add-unique-id',
-    addUniqueID
-);
+        // Disable Walk Score if not "property" post type
+        const newPostType = getPostType();
+        if (newPostType !== postType) {
+            unsubscribe();
+            postType = newPostType;
+            getBlockTypes().forEach(() => {
+                if (postType !== 'property' && unregistered === false) {
+                    unregistered = true;
+                    unregisterBlockType('it-listings/walk-score');
+                }
+            });
+        }
+    });
+});

@@ -1,6 +1,6 @@
 // Custom JS for Theme
 jQuery(document).ready(function() {
-
+    
     jQuery('.header-slider-wrapper').owlCarousel({
 		items: 1,
 		autoplay: true,

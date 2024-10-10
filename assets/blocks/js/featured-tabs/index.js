@@ -290,7 +290,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/featured-tabs","title":"Featured Tabs","category":"it-listings","keywords":["featured","locatiions","tabs","properties","property"],"attributes":{"all":{"type":"boolean","default":false},"title":{"type":"string","default":""},"align":{"type":"string","default":"center"},"taxonomy":{"type":"string","default":""},"locations":{"type":"array","default":[]},"types":{"type":"array","default":[]}},"supports":{"align":["full","wide"],"alignWide":true},"editorStyle":"itre-editor-featured-tabs-css","style":"itre-featured-tabs-css","editorScript":"itre-featured-tabs-js","script":"itre-featured-tabs-front-js","render":"./featured-tabs.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/featured-tabs","title":"Featured Tabs","category":"it-listings","keywords":["featured","locatiions","tabs","properties","property"],"attributes":{"all":{"type":"boolean","default":false},"title":{"type":"string","default":""},"align":{"type":"string","default":"center"},"taxonomy":{"type":"string","default":""},"locations":{"type":"array","default":[]},"types":{"type":"array","default":[]}},"supports":{"align":["full","wide"],"alignWide":true},"editorStyle":"itre-editor-featured-tabs-css","style":"itre-featured-tabs-css","editorScript":"itre-featured-tabs-js","viewScript":"itre-featured-tabs-front-js","render":"./featured-tabs.php"}');
 
 /***/ })
 

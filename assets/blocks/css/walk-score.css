@@ -1,0 +1,31 @@
+.itre-walk-score__wrapper {
+  display: grid;
+  text-align: center;
+}
+@media (min-width: 48rem) {
+  .itre-walk-score__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.itre-walk-score__icon {
+  width: 20%;
+  margin: auto;
+}
+.itre-walk-score svg {
+  width: 100%;
+  height: auto;
+}
+.itre-walk-score__desc {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+.itre-walk-score__score {
+  display: inline-block;
+  width: 2.75rem;
+  padding: 0.1875rem 0 0;
+  vertical-align: center;
+  font-weight: 700;
+  color: white;
+  margin-right: 0.5rem;
+  border-radius: 0.25rem;
+}

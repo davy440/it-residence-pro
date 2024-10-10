@@ -1,0 +1,47 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/walk-score",
+    "title": "Walk Score",
+    "category": "it-listings",
+    "keywords": [
+      "featured area",
+      "walk score",
+      "property"
+    ],
+    "attributes": {
+      "streetName": {
+        "type": "string",
+        "default": ""
+      },
+      "city": {
+        "type": "string",
+        "default": ""
+      },
+      "country": {
+        "type": "string",
+        "default": ""
+      },
+      "province": {
+        "type": "string",
+        "default": ""
+      },
+      "zip": {
+        "type": "string",
+        "default": ""
+      },
+      "lat": {
+        "type": "string",
+        "default": ""
+      },
+      "long": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    "usesContext": ["postId", "postType"],
+    "editorStyle": "itre-editor-walk-score-css",
+    "viewStyle": "itre-walk-score-css",
+    "editorScript": "itre-walk-score-js",
+    "viewScript": "itre-walk-score-front-js",
+    "render": "./walk-score.php"
+}

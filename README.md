@@ -74,4 +74,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.4.5.**
     Update Checker and property filter block added
 
+* **2.4.6**
+    Added Walk Score
+
 Good luck!

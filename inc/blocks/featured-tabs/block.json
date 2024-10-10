@@ -43,6 +43,6 @@
     "editorStyle": "itre-editor-featured-tabs-css",
     "style": "itre-featured-tabs-css",
     "editorScript": "itre-featured-tabs-js",
-    "script": "itre-featured-tabs-front-js",
+    "viewScript": "itre-featured-tabs-front-js",
     "render": "./featured-tabs.php"
 }

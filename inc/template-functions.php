@@ -54,10 +54,12 @@ function itre_register_blocks() {
 		wp_register_script("itre-{$id}-js", $block, array(), ITRE_VERSION, true);
 	}
 
-	// Regsitering custom files
+	// Regsitering custom JS files
+	
 	wp_register_script("itre-featured-tabs-front-js", ITRE_URL . 'assets/blocks/jsx/featured-tabs/custom.js', array(), ITRE_VERSION, true);
+	wp_register_script("itre-walk-score-front-js", ITRE_URL . 'assets/blocks/jsx/walk-score/custom.js', array(), ITRE_VERSION, true);
 	wp_register_script("itre-property-filter-front-js", ITRE_URL . 'assets/blocks/jsx/property-filter/custom.js', array(), ITRE_VERSION, true);
-	wp_enqueue_script('itre-block-filters-js', ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-edit-post'), ITRE_VERSION, true);
+	wp_enqueue_script("itre-block-filters-js", ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-editor', 'wp-edit-post', 'wp-dom-ready', 'wp-core-data'), ITRE_VERSION, true);
 
 	// Registering CSS files for blocks
 	$css_paths = glob(ITRE_PATH . 'assets/blocks/css/*.css', GLOB_BRACE);
@@ -677,3 +679,4 @@ function itlst_sanitize_phone_input( $input ) {
 		}
 	}
 }
+?>
