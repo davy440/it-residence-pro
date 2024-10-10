@@ -7,6 +7,8 @@
  * @param   object  $block          WP_Block - The block instance.
  */
 $post_id = $block->context['postId'];
+$align = $attributes['align'] ?? '';
+
 $property_info = get_post_meta($post_id);
 $street = !empty($property_info['streetName']) ? $property_info['streetName'][0] : '';
 $city = !empty($property_info['city']) ? $property_info['city'][0] : '';
@@ -16,22 +18,12 @@ $zip = !empty($property_info['zip']) ? $property_info['zip'][0] : '';
 $lat = !empty($property_info['lat']) ? $property_info['lat'][0] : '';
 $long = !empty($property_info['long']) ? $property_info['long'][0] : '';
 
-$propertyInfo['Id'] = $post_id;
-$propertyInfo['street'] = $street;
-$propertyInfo['city']= $city;
-$propertyInfo['province'] = $province;
-$propertyInfo['country'] = $country;
-$propertyInfo['lat'] = $lat;
-$propertyInfo['lon'] = $long;
-
-wp_localize_script('itre-walk-score-front-js', 'property', $propertyInfo);
-
 if (empty($street) || empty($city) || empty($province) || empty($lat) || empty($long)) {
     return;
 }
 ?>
 
-<section class="itre-walk-score">
+<section class="itre-walk-score <?php if (!empty($align)) echo "align{$align}"; ?>">
 <div class="itre-walk-score__wrapper">
     
     <?php

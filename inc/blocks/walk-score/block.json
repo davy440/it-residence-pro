@@ -9,34 +9,12 @@
       "property"
     ],
     "attributes": {
-      "streetName": {
-        "type": "string",
-        "default": ""
-      },
-      "city": {
-        "type": "string",
-        "default": ""
-      },
-      "country": {
-        "type": "string",
-        "default": ""
-      },
-      "province": {
-        "type": "string",
-        "default": ""
-      },
-      "zip": {
-        "type": "string",
-        "default": ""
-      },
-      "lat": {
-        "type": "string",
-        "default": ""
-      },
-      "long": {
-        "type": "string",
-        "default": ""
+      "align": {
+        "type": "string"
       }
+    },
+    "supports": {
+      "align": ["wide", "full"]
     },
     "usesContext": ["postId", "postType"],
     "editorStyle": "itre-editor-walk-score-css",
