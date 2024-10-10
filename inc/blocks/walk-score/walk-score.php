@@ -14,11 +14,15 @@ $street = !empty($property_info['streetName']) ? $property_info['streetName'][0]
 $city = !empty($property_info['city']) ? $property_info['city'][0] : '';
 $province = !empty($property_info['province']) ? $property_info['province'][0] : '';
 $country = !empty($property_info['country']) ? $property_info['country'][0] : '';
-$zip = !empty($property_info['zip']) ? $property_info['zip'][0] : '';
 $lat = !empty($property_info['lat']) ? $property_info['lat'][0] : '';
 $long = !empty($property_info['long']) ? $property_info['long'][0] : '';
 
 if (empty($street) || empty($city) || empty($province) || empty($lat) || empty($long)) {
+    return;
+}
+
+// Abort if the country is not United States or Canada
+if (!in_array($country, ['CA', 'US'])) {
     return;
 }
 ?>

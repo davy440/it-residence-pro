@@ -15,15 +15,15 @@ const scoreColors = () => {
         scores.forEach(score => {
             const count = parseInt(score.textContent);
             
-            if (count <= 25) {
+            if (count <= 20) {
                 score.style.backgroundColor = '#E22525';
             }
 
-            if (count > 25 && count <= 75) {
+            if (count > 20 && count <= 80) {
                 score.style.backgroundColor = '#F69B07';
             }
 
-            if (count > 75) {
+            if (count > 80) {
                 score.style.backgroundColor = '#45E40B';
             }
         })
