@@ -36,10 +36,10 @@ if (empty($street) || empty($city) || empty($province) || empty($lat) || empty($
         $urlArgs['wsapikey'] = 'ab8dd6bd1447bc563f32a8ed09c16e6d';
         
         $url = add_query_arg($urlArgs, $url);
-        $data = file_get_contents($url);
+        $data = json_decode(file_get_contents($url));
         
-        if (!empty($data)) {
-            $data = json_decode( $data );
+        if ($data->status === 1) {
+
             $walk_score = $data->walkscore;
             $walk_desc = $data->description;
 
