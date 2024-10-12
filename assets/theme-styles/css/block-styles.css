@@ -109,13 +109,14 @@
 .is-style-two-col-list li,
 .is-style-three-col-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0.625rem;
 }
 .is-style-two-col-list li:before,
 .is-style-three-col-list li:before {
   content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48dGl0bGU+QXNzZXQgMTwvdGl0bGU+PHBhdGggZD0iTTEwLDBBMTAsMTAsMCwxLDAsMjAsMTAsMTAsMTAsMCwwLDAsMTAsMFptMCwxOGE4LDgsMCwxLDEsOC04QTgsOCwwLDAsMSwxMCwxOFpNMTQuNTksNS41OCw4LDEyLjE3LDUuNDEsOS41OSw0LDExbDQsNCw4LThaIiBmaWxsPSIjMGNiYzJkIi8+PC9zdmc+");
   margin-right: 0.5rem;
+  margin-top: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;

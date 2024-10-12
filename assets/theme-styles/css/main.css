@@ -337,6 +337,7 @@ body.archive.post-type-archive-property .itre-property-archive-wrapper, body.arc
 }
 #masthead .custom-logo {
   max-height: 7.5rem;
+  width: auto;
 }
 #masthead #header-video > *:not(img), #masthead #header-image > *:not(img), #masthead .slide-img > *:not(img), #masthead .itre-banner > *:not(img) {
   position: relative;
