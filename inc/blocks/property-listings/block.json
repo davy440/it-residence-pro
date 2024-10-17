@@ -1,0 +1,43 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/property-listings",
+    "title": "Property Listings",
+    "category": "it-listings",
+    "keywords": [
+        "archive",
+        "list",
+      "properties",
+      "property"
+    ],
+    "attributes": {
+      "align": {
+          "type": "string"
+      },
+      "filter": {
+        "type": "string",
+        "default": "all"
+      },
+      "location": {
+        "type": "string",
+        "default": ""
+      },
+      "propType": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    "supports": {
+      "align": ["full", "wide"],
+      "alignWide": true,
+      "spacing": {
+        "margin": ["top", "bottom"]
+      },
+      "multiple": false
+    },
+    "usesContext": ["blockId"],
+    "editorStyle": "itre-editor-property-listings-css",
+    "viewStyle": "itre-property-listings-css",
+    "editorScript": "itre-property-listings-js",
+    "viewScript": "itre-property-listings-front-js",
+    "render": "./property-listings.php"
+}

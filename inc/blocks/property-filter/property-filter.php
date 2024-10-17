@@ -20,7 +20,7 @@ $id = str_replace('-', '_', $id);
                         <div class="itre-type form-control-wrapper p-0">
                             <?php
                             $types_list = [];
-                            $types = get_terms('property-type');
+                            $types = get_terms(['taxonomy' => 'property-type', 'hide_empty' => false]);
                             foreach($types as $type) {
                                 $types_list[$type->slug] = $type->name;
                             }
@@ -38,7 +38,7 @@ $id = str_replace('-', '_', $id);
                         <div class="itre-type form-control-wrapper p-0">
                             <?php
                             $locations_list = [];
-                            $locations = get_terms('location');
+                            $locations = get_terms(['taxonomy' => 'location', 'hide_empty' => false]);
                             foreach($locations as $location) {
                                 $locations_list[$location->slug] = $location->name;
                             }

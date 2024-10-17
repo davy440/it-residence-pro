@@ -9,6 +9,7 @@ module.exports = {
         'agents': { import: './assets/blocks/jsx/agents/index.js', filename: './agents/index.js'},
         'property-filter': { import: './assets/blocks/jsx/property-filter/index.js', filename: './property-filter/index.js'},
         'walk-score': { import: './assets/blocks/jsx/walk-score/index.js', filename: './walk-score/index.js'},
+        'property-listings': { import: './assets/blocks/jsx/property-listings/index.js', filename: './property-listings/index.js'},
         'block-filters': { import: './assets/blocks/jsx/block-filters.js', filename: './block-filters.js'},
     }
 };

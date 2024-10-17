@@ -124,7 +124,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let registered = false;
 const slug = 'it-listings/showcase';
 const attsContext = (0,react__WEBPACK_IMPORTED_MODULE_4__.createContext)();
 const blockData = {
@@ -186,40 +185,6 @@ const blockData = {
   ..._inc_blocks_showcase_block_json__WEBPACK_IMPORTED_MODULE_8__
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
-
-// Subscribe to State Changes
-(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.subscribe)(() => {
-  const blocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.select)('core/block-editor').getBlocks();
-  if (!(0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.select)('core/editor')) {
-    return;
-  }
-  const template = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.select)('core/editor').getEditedPostAttribute('template');
-  if (template === undefined) {
-    return;
-  }
-  if (template === 'template-property-listings.php' && registered === false) {
-    registered = true;
-    if ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.getBlockType)(slug)) {
-      return;
-    }
-    (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
-  }
-  if (template !== 'template-property-listings.php') {
-    if (blocks.length !== 0) {
-      const filteredBlocks = blocks.filter(block => block.name === slug);
-      filteredBlocks.forEach(block => {
-        const {
-          clientId
-        } = block;
-        (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.dispatch)('core/editor').removeBlock(clientId);
-      });
-    }
-    if ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.getBlockType)(slug)) {
-      (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.unregisterBlockType)(slug);
-      registered = false;
-    }
-  }
-});
 
 /***/ }),
 
