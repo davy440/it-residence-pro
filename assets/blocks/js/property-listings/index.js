@@ -142,12 +142,18 @@ const SelectLocation = () => {
     per_page: -1
   }));
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (locations !== null) {
+      // Set first location as the location attribute
+      setAttributes({
+        location: locations[0].slug
+      });
+    }
     return () => {
       setAttributes({
         location: ""
       });
     };
-  }, []);
+  }, [locations]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Select Location'),
     value: location,
@@ -201,12 +207,17 @@ const SelectPropType = () => {
     per_page: -1
   }));
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (propTypes) {
+      setAttributes({
+        propType: propTypes[0].slug
+      });
+    }
     return () => {
       setAttributes({
         propType: ""
       });
     };
-  }, []);
+  }, [propTypes]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Select Property Type'),
     value: propType,

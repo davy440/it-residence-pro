@@ -9,10 +9,13 @@ const SelectPropType = () => {
     const propTypes = useSelect(select => select('core').getEntityRecords('taxonomy', 'property-type', {per_page: -1}));
 
     useEffect(() => {
+        if (propTypes) {
+            setAttributes({propType: propTypes[0].slug})
+        }
         return () => {
             setAttributes({propType: ""})
         }
-    }, []);
+    }, [propTypes]);
 
     return (
         
