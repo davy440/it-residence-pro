@@ -77,4 +77,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.4.6**
     Added Walk Score
 
+* **2.5**
+    Added Property Listings block
+
 Good luck!
