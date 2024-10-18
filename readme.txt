@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.5
+Stable tag: 2.5.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -83,6 +83,9 @@ Added Walk Score
 
 = 2.5 October 17, 2024 =
 Added Property Listings block
+
+= 2.5.1 October 17, 2024 =
+Fixed Update Checker
 
 
 == Credits ==

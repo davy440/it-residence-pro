@@ -80,4 +80,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.5**
     Added Property Listings block
 
+* **2.5.1**
+    Fixed Update Checker
+
 Good luck!

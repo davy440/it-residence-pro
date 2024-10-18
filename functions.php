@@ -9,7 +9,7 @@
 
 if ( ! defined( 'ITRE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'ITRE_VERSION', '2.5' );
+	define( 'ITRE_VERSION', '2.5.1' );
 }
 
 if ( !defined( 'ITRE_PATH' ) ) {
@@ -259,5 +259,5 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $myUpdateChecker = PucFactory::buildUpdateChecker(
 	'https://storage.googleapis.com/indithemes/resources/it-residence/update-checker.json',
 	__FILE__, //Full path to the main plugin file or functions.php.
-	'it-residence'
+	'it-residence-pro'
 );
