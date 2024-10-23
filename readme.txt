@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -86,6 +86,9 @@ Added Property Listings block
 
 = 2.5.1 October 17, 2024 =
 Fixed Update Checker
+
+= 2.5.2 October 23, 2024 =
+Updated Gallery Slider Style
 
 
 == Credits ==
