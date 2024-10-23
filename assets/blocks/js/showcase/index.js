@@ -149,6 +149,7 @@ const blockData = {
     const {
       sections
     } = attributes;
+    console.log(sections);
     const images = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
       const imgData = sections.map((item, index) => {
         const image = item.mediaId !== 0 ? select('core').getMedia(item.mediaId) : '';
@@ -178,7 +179,8 @@ const blockData = {
       }
     }, attributes['sections'].map((section, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_section__WEBPACK_IMPORTED_MODULE_6__["default"], {
       count: section.order,
-      image: images[index]
+      image: images[index],
+      hello: section
     })))));
   },
   save: () => null,

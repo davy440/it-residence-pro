@@ -129,7 +129,7 @@ function itre_setup() {
 	add_image_size( 'itre_sq_thumb', 500, 500, true );
 
 	// Add Support for wide alignment
-	add_theme_support( 'align-wide' );
+	// add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'itre_setup' );
 
@@ -143,7 +143,7 @@ add_action( 'after_setup_theme', 'itre_setup' );
 function itre_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'itre_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'itre_content_width', 0 );
+// add_action( 'after_setup_theme', 'itre_content_width', 0 );
 
 /**
  *	Enqueue Scripts and Styles

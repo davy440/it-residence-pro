@@ -144,7 +144,24 @@ body.admin-bar .is-style-sticky {
 
 .is-style-slider {
   overflow: hidden;
+  position: relative;
 }
 .is-style-slider figure {
   position: relative;
+}
+.is-style-slider + .itre-gallery-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.is-style-slider + .itre-gallery-pagination span {
+  height: 0.625rem;
+  width: 0.625rem;
+  background-color: #dddddd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.is-style-slider + .itre-gallery-pagination span.bullet-active {
+  background-color: #aaa;
 }

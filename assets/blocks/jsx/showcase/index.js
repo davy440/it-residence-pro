@@ -3,7 +3,7 @@
  */
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps } from '@wordpress/block-editor';
-import { useSelect, select, subscribe, dispatch } from '@wordpress/data';
+import { useSelect } from '@wordpress/data';
 import { createContext } from 'react';
 import { TextControl } from '@wordpress/components';
 import Section from './section';
@@ -20,6 +20,7 @@ const blockData = {
     edit: ( props ) => {
         const { attributes, setAttributes } = props;
         const { sections } = attributes;
+        console.log(sections);
         const images = useSelect(select => {
             const imgData = sections.map((item, index) => {
                 const image = item.mediaId !== 0 ? select('core').getMedia(item.mediaId) : '';
@@ -44,7 +45,7 @@ const blockData = {
                 <div className="itre-editor-showcase__sections">
                     <attsContext.Provider value={{attributes, setAttributes}}>
                         {attributes['sections'].map((section, index) => (
-                            <Section count={section.order} image={images[index]} />
+                            <Section count={section.order} image={images[index]} hello={section} />
                         ))}
                     </attsContext.Provider>
                 </div>

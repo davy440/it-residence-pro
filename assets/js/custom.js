@@ -189,6 +189,11 @@ jQuery(document).ready(function() {
             contentWrapper.classList.add('swiper-wrapper', 'is-style-lightbox');
             contentWrapper.innerHTML = sliderContent;
 
+            // Adding Pagination
+            const navBtn = document.createElement('div');
+            navBtn.classList.add('itre-gallery-pagination');
+            slider.after(navBtn);
+
             if (!contentWrapper.innerHTML) {
                 return;
             }
@@ -207,7 +212,13 @@ jQuery(document).ready(function() {
                     slidesPerView: slides,
                     slideClass: 'wp-block-image',
                     spaceBetween: 2,
-                    loop: true
+                    loop: true,
+                    pagination: {
+                        el: '.itre-gallery-pagination',
+                        type: 'bullets',
+                        bulletActiveClass: 'bullet-active',
+                        clickable: true
+                    }
                 }
             );
         });
