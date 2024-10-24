@@ -60,7 +60,10 @@ function itre_register_blocks() {
 	wp_register_script("itre-walk-score-front-js", ITRE_URL . 'assets/blocks/jsx/walk-score/custom.js', array(), ITRE_VERSION, true);
 	wp_register_script("itre-property-listings-front-js", ITRE_URL . 'assets/blocks/jsx/property-listings/custom.js', array(), ITRE_VERSION, ['in_footer' => true]);
 	wp_register_script("itre-property-filter-front-js", ITRE_URL . 'assets/blocks/jsx/property-filter/custom.js', array(), ITRE_VERSION, true);
-	wp_enqueue_script("itre-block-filters-js", ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-editor', 'wp-edit-post', 'wp-dom-ready', 'wp-core-data'), ITRE_VERSION, true);
+
+	if (is_admin()) {
+		wp_enqueue_script("itre-block-filters-js", ITRE_URL . 'assets/blocks/js/block-filters.js', array('wp-editor', 'wp-edit-post', 'wp-dom-ready', 'wp-core-data'), ITRE_VERSION, true);
+	}
 
 	// Registering CSS files for blocks
 	$css_paths = glob(ITRE_PATH . 'assets/blocks/css/*.css', GLOB_BRACE);
