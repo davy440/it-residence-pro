@@ -86,4 +86,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.5.2**
     Updated Gallery Slider Style
 
+* **2.5.3**
+    Added ninja Forms support
+
 Good luck!
