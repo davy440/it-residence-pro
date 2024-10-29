@@ -463,6 +463,9 @@ body #masthead .site-title a {
   border-radius: 0.25rem;
   border: 0;
 }
+#masthead.header-widget .header-widget-area-wrapper .nf-error-msg {
+  display: none;
+}
 
 #header-image {
   height: 15.625rem;
