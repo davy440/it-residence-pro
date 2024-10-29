@@ -18,7 +18,7 @@ function itre_theme_info() {
             <?php $plugins = [
                 'it-listings' => 'IT Listings',
                 'svg-support' => 'SVG Support',
-                'contact-form-7' => 'Contact Form 7'
+                'ninja-forms' => 'Ninja Forms'
             ]; ?>
             <p><strong>To set up the theme, you'll need to install the following plugins -</strong></p>
             <form class="itre-support-plugins-form" method="post">
@@ -33,7 +33,7 @@ function itre_theme_info() {
                 </table>
             </form>
             <?php
-                if (is_plugin_active('it-listings/it-listings.php') && is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
+                if (is_plugin_active('it-listings/it-listings.php') && is_plugin_active('ninja-forms/ninja-forms.php')) {
                     printf('<div class="itre-demo-import">');
                     echo '<p>Plugins Installed! You are ready to start with your website! Create something awesome!</p>';
                     echo '<p>You can also import content from our pre-made demos.</p>';

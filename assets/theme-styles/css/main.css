@@ -31,7 +31,7 @@ article[class^=col-].type-page h2, article.list h2 {
 button,
 input[type=button],
 input[type=reset],
-input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body.single-property .prop-price, .wpcf7 input[type=submit], article[class^=col-].type-post .itre-read-more a,
+input[type=submit], #itre-front-blog .itre-front-blog-cta a, .itre-cta, body #masthead .site-title a, #menu ul li.menu-item-has-children span.dropdown-arrow i, #comments .comment .reply a, body.single-property .prop-price, .wpcf7 input[type=submit], .nf-form-cont input[type=submit], article[class^=col-].type-post .itre-read-more a,
 article[class^=col-].type-page .itre-read-more a, article.list .prop-price, article.list .itre-read-more a {
   font-weight: var(--title-weight);
 }
@@ -70,7 +70,7 @@ a:hover, a:focus {
   outline: none;
 }
 
-article.list .itre-read-more a, .wpcf7 input[type=submit], #comments .comment .reply a, .itre-cta, #itre-front-blog .itre-front-blog-cta a {
+article.list .itre-read-more a, .wpcf7 input[type=submit], .nf-form-cont input[type=submit], #comments .comment .reply a, .itre-cta, #itre-front-blog .itre-front-blog-cta a {
   display: inline-block;
   background-color: var(--accent);
   padding: 0.8rem 1rem 0.65rem;
@@ -79,7 +79,7 @@ article.list .itre-read-more a, .wpcf7 input[type=submit], #comments .comment .r
   color: white;
   border-radius: 0.3125rem;
 }
-article.list .itre-read-more a:hover, .wpcf7 input[type=submit]:hover, #comments .comment .reply a:hover, .itre-cta:hover, #itre-front-blog .itre-front-blog-cta a:hover {
+article.list .itre-read-more a:hover, .wpcf7 input[type=submit]:hover, .nf-form-cont input[type=submit]:hover, #comments .comment .reply a:hover, .itre-cta:hover, #itre-front-blog .itre-front-blog-cta a:hover {
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -450,14 +450,16 @@ body #masthead .site-title a {
     margin-bottom: 0;
   }
 }
-#masthead.header-widget .header-widget-area-wrapper .wpcf7 {
+#masthead.header-widget .header-widget-area-wrapper .wpcf7, #masthead.header-widget .header-widget-area-wrapper .nf-form-content {
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 0.5rem;
 }
 #masthead.header-widget .header-widget-area-wrapper .wpcf7 input,
 #masthead.header-widget .header-widget-area-wrapper .wpcf7 select,
-#masthead.header-widget .header-widget-area-wrapper .wpcf7 textarea {
+#masthead.header-widget .header-widget-area-wrapper .wpcf7 textarea, #masthead.header-widget .header-widget-area-wrapper .nf-form-content input,
+#masthead.header-widget .header-widget-area-wrapper .nf-form-content select,
+#masthead.header-widget .header-widget-area-wrapper .nf-form-content textarea {
   border-radius: 0.25rem;
   border: 0;
 }
@@ -1216,12 +1218,26 @@ body:not(.single-property) article.type-property.grid.property-tab h2 {
   filter: brightness(110%);
 }
 
-.wpcf7 label, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) {
+.wpcf7 label, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label), .nf-form-cont label, .nf-form-cont span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) {
   width: 100%;
 }
-.wpcf7 label > input:not([type=checkbox]):not([type=radio]), .wpcf7 label > select, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > input:not([type=checkbox]):not([type=radio]), .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > select {
+.wpcf7 label > input:not([type=checkbox]):not([type=radio]), .wpcf7 label > select, .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > input:not([type=checkbox]):not([type=radio]), .wpcf7 span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > select, .nf-form-cont label > input:not([type=checkbox]):not([type=radio]), .nf-form-cont label > select, .nf-form-cont span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > input:not([type=checkbox]):not([type=radio]), .nf-form-cont span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) > select {
   width: 100%;
 }
+.wpcf7 input[type=submit], .nf-form-cont input[type=submit] {
+  background-color: var(--accent);
+}
+
+.nf-form-fields-required {
+  display: none;
+}
+.nf-after-field {
+  display: none;
+}
+.nf-error .ninja-forms-field {
+  background-color: rgb(255, 228, 228);
+}
+
 article[class^=col-].type-post,
 article[class^=col-].type-page {
   margin-bottom: 1.8em;

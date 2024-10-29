@@ -177,7 +177,7 @@ class ITRE_Plugin_Upgrader {
     public static function itre_button_label( $slug ) {
         $paths = array(
             'it-listings'       =>  'it-listings/it-listings.php',
-            'contact-form-7'    =>  'contact-form-7/wp-contact-form-7.php',
+            'ninja-forms'       =>  'ninja-forms/ninja-forms.php',
             'svg-support'       =>  'svg-support/svg-support.php'
         );
 

@@ -1,6 +1,6 @@
 //Contact Form Styling
 
-.wpcf7 {
+.wpcf7, .nf-form-cont {
     label, span:not(.wpcf7-list-item):not(.wpcf7-list-item-label) {
         width: 100%;
         > input:not([type="checkbox"]):not([type="radio"]), > select {
@@ -8,6 +8,35 @@
         }
     }
     input[type="submit"] {
+        background-color: var(--accent);
         @extend %btn;
+    }
+}
+
+.nf {
+
+    &-form {
+
+        &-fields-required {
+            display: none;
+        }
+
+        // &-layout {
+
+        //     input, textarea {
+        //         width: auto;
+        //     }
+        // }
+    }
+
+    &-after-field {
+        display: none;
+    }
+
+    &-error {
+
+        .ninja-forms-field {
+            background-color: rgb(255, 228, 228);
+        }
     }
 }
