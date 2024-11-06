@@ -82,3 +82,10 @@ function itre_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'itre_scripts' );
+
+
+function my_theme_enqueue_lightbox() {
+	wp_enqueue_style( 'glightbox-css', esc_url(get_template_directory_uri() . '/assets/lightbox/glightbox.min.css'), array(), wp_get_theme()->get('Verion') );
+	wp_enqueue_script( 'glightbox-js', esc_url(get_template_directory_uri() . '/assets/lightbox/glightbox.min.js'), array(), wp_get_theme()->get('Verion'), true );
+}
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_lightbox');

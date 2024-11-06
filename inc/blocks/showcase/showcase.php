@@ -7,6 +7,10 @@
  * @param   object  $block          WP_Block - The block instance.
  */
 
+if (!is_plugin_active('it-listings/it-listings.php')) {
+    return;
+}
+
 $title = $attributes['title'];
 $sections = $attributes['sections'];
 $align = $attributes['align'];

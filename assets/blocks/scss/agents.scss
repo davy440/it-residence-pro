@@ -61,6 +61,26 @@
 
         &-links {
             margin-top: auto;
+            display: flex;
+
+            .phone, .mail {
+                display: none;
+
+                @media (min-width: 30rem) {
+                    display: inline;
+                    position: relative;
+                    left: -0.5rem;
+                }
+            }
+
+            @media (min-width: 30rem) {
+                flex-direction: column;
+
+                span.fa-stack {
+                    @include transform(scale(0.75));
+                    transform-origin: center left;
+                }
+            }
         }
     }
 

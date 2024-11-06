@@ -28,9 +28,7 @@ $align = $attributes['align'];
             $role = $agent['role'];
             $phone = $agent['phone'];
             $mail = $agent['mail'];
-
             if (!empty($agent_id)) {
-                $role = get_post_meta($agent_id, 'designation', true);
                 printf('<div class="itre-agents__agent">');
                 printf('<figure>%s</figure>', wp_get_attachment_image(get_post_thumbnail_id($agent_id), 'full'));
 
@@ -43,10 +41,10 @@ $align = $attributes['align'];
                 
                 printf('<div class="itre-agents__agent-links">');
                     if (!empty($phone)) {
-                        printf('<span class="itre-agents__agent-phone"><a href="tel:%s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-phone fa-stack-1x fa-inverse"></i></span></a></span>', esc_attr($phone));
+                        printf('<span class="itre-agents__agent-phone"><a href="tel:%s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-phone fa-stack-1x fa-inverse"></i></span><span class="phone">%s</span></a></span>', esc_attr($phone), esc_html($phone));
                     }
                     if (!empty($mail)) {
-                        printf('<span class="itre-agents__agent-mail"><a href="mailto:%s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></span>', esc_attr($mail));
+                        printf('<span class="itre-agents__agent-mail"><a href="mailto:%s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span><span class="mail">%s</span></a></span>', esc_attr($mail), esc_html($mail));
                     }
                 printf('</div></div></div>');
             }

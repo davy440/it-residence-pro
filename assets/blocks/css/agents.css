@@ -74,6 +74,30 @@
 }
 .itre-agents__agent-links {
   margin-top: auto;
+  display: flex;
+}
+.itre-agents__agent-links .phone, .itre-agents__agent-links .mail {
+  display: none;
+}
+@media (min-width: 30rem) {
+  .itre-agents__agent-links .phone, .itre-agents__agent-links .mail {
+    display: inline;
+    position: relative;
+    left: -0.5rem;
+  }
+}
+@media (min-width: 30rem) {
+  .itre-agents__agent-links {
+    flex-direction: column;
+  }
+  .itre-agents__agent-links span.fa-stack {
+    transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    transform-origin: center left;
+  }
 }
 .itre-agents figure {
   position: relative;
