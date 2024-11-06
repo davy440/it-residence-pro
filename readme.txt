@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -92,6 +92,9 @@ Updated Gallery Slider Style
 
 = 2.5.3 October 29, 2024 =
 Added Ninja Forms Support
+
+= 2.5.4 November 6, 2024 =
+Updated Agents block
 
 
 == Credits ==

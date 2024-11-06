@@ -89,4 +89,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.5.3**
     Added ninja Forms support
 
+* **2.5.4**
+    Updated Agents Block
+
 Good luck!
