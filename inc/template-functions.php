@@ -87,6 +87,33 @@ function itre_get_header( $header = 'default' ) {
 	require_once ITRE_PATH . "framework/sections/header/header-{$header}.php";
 }
 
+function itre_header_setting($option) {
+	
+	switch ($option) {
+		case 'slider':
+			require_once ITRE_PATH . 'framework/sections/header/modules/slider.php';
+			break;
+		case 'video':
+			$video_url = get_theme_mod('itre_header_video_url', '');
+			?>
+			<div class="itre-header-video" data-vbg="<?php echo esc_url( $video_url ); ?>"></div>
+			<?php
+			break;
+		default:
+			?>
+			<div id="header-image">
+			<?php
+				// if (is_singular('page') && has_post_thumbnail(get_the_ID())) {
+				// 	printf('<figure>%s</figure>', get_the_post_thumbnil(get_the_ID(), 'full'));
+				// } else {
+					require_once ITRE_PATH . 'framework/sections/header/modules/header-image.php';
+				// }
+			?>
+			</div>
+		<?php
+	}
+}
+
 function itre_get_top_bar() {
 
 	$masthead = get_theme_mod('itre_masthead_layout', '1');
@@ -655,24 +682,21 @@ function itre_area_units() {
 	}
 }
 
-function itre_hero_area() {
+if ( !function_exists('itre_hero_area') ) {
+	function itre_hero_area() {
 
-	if ( empty( get_theme_mod('itre_hero_title') ) && empty( get_theme_mod('itre_hero_desc') ) ) {
-		return;
+		//var_dump(get_the_ID());
+		if (empty(is_singular('page'))) {
+			return;
+		}
+		$hero_title = get_the_title(get_the_ID());
+		$hero_desc = get_the_excerpt(get_the_ID());
+
+		echo '<div class="itre-hero-area">';
+		printf('<h1 class="itre-hero-title">%s</h1>', esc_html($hero_title));
+		printf('<p class="itre-hero-desc">%s</p>', wp_kses($hero_desc, ['a' => ['href' => [],'title' =>  []]]));
+		echo '</div>';
 	}
-
-	if ( !is_front_page() ) {
-		return;
-	}
-
-	$hero_title = get_theme_mod('itre_hero_title', '');
-	$hero_desc = get_theme_mod('itre_hero_desc', '');
-
-	echo '<div class="itre-hero-area">';
-	printf('<h1 class="itre-hero-title">%s</h1>', $hero_title);
-	printf('<p class="itre-hero-desc">%s</p>', $hero_desc);
-	echo '</div>';
-
 }
 
 function itlst_sanitize_phone_input( $input ) {
@@ -683,4 +707,14 @@ function itlst_sanitize_phone_input( $input ) {
 		}
 	}
 }
-?>
+
+function itre_filter_archive_title( $title ) {
+
+	// Only modify title if filter is used
+	if (empty($_GET)) {
+		return $title;
+	}
+
+	return __('Search Results', 'it-real-estate');
+}
+add_filter('get_the_archive_title', 'itre_filter_archive_title');

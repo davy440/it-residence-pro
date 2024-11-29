@@ -17,8 +17,7 @@ function itre_meta_callback( $post ) {
         'enable-sidebar'    =>  ['yes'],
         'align-sidebar'     =>  ['right'],
         'header-overlay'    =>	['yes'],
-        'page-head'         =>  ['default'],
-		'enable-title'		=>	['yes']
+        'page-head'         =>  ['default']
     );
 
     $itre_stored_meta = wp_parse_args( get_post_meta( $post->ID ), $defaults );
@@ -26,13 +25,6 @@ function itre_meta_callback( $post ) {
 
     <p>
 	    <div class="itre-row-content">
-
-			<p>
-				<label>
-					<?php _e( 'Enable Page Title', 'it-residence' ) ?>
-					<input type="checkbox" name="enable-title" id="enable-title" value="yes" <?php if ( isset( $itre_stored_meta['enable-title'] ) ) checked( $itre_stored_meta['enable-title'][0], 'yes' ); ?> />
-				</label>
-			</p>
 			
 			<p>
 				<label>

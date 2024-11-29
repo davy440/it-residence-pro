@@ -36,7 +36,6 @@
       }
     },
     "editorStyle": "itre-editor-property-filter-css",
-    "viewStyle": "itre-property-filter-css",
     "editorScript": "itre-property-filter-js",
     "viewScript": "itre-property-filter-front-js",
     "render": "./property-filter.php"

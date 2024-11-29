@@ -9,9 +9,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package IT_Residence
+ * @package IT_Residence_Pro
  */
-get_header(NULL, ['header' => 'singular']);
+$header = 'default';
+if (is_front_page()) {
+	$header = get_theme_mod('itre_front_header_layout', 'default');
+}
+
+get_header(NULL, ['header' => $header]);
 ?>
 
 	<main id="primary" class="site-main wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">

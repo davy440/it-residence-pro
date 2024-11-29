@@ -26,7 +26,7 @@
 
 	<?php
 		$header = !empty($args['header']) ? $args['header'] : 'default';
-		itre_get_header($header);
+		get_template_part('framework/sections/header/header','default', $header);
 
 		do_action('itre_after_header');
 

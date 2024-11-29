@@ -9,7 +9,11 @@
 $layout = get_theme_mod('itre_property_layout', 'col3');
  $sidebar_align = get_theme_mod( 'itre_property_sidebar_layout', 'right' );
 
-get_header();
+$header = '';
+if (!empty($_GET)) {
+	$header = 'filter-simple';
+}
+get_header(null, ['header' => $header]);
 
 if ( $sidebar_align == 'left' ) {
 	itre_get_sidebar('property');

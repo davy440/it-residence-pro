@@ -44,7 +44,7 @@
          $css .= '#header-image { background-position: ' . $pos_val[ $header_pos ] . ' !important;}';
      }
 
-     $css .= 'body.home #header-image, #header-slider, #header-video, body.single-property #header-image, body.single-property #header-map {height: ' . $header_height . 'px;}';
+     $css .= 'body.home #header-slider, #header-video, body.single-property #header-image, body.single-property #header-map, body.home .itre-header-content {height: ' . $header_height . 'px;}';
 
      $css .= "@media screen and (min-width: 992px) {";
 

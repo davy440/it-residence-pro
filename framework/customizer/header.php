@@ -58,9 +58,61 @@ function itre_header_customize_register( $wp_customize ) {
             'choices'   =>  array(
                 'default'   =>  __('Default', 'it-residence'),
                 'slider'    =>  __('Slider', 'it-residence'),
-                'video'     =>  __('Video', 'it-residence'),
-                'widget'    =>  __('Header Widget', 'it-residence')
+                'video'     =>  __('Video', 'it-residence')
             )
+        )
+    );
+
+    //Header Slider Controls
+
+    for ($i=1; $i <= 8; $i++) {
+        $wp_customize->add_setting(
+            'itre_header_slider_img_' . $i, array(
+                'default'           =>  '',
+                'sanitize_callback' =>  'esc_url_raw'
+            )
+        );
+
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize, 'itre_header_slider_img_' . $i, array(
+                    'label'     =>  esc_html__('Slider Image '. $i, 'it-residence'),
+                    'section'   =>  'itre_header_options'
+                )
+            )
+        );
+    }
+
+    // Button to control Header Widget
+    $wp_customize->add_control(
+        new ITRE_Custom_Button_Control(
+            $wp_customize, 'itre_header_widget', array(
+                'label'     =>  __('Manage Header Widget', 'it-residence'),
+                'section'   =>  'itre_header_options',
+                'type'      =>  'itre-button',
+                'settings'  =>  []
+            )
+        )
+    );
+
+    $control = $wp_customize->get_control('itre_header_widget');
+    $control->active_callback = function( $control ) {
+        $setting = $control->manager->get_setting( 'itre_front_header_layout' );
+        return $setting->value() == 'widget' ? true : false;
+    };
+
+    $wp_customize->add_setting(
+        'itre_header_video_url', array(
+            'default'           =>   '',
+            'sanitize_callback' =>  'esc_url_raw'
+        )
+    );
+
+    $wp_customize->add_control(
+        'itre_header_video_url', array(
+            'label'     =>  __('YouTube URL', 'it-residence'),
+            'type'      =>  'url',
+            'section'   =>  'itre_header_options'
         )
     );
 
@@ -82,24 +134,6 @@ function itre_header_customize_register( $wp_customize ) {
             )
         )
     );
-
-    // Button to control Header Widget
-    $wp_customize->add_control(
-        new ITRE_Custom_Button_Control(
-            $wp_customize, 'itre_header_widget', array(
-                'label'     =>  __('Manage Header Widget', 'it-residence'),
-                'section'   =>  'itre_header_options',
-                'type'      =>  'itre-button',
-                'settings'  =>  []
-            )
-        )
-    );
-
-    $control = $wp_customize->get_control('itre_header_widget');
-    $control->active_callback = function( $control ) {
-        $setting = $control->manager->get_setting( 'itre_front_header_layout' );
-        return $setting->value() == 'widget' ? true : false;
-    };
 
     $wp_customize->add_setting(
         'itre_sidebar_width', array(
@@ -129,41 +163,6 @@ function itre_header_customize_register( $wp_customize ) {
             		'suffix'         => 'px', //optional suffix
 				),
             )
-        )
-    );
-
-    //Header Slider Controls
-
-    for ($i=1; $i <= 8; $i++) {
-        $wp_customize->add_setting(
-            'itre_header_slider_img_' . $i, array(
-                'default'           =>  '',
-                'sanitize_callback' =>  'esc_url_raw'
-            )
-        );
-
-        $wp_customize->add_control(
-            new WP_Customize_Image_Control(
-                $wp_customize, 'itre_header_slider_img_' . $i, array(
-                    'label'     =>  esc_html__('Slider Image '. $i, 'it-residence'),
-                    'section'   =>  'itre_header_options'
-                )
-            )
-        );
-    }
-
-    $wp_customize->add_setting(
-        'itre_header_video_url', array(
-            'default'           =>   '',
-            'sanitize_callback' =>  'esc_url_raw'
-        )
-    );
-
-    $wp_customize->add_control(
-        'itre_header_video_url', array(
-            'label'     =>  __('YouTube URL', 'it-residence'),
-            'type'      =>  'url',
-            'section'   =>  'itre_header_options'
         )
     );
 
@@ -338,22 +337,15 @@ function itre_header_customize_register( $wp_customize ) {
         $control->active_callback = function( $control ) {
             $setting = $control->manager->get_setting( 'itre_front_header_layout' );
 
-            if (  $setting->value() === 'slider' ) {
-                if ( $control->id !== "itre_header_video_url" ) {
-                    return true;
-                } else {
-                    return false;
-                }
+            if (  $setting->value() === 'slider' && $control->id !== "itre_header_video_url" ) {
+                return true;
             }
 
-            if ( $setting->value() === 'video') {
-                if ( $control->id == "itre_header_video_url" ) {
-                    return true;
-                } else {
-                    return false;
-                }
+            if ( $setting->value() === 'video' && $control->id === "itre_header_video_url") {
+                return true;
             }
 
+            return false;
         };
     }
 }

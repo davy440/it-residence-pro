@@ -2,17 +2,18 @@
 /**
  *  Default Header
  */
+$header = $args ?? 'default';
  ?>
 
  <header id="masthead" class="site-header default">
 
     <?php itre_get_top_bar(); ?>
 
-    <div id="header-image">
-        <?php
-            require_once ITRE_PATH . 'framework/sections/header/modules/header-image.php';
-        ?>
-        <?php itre_hero_area(); ?>
+    <div class="itre-header-content">
+    <?php
+        itre_hero_area();
+        var_dump($header);
+        itre_header_setting($header);
+    ?>
     </div>
-
  </header><!-- #masthead -->

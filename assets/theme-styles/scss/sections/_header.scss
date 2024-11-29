@@ -38,11 +38,12 @@
             z-index: 1;
         }
     }
+    
     .itre-hero-area {
+        position: relative;
         max-width: 80%;
         margin: auto;
         text-align: center;
-        top: 40%;
         z-index: 2;
         color: white;
         
@@ -105,6 +106,28 @@
     }
 
     &.header-widget {
+
+        .header-widget-area-wrapper {
+            overflow: hidden;
+            padding: 1.25rem 0;
+            
+            > * {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .itre-hero-area {
+            margin: 0;
+            min-width: 50%;
+            text-align: left;
+        }
+
+        .header-widget-area {
+            position: relative;
+            z-index: 9;
+            min-width: 50%;
+        }
 
         #header-image {
             height: auto;
@@ -183,23 +206,59 @@
                 }
             }
         }
-        
     }
-}
 
-#header-image {
-    height: 15.625rem;
-    position: relative;
-
-    > img {
-        position: absolute;
+    &.filter-simple {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
+
+        .itre-header-filter-simple {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            z-index: 9;
+        }
+
+        #header-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .itre-property-filter {
+            max-width: 62rem;
+        }
+    }
+
+    .header-slider-wrapper {
+        position: absolute;
         top: 0;
         left: 0;
     }
+
+    .itre-header-video {
+        z-index: 1;
+    }
+}
+
+.itre-header-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 15.625rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#header-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    top: 0;
+    left: 0;
 }
 
 #header-slider {

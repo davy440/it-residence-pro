@@ -39,4 +39,11 @@
             background-color: rgb(255, 228, 228);
         }
     }
+
+    &-field-container {
+
+        .header-widget & {
+            margin-bottom: 1.25rem;
+        }
+    }
 }

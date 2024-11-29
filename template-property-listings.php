@@ -2,7 +2,7 @@
 /**
  * The template for displaying all pages
  *
- *	Template Name: Property Listings
+ *	Template Name: Property Listings - AJAX
  *
  */
  $header = is_front_page() ? get_theme_mod('itre_front_header_layout', 'default') : 'default';

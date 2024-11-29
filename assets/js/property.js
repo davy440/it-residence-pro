@@ -1,5 +1,11 @@
 // JS for Property Filter
 (function() {
+    const body = document.querySelector('body');
+    
+    if (!body.classList.includes('page-template-template-property-listings')) {
+        return;
+    }
+    
     const filterDiv = document.querySelector('.itre-property-filter');
     if (!filterDiv) {
         return;

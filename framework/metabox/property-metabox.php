@@ -108,8 +108,9 @@ if ( !function_exists('itlst_meta_callback') ) {
 
                             $options = '';
                             foreach($countries as $item) {
-                                $options .= "<option value={$item->code} data-country={$item->name} " . selected($country, $item->code, false) . ">{$item->name}</option>";
-                            }
+                                $name = str_replace(' ', '_', $item->name);
+                                $options .= "<option value={$item->code} data-country={$name} " . selected($country, $item->code, false) . ">{$name}</option>";
+                            }   
                             printf('<select for="country" name="country" id="country"><option value="" data-country="" %s>%s</option>%s</select>', selected($country, $item->code), __('Select Country', 'it-residence'), $options);
                         ?>
                         </label>
