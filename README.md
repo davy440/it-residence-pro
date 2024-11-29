@@ -92,4 +92,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.5.4**
     Updated Agents Block
 
+* **2.5.5**
+    Filter refactor and templates added
+
 Good luck!
