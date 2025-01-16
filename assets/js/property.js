@@ -2,7 +2,7 @@
 (function() {
     const body = document.querySelector('body');
     
-    if (!body.classList.includes('page-template-template-property-listings')) {
+    if (!body.classList.contains('page-template-template-property-listings')) {
         return;
     }
     

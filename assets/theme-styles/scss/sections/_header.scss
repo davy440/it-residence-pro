@@ -14,6 +14,7 @@
     .top-wrapper {
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
+        flex-wrap: nowrap;
     }
     & > * {
         position: relative;

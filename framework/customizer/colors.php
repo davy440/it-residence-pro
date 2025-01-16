@@ -57,6 +57,23 @@ function itre_colors_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
+		'itre_sec_color', array(
+			'default'	=>	'#08445d',
+			'sanitize_callback'	=>	'sanitize_hex_color'
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, 'itre_sec_color', array(
+				'label'		=>	esc_html__('Secondary Color', 'it-residence'),
+				'section'	=>	'colors',
+				'settings'	=>	'itre_sec_color'
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
 		'itre_link_color', array(
 			'default'	=>	'#999999',
 			'sanitize_callback'	=>	'sanitize_hex_color'
@@ -171,6 +188,23 @@ function itre_colors_customize_register( $wp_customize ) {
 				'label'		=>	esc_html__('Footer Background', 'it-residence'),
 				'section'	=>	'colors',
 				'settings'	=>	'itre_footer_bg'
+			)
+		)
+	);
+	
+    $wp_customize->add_setting(
+		'itre_colophon_bg', array(
+			'default'	=>	'#2e6d87',
+			'sanitize_callback'	=>	'sanitize_hex_color'
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, 'itre_colophon_bg', array(
+				'label'		=>	esc_html__('Footer Credits Background', 'it-residence'),
+				'section'	=>	'colors',
+				'settings'	=>	'itre_colophon_bg'
 			)
 		)
 	);

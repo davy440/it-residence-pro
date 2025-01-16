@@ -12,7 +12,6 @@ $header = $args ?? 'default';
     <div class="itre-header-content">
     <?php
         itre_hero_area();
-        var_dump($header);
         itre_header_setting($header);
     ?>
     </div>

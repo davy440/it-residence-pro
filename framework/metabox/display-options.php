@@ -11,6 +11,7 @@ add_action( 'add_meta_boxes', 'itre_custom_meta' );
  * Outputs the content of the meta box
  */
 function itre_meta_callback( $post ) {
+	
     wp_nonce_field( basename( __FILE__ ), 'itre_nonce' );
 
     $defaults = array(
@@ -58,6 +59,7 @@ function itre_meta_callback( $post ) {
 
 	<script>
 		jQuery(document).ready(function() {
+			
 			var toggler	=	jQuery('#itre_meta').find('input#enable-sidebar'),
 				toggled	=	jQuery('#itre_meta').find('.page-sidebar-align');
 

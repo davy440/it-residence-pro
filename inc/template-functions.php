@@ -685,10 +685,10 @@ function itre_area_units() {
 if ( !function_exists('itre_hero_area') ) {
 	function itre_hero_area() {
 
-		//var_dump(get_the_ID());
 		if (empty(is_singular('page'))) {
 			return;
 		}
+		
 		$hero_title = get_the_title(get_the_ID());
 		$hero_desc = get_the_excerpt(get_the_ID());
 

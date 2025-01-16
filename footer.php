@@ -52,7 +52,7 @@ printf('</div>');
 			'menu_id'	=> 'menu-mobile',
 			'container'		=> 'ul',
 			'theme_location' => 'menu-2',
-			'walker'         => has_nav_menu('menu-2') ? new itre_Mobile_Menu : '',
+			'walker'         => has_nav_menu('menu-2') ? new itre_Mobile_Menu() : '',
 	 ) ) ); ?>
 
 	<button class="go-to-top"></button>
