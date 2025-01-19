@@ -1,0 +1,27 @@
+{
+    "apiVersion": 3,
+    "name": "it-listings/property-agent",
+    "title": "Property Agent",
+    "category": "it-listings",
+    "keywords": [
+      "agents",
+      "properties",
+      "real estate",
+      "dealers",
+      "brokers",
+      "property"
+    ],
+    "attributes": {
+      "align": {
+        "type": "string"
+      }
+    },
+    "supports": {
+      "align": ["wide"]
+    },
+    "usesContext": ["postId"],
+    "editorStyle": "itre-editor-property-agent-css",
+    "style": "itre-property-agent-css",
+    "editorScript": "itre-property-agent-js",
+    "render": "./property-agent.php"
+}

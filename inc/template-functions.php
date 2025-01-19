@@ -684,13 +684,12 @@ function itre_area_units() {
 
 if ( !function_exists('itre_hero_area') ) {
 	function itre_hero_area() {
-
 		if (empty(is_singular('page'))) {
 			return;
 		}
 		
-		$hero_title = get_the_title(get_the_ID());
-		$hero_desc = get_the_excerpt(get_the_ID());
+		$hero_title = is_front_page() ? get_theme_mod('itre_hero_title', '') : get_the_title(get_the_ID());
+		$hero_desc = is_front_page() ? get_theme_mod('itre_hero_desc', '') : get_the_excerpt(get_the_ID());
 
 		echo '<div class="itre-hero-area">';
 		printf('<h1 class="itre-hero-title">%s</h1>', esc_html($hero_title));

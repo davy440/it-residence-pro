@@ -1,0 +1,40 @@
+// Styling for the "Property Agent" block
+
+.itre-property-agent {
+    container: prop-agent / inline-size;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+
+    &__phone,
+    &__mail {
+
+        a {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+    }
+
+    figure {
+        flex-basis: 35%;
+        flex-shrink: 0;
+    }
+
+    &__info {
+        flex-basis: 100%;
+        flex-shrink: 0;
+    }
+
+    @container prop-agent (min-width: 62rem) {
+
+        &__info {
+            flex-basis: calc(65% - 1.25rem);
+        }
+    }
+
+    h3 {
+        color: var(--accent);
+    }
+}

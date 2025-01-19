@@ -1,0 +1,28 @@
+.itre-property-agent {
+  container: prop-agent/inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.itre-property-agent__phone a, .itre-property-agent__mail a {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.itre-property-agent figure {
+  flex-basis: 35%;
+  flex-shrink: 0;
+}
+.itre-property-agent__info {
+  flex-basis: 100%;
+  flex-shrink: 0;
+}
+@container prop-agent (min-width: 62rem) {
+  .itre-property-agent__info {
+    flex-basis: calc(65% - 1.25rem);
+  }
+}
+.itre-property-agent h3 {
+  color: var(--accent);
+}

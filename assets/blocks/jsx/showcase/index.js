@@ -20,7 +20,6 @@ const blockData = {
     edit: ( props ) => {
         const { attributes, setAttributes } = props;
         const { sections } = attributes;
-        console.log(sections);
         const images = useSelect(select => {
             const imgData = sections.map((item, index) => {
                 const image = item.mediaId !== 0 ? select('core').getMedia(item.mediaId) : '';

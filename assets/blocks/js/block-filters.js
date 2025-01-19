@@ -121,7 +121,7 @@ let postType = null;
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2___default()(() => {
   let unregistered = false;
   const unsubscribe = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_1__.subscribe)(() => {
-    // Disable Walk Score if not "property" post type
+    // Disable blocks if not "property" post type
     const newPostType = getPostType();
     if (newPostType !== postType) {
       unsubscribe();
@@ -130,6 +130,7 @@ _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2___default()(() => {
         if (postType !== 'property' && unregistered === false) {
           unregistered = true;
           (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.unregisterBlockType)('it-listings/walk-score');
+          (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.unregisterBlockType)('it-listings/property-agent');
         }
       });
     }

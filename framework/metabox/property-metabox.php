@@ -19,6 +19,8 @@ if ( !function_exists('itlst_meta_callback') ) {
     function itlst_meta_callback( $post ) {
         wp_nonce_field( basename( __FILE__ ), 'itlst_nonce' );
         $itlst_stored_meta = get_post_meta( $post->ID );
+
+        $agent	    =	isset( $itlst_stored_meta['agent']) ? $itlst_stored_meta['agent'][0] : 0;
         $for	    =	isset( $itlst_stored_meta['for']) ? $itlst_stored_meta['for'][0] : "sale";
         $price	    =	isset( $itlst_stored_meta['price']) ? $itlst_stored_meta['price'][0] : 0;
         $area	    =	isset( $itlst_stored_meta['area']) ? $itlst_stored_meta['area'][0] : 0;
@@ -38,7 +40,28 @@ if ( !function_exists('itlst_meta_callback') ) {
         $controls	=	isset( $itlst_stored_meta['controls']) ? $itlst_stored_meta['controls'][0] : "";
         ?>
             
-    	    <div class="row">
+    	    <div class="itre-prop-metafields row">
+
+                <div class="half-width">
+                    <h4><?php _e('Agent', 'it-residence'); ?></h4>
+                    <?php
+                        $agents = get_posts(['post_type' => 'agent']);
+                    ?>
+                    <label for="agent">
+                        <select id="agent" name="agent">
+                            <option value="0"><?php _e('– Select –', 'it-residence'); ?></option>
+                            <?php
+                            if (!empty($agents)) {
+                                foreach($agents as $current) {
+                                    $id = $current->ID;
+                                    $name = $current->post_title;
+                                    printf('<option value="%s"%s>%s</option>', $id, selected($id, intval($agent)), esc_html($name));
+                                }
+                            }
+                            ?>
+                        </select>
+                    </label>
+                </div>
 
                 <div class="half-width">
                     <h4> <?php _e('Status', 'it-residence'); ?></h4>
@@ -250,6 +273,9 @@ if ( !function_exists('itlst_meta_save') ) {
         if ( $is_autosave || !$is_valid_nonce ) {
             return;
         }
+
+        $agent = isset($_POST['agent']) ? $_POST['agent'] : '';
+    	update_post_meta( $post_id, 'agent', $agent);
 
         $for = isset($_POST['for']) ? $_POST['for'] : 'sale';
     	update_post_meta( $post_id, 'for', sanitize_text_field($for));

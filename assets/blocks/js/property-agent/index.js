@@ -42,6 +42,26 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/core-data":
+/*!**********************************!*\
+  !*** external ["wp","coreData"] ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["coreData"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -62,13 +82,13 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
-/***/ "./inc/blocks/property-filter/block.json":
-/*!***********************************************!*\
-  !*** ./inc/blocks/property-filter/block.json ***!
-  \***********************************************/
+/***/ "./inc/blocks/property-agent/block.json":
+/*!**********************************************!*\
+  !*** ./inc/blocks/property-agent/block.json ***!
+  \**********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/property-filter","title":"Property Filter","category":"it-listings","keywords":["featured","locatiions","tabs","properties","property"],"attributes":{"blockId":{"type":"string","default":""},"filterby":{"type":"array","default":["type","price"]},"count":{"type":"number","default":9},"align":{"type":"string","default":"center"}},"supports":{"align":["full","wide"],"alignWide":true,"spacing":{"margin":["top","bottom"]}},"editorStyle":"itre-editor-property-filter-css","editorScript":"itre-property-filter-js","viewScript":"itre-property-filter-front-js","render":"./property-filter.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/property-agent","title":"Property Agent","category":"it-listings","keywords":["agents","properties","real estate","dealers","brokers","property"],"attributes":{"align":{"type":"string"}},"supports":{"align":["wide"]},"usesContext":["postId"],"editorStyle":"itre-editor-property-agent-css","style":"itre-property-agent-css","editorScript":"itre-property-agent-js","render":"./property-agent.php"}');
 
 /***/ })
 
@@ -143,23 +163,27 @@ module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/pr
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!****************************************************!*\
-  !*** ./assets/blocks/jsx/property-filter/index.js ***!
-  \****************************************************/
+/*!***************************************************!*\
+  !*** ./assets/blocks/jsx/property-agent/index.js ***!
+  \***************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _inc_blocks_property_filter_block_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../inc/blocks/property-filter/block.json */ "./inc/blocks/property-filter/block.json");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _inc_blocks_property_agent_block_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../inc/blocks/property-agent/block.json */ "./inc/blocks/property-agent/block.json");
 
 
 
@@ -167,7 +191,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const slug = 'it-listings/property-filter';
+
+
+
+const slug = 'it-listings/property-agent';
 const blockData = {
   icon: {
     src: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -176,76 +203,28 @@ const blockData = {
       height: "24px",
       viewBox: "0 0 24 24",
       width: "24px",
-      fill: "#5f6368"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-      d: "M0,0h24 M24,24H0",
-      fill: "none"
+      fill: "#000000"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+      fill: "none",
+      height: "24",
+      width: "24"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-      d: "M7,6h10l-5.01,6.3L7,6z M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6 c0,0,3.72-4.8,5.74-7.39C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-      d: "M0,0h24v24H0V0z",
-      fill: "none"
-    })))
+      d: "M21,6.5V14h-2V7.5L14,4L9,7.5V9H7V6.5l7-5L21,6.5z M15.5,7h-1v1h1V7z M13.5,7h-1v1h1V7z M15.5,9h-1v1h1V9z M13.5,9h-1v1h1V9 z M19,16h-2c0-1.2-0.75-2.28-1.87-2.7L8.97,11H1v11h6v-1.44l7,1.94l8-2.5v-1C22,17.34,20.66,16,19,16z M3,20v-7h2v7H3z M13.97,20.41 L7,18.48V13h1.61l5.82,2.17C14.77,15.3,15,15.63,15,16c0,0-1.99-0.05-2.3-0.15l-2.38-0.79l-0.63,1.9l2.38,0.79 c0.51,0.17,1.04,0.26,1.58,0.26H19c0.39,0,0.74,0.23,0.9,0.56L13.97,20.41z"
+    }))
   },
-  edit: props => {
-    const {
-      attributes,
-      setAttributes
-    } = props;
-    const {
-      filterby: filters,
-      count
-    } = attributes;
-    const {
-      id
-    } = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)();
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-      setAttributes({
-        blockId: id
-      });
-    }, []);
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
-      className: "itre-editor-property-filter section"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Filter by"),
-      value: [...filters],
-      multiple: true,
-      options: [{
-        label: 'Type',
-        value: 'type'
-      }, {
-        label: 'Location',
-        value: 'location'
-      }, {
-        label: 'Status',
-        value: 'status'
-      }, {
-        label: 'Bedrooms',
-        value: 'bedrooms'
-      }, {
-        label: 'Price',
-        value: 'price'
-      }, {
-        label: 'Area',
-        value: 'area'
-      }],
-      onChange: newFilters => {
-        return setAttributes({
-          filterby: [...newFilters]
-        });
-      }
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Number of Posts"),
-      type: "number",
-      onChange: newCount => setAttributes({
-        count: newCount
-      }),
-      value: count
-    }))));
+  edit: () => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+      className: "itre-editor-property-agent section"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "itre-editor-property-agent__title"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Property Agent")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Agent Block for the agent associated with the property.')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "The Block will show up once a Property is set in ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#itre_prop_meta"
+    }, "Property Details.")));
   },
-  ..._inc_blocks_property_filter_block_json__WEBPACK_IMPORTED_MODULE_6__
+  save: () => null,
+  ..._inc_blocks_property_agent_block_json__WEBPACK_IMPORTED_MODULE_8__
 };
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)(slug, blockData);
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
 })();
 
 /******/ })()

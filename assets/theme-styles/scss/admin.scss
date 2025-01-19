@@ -107,13 +107,14 @@ button.def-btn {
 	}
 }
 
-#itre_prop_meta {
+.itre-prop-metafields {
+  padding-bottom: 2.5rem;
 
     input:not([type="checkbox"]):not([type="radio"]), textarea {
 		  width: 100%;
     }
 
-    .row {
+    &.row {
       display: flex;
       flex-wrap: wrap;
 
@@ -122,6 +123,10 @@ button.def-btn {
             padding-left: 15px;
             padding-right: 15px;
         }
+    }
+
+    select {
+      width: 100%;
     }
 
     #map-controls {
@@ -268,10 +273,6 @@ figure {
           padding: 0.625rem 1.25rem;
           font-size: 1rem !important;
           border-radius: 4px;
-
-          &.itre-pro-btn {
-              
-          }
 
           &:first-child {
               margin-right: 0.375rem;
@@ -433,10 +434,6 @@ li#menu-appearance {
 
   @media (min-width: 48rem) {
     grid-template-columns: 1fr 1fr;
-  }
-
-  select {
-    width: 100%;
   }
 }
 

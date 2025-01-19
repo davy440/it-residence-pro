@@ -40,7 +40,7 @@ function itlst_agent_cpt() {
 		'label'                 => __( 'Agent', 'it-listings' ),
 		'description'           => __( 'Agents Custom Post Type', 'it-listings' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'custom-fields', 'thumbnail' ),
+		'supports'              => array( 'title', 'thumbnail' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

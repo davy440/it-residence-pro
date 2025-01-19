@@ -122,52 +122,58 @@ button.def-btn {
   border: 3px solid #2885bb;
 }
 
-#itre_prop_meta input:not([type=checkbox]):not([type=radio]), #itre_prop_meta textarea {
+.itre-prop-metafields {
+  padding-bottom: 2.5rem;
+}
+.itre-prop-metafields input:not([type=checkbox]):not([type=radio]), .itre-prop-metafields textarea {
   width: 100%;
 }
-#itre_prop_meta .row {
+.itre-prop-metafields.row {
   display: flex;
   flex-wrap: wrap;
 }
-#itre_prop_meta .row > * {
+.itre-prop-metafields.row > * {
   box-sizing: border-box;
   padding-left: 15px;
   padding-right: 15px;
 }
-#itre_prop_meta #map-controls {
+.itre-prop-metafields select {
   width: 100%;
 }
-#itre_prop_meta .color-group {
+.itre-prop-metafields #map-controls {
+  width: 100%;
+}
+.itre-prop-metafields .color-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-#itre_prop_meta .color-group > * {
+.itre-prop-metafields .color-group > * {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 @media (min-width: 48rem) {
-  #itre_prop_meta .color-group > * {
+  .itre-prop-metafields .color-group > * {
     flex-direction: row;
   }
 }
-#itre_prop_meta .full-width {
+.itre-prop-metafields .full-width {
   width: 100%;
 }
-#itre_prop_meta .half-width {
+.itre-prop-metafields .half-width {
   width: 100%;
 }
 @media (min-width: 48rem) {
-  #itre_prop_meta .half-width {
+  .itre-prop-metafields .half-width {
     width: 50%;
   }
 }
-#itre_prop_meta .quarter-width {
+.itre-prop-metafields .quarter-width {
   width: 50%;
 }
 @media (min-width: 48rem) {
-  #itre_prop_meta .quarter-width {
+  .itre-prop-metafields .quarter-width {
     width: 25%;
   }
 }
@@ -395,9 +401,6 @@ li#menu-appearance ul > li a[href="themes.php?page=itre_options"]:hover, li#menu
   .address {
     grid-template-columns: 1fr 1fr;
   }
-}
-.address select {
-  width: 100%;
 }
 
 @keyframes svgRotate {

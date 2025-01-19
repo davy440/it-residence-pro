@@ -39,10 +39,15 @@ function itre_sanitize_radio( $input, $setting ) {
 
 }
 
- function itre_sanitize_dropdown_pages( $page_id, $setting ) {
+function itre_sanitize_dropdown_pages( $page_id, $setting ) {
   // Ensure $input is an absolute integer.
   $page_id = absint( $page_id );
 
   // If $page_id is an ID of a published page, return it; otherwise, return the default.
   return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
 }
+
+// function itre_sanitize_phone( $input ) {
+//     $tel_pattern = "/^(\+?[0-9]{1,3}\s?)\(?([0-9]{3})\)?[\s.-]?[0-9]{3}[\s.-]?[0-9]{4}$/i";
+//     return empty(preg_match($tel_pattern, $input)) ? $input : '';
+// }

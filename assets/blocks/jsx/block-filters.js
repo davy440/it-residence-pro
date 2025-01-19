@@ -9,7 +9,7 @@ domReady(() => {
     let unregistered = false;
     const unsubscribe = subscribe(() => {
 
-        // Disable Walk Score if not "property" post type
+        // Disable blocks if not "property" post type
         const newPostType = getPostType();
         if (newPostType !== postType) {
             unsubscribe();
@@ -18,6 +18,7 @@ domReady(() => {
                 if (postType !== 'property' && unregistered === false) {
                     unregistered = true;
                     unregisterBlockType('it-listings/walk-score');
+                    unregisterBlockType('it-listings/property-agent');
                 }
             });
         }

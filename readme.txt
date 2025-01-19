@@ -6,7 +6,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 2.6
+Stable tag: 2.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -98,6 +98,9 @@ Updated Agents block
 
 = 2.6 November 29, 2024 =
 Filter refactor and templates added
+
+= 2.7 January 19, 2025 =
+Added Agent Block and refactored agent functionality
 
 
 == Credits ==

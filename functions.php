@@ -170,6 +170,7 @@ require_once ITRE_PATH . 'framework/metabox/display-options.php';
  */
 if (class_exists('IT_Listings')) {
 	require get_template_directory() . '/framework/metabox/property-metabox.php';
+	require get_template_directory() . '/framework/metabox/agent-metabox.php';
 }
 
 /**

@@ -95,4 +95,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.5.5**
     Filter refactor and templates added
 
+* **2.7**
+    Added Agent Block for property and refactored agent functionality
+
 Good luck!
