@@ -217,7 +217,7 @@ const blockData = {
       className: "itre-editor-property-agent section"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
       className: "itre-editor-property-agent__title"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Property Agent")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Agent Block for the agent associated with the property.')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "The Block will show up once a Property is set in ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Property Agent")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Agent Block for the agent associated with the property.')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "The Block will show up once an agent is set in ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: "#itre_prop_meta"
     }, "Property Details.")));
   },

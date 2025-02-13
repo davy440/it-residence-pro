@@ -21,7 +21,7 @@ const blockData = {
                 <h2 className="itre-editor-property-agent__title">{__("Property Agent")}</h2>
                 <p>{__('Agent Block for the agent associated with the property.')}</p>
                 <br/>
-                <p>The Block will show up once a Property is set in <a href='#itre_prop_meta'>Property Details.</a></p>
+                <p>The Block will show up once an agent is set in <a href='#itre_prop_meta'>Property Details.</a></p>
             </section>
         )
     },

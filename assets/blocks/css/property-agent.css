@@ -4,18 +4,26 @@
   flex-wrap: wrap;
   gap: 1.25rem;
 }
+.itre-property-agent__meta {
+  display: flex;
+  gap: 0.75rem;
+}
+.itre-property-agent__phone, .itre-property-agent__mail {
+  margin-bottom: 0rem;
+}
 .itre-property-agent__phone a, .itre-property-agent__mail a {
   width: fit-content;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 .itre-property-agent figure {
-  flex-basis: 35%;
+  flex-basis: 25%;
   flex-shrink: 0;
+  margin-bottom: 0;
 }
 .itre-property-agent__info {
-  flex-basis: 100%;
+  flex-basis: calc(75% - 0.75rem);
   flex-shrink: 0;
 }
 @container prop-agent (min-width: 62rem) {

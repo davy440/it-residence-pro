@@ -22,26 +22,29 @@ $phone = get_post_meta($agent, 'phone', true);
 $mail = get_post_meta($agent, 'mail', true);
 ?>
 <section class="itre-property-agent <?php if (!empty($align)) echo "align{$align}"; ?>">
+    <div class="itre-property-agent__meta">
     <?php
     if (!empty($thumb)) {
         printf('<figure>%s</figure>', wp_get_attachment_image($thumb, 'large'));
     }
+    
     echo '<div class="itre-property-agent__info">';
     if (!empty($name)) {
         printf('<h3 class="itre-property-agent__name">%s</h3>', $name);
     }
 
-    if (!empty($about)) {
-        printf('<p class="itre-property-agent__about">%s</p>', $about);
-    }
-
     if (!empty($phone)) {
-        printf('<p class="itre-property-agent__phone"><a href="tel:%1$s" title="%1$s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-phone fa-stack-1x fa-inverse"></i></span>%2$s</a></p>', esc_attr($phone), esc_html($phone));
+        printf('<p class="itre-property-agent__phone"><a href="tel:%1$s" title="%1$s"><i class="fa fa-phone"></i>%2$s</a></p>', esc_attr($phone), esc_html($phone));
     }
 
     if (!empty($mail)) {
-        printf('<p class="itre-property-agent__mail"><a href="mailto:%1$s" title="%1$s"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span>%2$s</a></p>', esc_attr($mail), esc_html($mail));
+        printf('<p class="itre-property-agent__mail"><a href="mailto:%1$s" title="%1$s"><i class="fa fa-envelope"></i>%2$s</a></p>', esc_attr($mail), esc_html($mail));
     }
-    echo '</div>';
+
+    echo '</div></div>';
+    
+    if (!empty($about)) {
+        printf('<p class="itre-property-agent__about">%s</p>', $about);
+    }
     ?>
 </section>
