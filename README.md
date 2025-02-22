@@ -98,4 +98,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.7**
     Added Agent Block for property and refactored agent functionality
 
+* **2.7.1**
+    Area on single property and post archive banner fix
+
 Good luck!
