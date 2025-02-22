@@ -27,6 +27,10 @@ $itre_stored_meta = get_post_meta( get_the_ID() );
 		if (!empty( $itre_stored_meta['price'][0] ) ) {
 			itre_get_property_price( $itre_stored_meta['price'][0] );
 		}
+		
+		if ( !empty( $itre_stored_meta[ 'area' ][0] ) ) {
+			printf( '<span class="itre_area"><i class="fa fa-area-chart" aria-hidden="true"></i><span class="itre_area">%u %s</span></span>', $itre_stored_meta[ 'area' ][0], itre_area_units() );
+		}
 
 		if (has_term( '', 'location' ) ) {
             printf( '<span class="itre_location"><i class="fa fa-map-marker" aria-hidden="true"></i><span>%s</span></span>', get_the_terms($post, 'location')[0]->name );
