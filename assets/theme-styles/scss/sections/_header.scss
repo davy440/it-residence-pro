@@ -15,12 +15,17 @@
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
         flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 1.25rem;
     }
     & > * {
         position: relative;
     }
     .custom-logo {
         max-height: 7.5rem;
+        max-width: 15rem;
         width: auto;
     }
     #header-video, #header-image, .slide-img, .itre-banner {

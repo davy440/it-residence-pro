@@ -2,6 +2,12 @@
 
 body.archive {
 
+    h1.page-title {
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-decoration-thickness: 0.25rem;
+    }
+
     &.post-type-archive-property,
     &.tax-location,
     &.tax-property-type {

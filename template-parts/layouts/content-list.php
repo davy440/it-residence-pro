@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('list'); ?>>
     <div class="row">
-        <div class="itre-list-thumb-wrapper col-md-4">
+        <div class="itre-list-thumb-wrapper col-md-3">
 
             <?php
                 if ( has_post_thumbnail()) {
@@ -22,7 +22,7 @@
             ?>
         </div>
 
-        <div class="itre-list-content-wrapper col-md-8">
+        <div class="itre-list-content-wrapper col-md-9">
             <header class="entry-header">
         		<?php
         		// if ( is_singular() ) :

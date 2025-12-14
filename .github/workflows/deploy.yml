@@ -38,10 +38,12 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4.1.4
       - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           port: ${{ secrets.FTP_PORT }}
           password: ${{ secrets.FTP_PASS }}
-          server-dir: './wp-content/themes/it-residence-pro/'
+          ssh_private_key: ${{ secrets.SSH_KEY }}
+          local_path: './'
+          remote_path: 'demo.indithemes.com/wp-content/themes/it-residence-pro/'

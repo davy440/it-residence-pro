@@ -27,22 +27,24 @@ if ( $sidebar_align == 'left' ) {
 				?>
 			</header><!-- .page-header -->
 
-            <div class="row">
+            <div class="itre-archive-wrapper">
+				<div class="row">
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				itre_get_layout( get_theme_mod('itre_archive_layout', 'col3') );
+					/*
+					* Include the Post-Type-specific template for the content.
+					* If you want to override this in a child theme, then include a file
+					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					*/
+					itre_get_layout( get_theme_mod('itre_archive_layout', 'col3') );
 
-			endwhile;
-            ?>
+				endwhile;
+				?>
+				</div>
             </div>
             <?php
 

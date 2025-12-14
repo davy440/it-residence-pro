@@ -87,6 +87,11 @@ body:not(.single-property) article.type-property {
 
 			.itre-prop-thumb {
 				position: relative;
+
+				img {
+					width: 100%;
+				}
+
 				.prop-price {
 					position: absolute;
 					bottom: 0;

@@ -18,7 +18,8 @@ function itre_body_classes( $classes ) {
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ( is_home() && is_active_sidebar( 'sidebar-blog' ) && !empty(get_theme_mod('itre_blog_sidebar_enable', '') ) ) ||
+	if	( ( is_home() && is_active_sidebar( 'sidebar-blog' ) && !empty(get_theme_mod('itre_blog_sidebar_enable', '') ) ) ||
+		( is_single() && is_active_sidebar( 'sidebar-single' ) && !empty(get_theme_mod('itre_single_sidebar_enable', '') ) ) ||
 		( ( is_post_type_archive('property') || is_tax('location') || is_tax('property-type') ) && is_active_sidebar( 'sidebar-property' ) && !empty(get_theme_mod('itre_property_sidebar_enable', '') ) ) ||
 		( is_search() && is_active_sidebar( 'sidebar-search' ) && !empty(get_theme_mod('itre_search_sidebar_enable', '') ) ) ) {
 		$classes[] = 'has-sidebar';
@@ -122,38 +123,34 @@ function itre_get_top_bar() {
 		case '1':
 		?>
 		<div class="top-wrapper layout1 container-lg">
-			<div class="row align-items-center">
-
+			<?php
+				$branding_width = empty( get_theme_mod("itre_cta_enable", "")) ? "col-8" : "col-4";
+			?>
+			<div class="branding-wrapper">
 				<?php
-					$branding_width = empty( get_theme_mod("itre_cta_enable", "")) ? "col-8" : "col-4";
+					get_template_part('framework/sections/header/modules/site', 'branding');
 				?>
-				<div class="branding-wrapper <?php echo esc_attr($branding_width) ?> col-sm-5 col-lg-3">
+			</div>
+
+			<?php
+				$nav_width = empty( get_theme_mod('itre_cta_enable', '') ) ? 'col-md-9' : 'col-lg-7';
+			?>
+			<div class="nav-wrapper">
+				<?php
+					get_template_part('framework/sections/header/modules/navigation');
+				?>
+			</div>
+
+			<?php if ( !empty( get_theme_mod('itre_cta_enable', '') ) ) : ?>
+				<div class="itre-cta-wrapper col-auto ms-auto">
 					<?php
-						get_template_part('framework/sections/header/modules/site', 'branding');
+						printf("<a class='itre-cta' href='%s'>%s</a>", esc_url( get_theme_mod( 'itre_cta_id' ) ), esc_html( get_theme_mod( 'itre_cta_text', 'Add Listing' ) ) );
 					?>
 				</div>
+			<?php endif; ?>
 
-				<?php
-					$nav_width = empty( get_theme_mod('itre_cta_enable', '') ) ? 'col-md-9' : 'col-lg-7';
-				?>
-				<div class="nav-wrapper <?php echo esc_attr($nav_width) ?>">
-					<?php
-						get_template_part('framework/sections/header/modules/navigation');
-					?>
-				</div>
-
-				<?php if ( !empty( get_theme_mod('itre_cta_enable', '') ) ) : ?>
-					<div class="itre-cta-wrapper col-auto ms-auto">
-						<?php
-							printf("<a class='itre-cta' href='%s'>%s</a>", esc_url( get_theme_mod( 'itre_cta_id' ) ), esc_html( get_theme_mod( 'itre_cta_text', 'Add Listing' ) ) );
-						?>
-					</div>
-				<?php endif; ?>
-
-				<div class="mobile-btn-wrapper col-auto <?php if ( !get_theme_mod("itre_cta_enable", "")) echo "ms-auto" ?>">
-				<button href="#menu" class="menu-link mobile-nav-btn col-auto" aria-controls="menu" aria-expanded="false" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="34.43" viewBox="0 0 48 34.43"><title>nav</title><rect width="48" height="3"/><rect y="15.72" width="48" height="3"/><rect y="31.43" width="48" height="3"/></svg></button>
-				</div>
-
+			<div class="mobile-btn-wrapper col-auto <?php if ( !get_theme_mod("itre_cta_enable", "")) echo "ms-auto" ?>">
+			<button href="#menu" class="menu-link mobile-nav-btn col-auto" aria-controls="menu" aria-expanded="false" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="34.43" viewBox="0 0 48 34.43"><title>nav</title><rect width="48" height="3"/><rect y="15.72" width="48" height="3"/><rect y="31.43" width="48" height="3"/></svg></button>
 			</div>
 		</div>
 		<?php
@@ -182,29 +179,25 @@ function itre_get_top_bar() {
 		case '3':
 		?>
 		<div class="top-wrapper layout3 container-lg">
-			<div class="row align-items-center">
-
+			<?php
+				$branding_width = empty( get_theme_mod("itre_cta_enable", "")) ? "col-8" : "col-4";
+			?>
+			<div class="branding-wrapper">
 				<?php
-					$branding_width = empty( get_theme_mod("itre_cta_enable", "")) ? "col-8" : "col-4";
+					get_template_part('framework/sections/header/modules/site', 'branding');
 				?>
-				<div class="branding-wrapper <?php echo esc_attr($branding_width) ?> col-sm-5 col-lg-3">
+			</div>
+
+			<?php if ( !empty( get_theme_mod('itre_cta_enable', '') ) ) : ?>
+				<div class="itre-cta-wrapper col-auto ms-auto">
 					<?php
-						get_template_part('framework/sections/header/modules/site', 'branding');
+						printf("<a class='itre-cta' href='%s'>%s</a>", esc_url( get_theme_mod( 'itre_cta_id' ) ), esc_html( get_theme_mod( 'itre_cta_text', 'Add Listing' ) ) );
 					?>
 				</div>
+			<?php endif; ?>
 
-				<?php if ( !empty( get_theme_mod('itre_cta_enable', '') ) ) : ?>
-					<div class="itre-cta-wrapper col-auto ms-auto">
-						<?php
-							printf("<a class='itre-cta' href='%s'>%s</a>", esc_url( get_theme_mod( 'itre_cta_id' ) ), esc_html( get_theme_mod( 'itre_cta_text', 'Add Listing' ) ) );
-						?>
-					</div>
-				<?php endif; ?>
-
-				<div class="mobile-btn-wrapper col-auto <?php if ( !get_theme_mod("itre_cta_enable", "")) echo "ms-auto" ?>">
-				<button href="#menu" class="menu-link mobile-nav-btn col-auto" aria-controls="menu" aria-expanded="false" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="34.43" viewBox="0 0 48 34.43"><title>nav</title><rect width="48" height="3"/><rect y="15.72" width="48" height="3"/><rect y="31.43" width="48" height="3"/></svg></button>
-				</div>
-
+			<div class="mobile-btn-wrapper col-auto <?php if ( !get_theme_mod("itre_cta_enable", "")) echo "ms-auto" ?>">
+			<button href="#menu" class="menu-link mobile-nav-btn col-auto" aria-controls="menu" aria-expanded="false" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="34.43" viewBox="0 0 48 34.43"><title>nav</title><rect width="48" height="3"/><rect y="15.72" width="48" height="3"/><rect y="31.43" width="48" height="3"/></svg></button>
 			</div>
 		</div>
 		<?php
@@ -217,7 +210,7 @@ function itre_get_top_bar() {
 				<?php
 					$branding_width = empty( get_theme_mod("itre_cta_enable", "")) ? "col-8" : "col-4";
 				?>
-				<div class="branding-wrapper <?php echo esc_attr($branding_width) ?> col-sm-5 col-lg-3">
+				<div class="branding-wrapper>
 					<?php
 						get_template_part('framework/sections/header/modules/site', 'branding');
 					?>
@@ -226,7 +219,7 @@ function itre_get_top_bar() {
 				<?php
 					$nav_width = empty( get_theme_mod('itre_cta_enable', '') ) ? 'col-md-9' : 'col-lg-7';
 				?>
-				<div class="nav-wrapper <?php echo esc_attr($nav_width) ?>">
+				<div class="nav-wrapper">
 					<?php
 						get_template_part('framework/sections/header/modules/navigation');
 					?>
@@ -714,6 +707,17 @@ function itre_filter_archive_title( $title ) {
 		return $title;
 	}
 
-	return __('Search Results', 'it-real-estate');
+	return __('Search Results', 'it-residence');
 }
 add_filter('get_the_archive_title', 'itre_filter_archive_title');
+
+function itre_filter_archive_post_count($query) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( is_post_type_archive('property') || is_tax('location') || is_tax('property-type') ) {
+		$posts_per_page = get_theme_mod('itre_property_posts_per_page', 9);
+		$query->set('posts_per_page', $posts_per_page);
+	}
+}
+add_action('pre_get_posts', 'itre_filter_archive_post_count');

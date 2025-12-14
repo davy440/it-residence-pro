@@ -2,8 +2,25 @@
 
 article.classic {
     text-align: center;
-    .post-thumbnail img {
-        margin: 0.8em auto;
+
+    .post-thumbnail {
+        display: block;
+
+        width: 100%;
+        max-width: 50rem;
+        margin: auto;
+        position: relative;
+        padding-bottom: 50%;
+        overflow: hidden;
+    }
+    
+    img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        object-fit: cover;
         border-radius: var(--border-radius);
     }
     .entry-content {

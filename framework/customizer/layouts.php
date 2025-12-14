@@ -386,7 +386,7 @@ function itre_sidebr_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'itre_archive_layout', array(
-			'label'		=>	__('Blog Layout', 'it-residence'),
+			'label'		=>	__('Archive Layout', 'it-residence'),
 			'type'		=>	'select',
 			'section'	=>	'itre_archive',
 			'priority'	=>	3,
@@ -491,10 +491,31 @@ function itre_sidebr_customize_register( $wp_customize ) {
 	 		)
 	 	);
 
+		$wp_customize->add_setting(
+			"itre_property_posts_per_page", array(
+				"default"			=>	9,
+				"sanitize_callback"	=>	"absint"
+			)
+		);
+
+		$wp_customize->add_control(
+			"itre_property_posts_per_page", array(
+				"label"			=>	esc_html__("Property Posts Per Page", 'it-residence'),
+				"description"	=>	esc_html__("Number of property posts to display per page on property, location and type archive pages.", 'it-residence'),
+				"type"			=>	"number",
+				"section"		=>	"itre_property",
+				"priority"		=>	5,
+				"input_attrs"	=> array(
+					"min"	=> 1,
+					"step"	=> 1
+				)
+			)
+		);
+
 	 	$wp_customize->add_setting(
 	 		"itre_property_sidebar_enable", array(
 	 			"default"			=>	1,
-	 			"sanitize_callback"	=>	"itre_sanitize_checkbox"
+	 			"sanitize_callback"	=>	'itre_sanitize_checkbox'
 	 		)
 	 	);
 

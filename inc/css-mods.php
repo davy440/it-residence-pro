@@ -33,6 +33,8 @@
          'bottomright'  =>  'right bottom'
      ];
 
+     $post_archive_layout = get_theme_mod('itre_archive_layout', 'col3');
+
      $css .= ":root {
          --title-font:  " . $title_font['font'] . ", " . $title_font['cat'] .";
          --title-weight: " . $title_font['weight'] . ";

@@ -23,7 +23,7 @@ function itre_general_customize_register( $wp_customize ) {
     $wp_customize->add_control(
         new itre_Range_Value_Control(
             $wp_customize, 'itre_sidebar_width', array(
-	            'label'         =>	esc_html__( 'Sidebar Width', 'it-residence' ),
+	            'label'         =>	esc_html__( 'Global Sidebar Width', 'it-residence' ),
             	'type'          => 'itre-range-value',
             	'section'       => 'itre_general_options',
             	'settings'      => 'itre_sidebar_width',
@@ -37,6 +37,27 @@ function itre_general_customize_register( $wp_customize ) {
             )
         )
     );
+
+	$wp_customize->add_setting(
+		'itre_site_layout', array(
+			'default'			=>	'box',
+			'sanitize_callback'	=>	'itre_sanitize_radio'
+		)
+	);
+
+	$wp_customize->add_control(
+		'itre_site_layout', array(
+			'label'		=>	__('Site Layout', 'it-residence'),
+			'type'		=>	'radio',
+			'section'	=>	'itre_general_options',
+			'priority'	=>	10,
+			'choices'	=>	array(
+				'box'		=>	__('Boxed', 'it-residence'),
+				'wide'		=>	__('Wide Width', 'it-residence')
+			)
+		)
+	);
+	    
 
 	$wp_customize->add_setting(
 	    'itre_area_units', array(

@@ -42,6 +42,8 @@ function itre_enqueue_fonts() {
 
 	$fileURI = get_template_directory_uri() . '/assets/cache/fontFiles/fonts.css';
 	wp_enqueue_style('itre-fonts', esc_url( $fileURI ), ITRE_VERSION );
+	// var_dump(empty(get_theme_mod('itre_property_sidebar_enable', '')));
+	// var_dump((is_post_type_archive('property') || is_tax('location') || is_tax('property-type') ) && is_active_sidebar( 'sidebar-property' ) && !empty(get_theme_mod('itre_property_sidebar_enable', '')));
 }
 add_action( 'wp_enqueue_scripts', 'itre_enqueue_fonts' );
 
@@ -49,7 +51,6 @@ add_action( 'wp_enqueue_scripts', 'itre_enqueue_fonts' );
  * Enqueuing required scripts
  */
 function itre_scripts() {
-
 	wp_enqueue_style( 'itre-style', get_stylesheet_uri(), array(), ITRE_VERSION );
 	wp_style_add_data( 'itre-style', 'rtl', 'replace' );
     wp_enqueue_style( 'bootstrap', esc_url(ITRE_URL . 'assets/bootstrap.css'), array(), ITRE_VERSION );
