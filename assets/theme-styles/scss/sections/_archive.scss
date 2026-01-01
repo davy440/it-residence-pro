@@ -11,12 +11,18 @@ body.archive {
     &.post-type-archive-property,
     &.tax-location,
     &.tax-property-type {
+
+        &.has-sidebar .itre-property-archive-wrapper {
+            max-width: none;
+            margin: 0;
+        }
         
         .itre-property-archive-wrapper {
             display: grid;
             column-gap: 1.5rem;
             row-gap: 2rem;
-            max-width: 82.5rem;
+            max-width: 48rem;
+            margin: 0 auto;
 
             &.col2 {
 

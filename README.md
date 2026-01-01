@@ -101,4 +101,10 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.7.1**
     Area on single property and post archive banner fix
 
+* **2.7.2**
+    Layout alignment fixes and bug fixes
+
+* **2.7.3**
+    Property Archive Lyout Fix
+
 Good luck!

@@ -292,11 +292,16 @@ body.archive h1.page-title {
   text-decoration-color: var(--accent);
   text-decoration-thickness: 0.25rem;
 }
+body.archive.post-type-archive-property.has-sidebar .itre-property-archive-wrapper, body.archive.tax-location.has-sidebar .itre-property-archive-wrapper, body.archive.tax-property-type.has-sidebar .itre-property-archive-wrapper {
+  max-width: none;
+  margin: 0;
+}
 body.archive.post-type-archive-property .itre-property-archive-wrapper, body.archive.tax-location .itre-property-archive-wrapper, body.archive.tax-property-type .itre-property-archive-wrapper {
   display: grid;
   column-gap: 1.5rem;
   row-gap: 2rem;
-  max-width: 82.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
 }
 @media (min-width: 48rem) {
   body.archive.post-type-archive-property .itre-property-archive-wrapper.col2, body.archive.tax-location .itre-property-archive-wrapper.col2, body.archive.tax-property-type .itre-property-archive-wrapper.col2 {
@@ -931,7 +936,7 @@ body.single #itre_related_posts_wrapper h3 a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-body.single #itre_related_posts_wrapper .entry-meta > *, body.single #itre_related_posts_wrapper body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer > *, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single #itre_related_posts_wrapper footer > * {
+body.single #itre_related_posts_wrapper .entry-meta > *, body.single #itre_related_posts_wrapper :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer > *, body.single :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article #itre_related_posts_wrapper footer > * {
   display: inline-block;
   width: auto;
 }
@@ -1171,20 +1176,20 @@ body.page-template-template-property-listings .itre-property-filter {
 body.single-property .post-thumbnail img {
   border-radius: var(--border-radius);
 }
-body.single-property .entry-meta, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer {
+body.single-property .entry-meta, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer {
   color: var(--link);
 }
-body.single-property .entry-meta i, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer i, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer i {
+body.single-property .entry-meta i, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer i {
   color: var(--accent);
 }
-body.single-property .entry-meta svg, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg {
+body.single-property .entry-meta svg, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer svg {
   margin-right: 5px;
   margin-bottom: 5px;
 }
-body.single-property .entry-meta svg polygon, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg polygon, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg polygon, body.single-property .entry-meta svg path, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer svg path, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer svg path {
+body.single-property .entry-meta svg polygon, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer svg polygon, body.single-property .entry-meta svg path, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer svg path {
   fill: var(--accent);
 }
-body.single-property .entry-meta a, body.single-property body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a, body:not(.single):not(.page):not(.post-type-archive-property) #primary article body.single-property footer a {
+body.single-property .entry-meta a, body.single-property :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer a {
   text-decoration: underline;
 }
 body.single-property .prop-price {
@@ -1472,9 +1477,9 @@ article[class^=col-].type-page .entry-content {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-article[class^=col-].type-post .entry-meta > *:first-child, body:not(.single):not(.page):not(.post-type-archive-property) #primary article[class^=col-].type-post footer > *:first-child,
+article[class^=col-].type-post .entry-meta > *:first-child, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article[class^=col-].type-post footer > *:first-child,
 article[class^=col-].type-page .entry-meta > *:first-child,
-body:not(.single):not(.page):not(.post-type-archive-property) #primary article[class^=col-].type-page footer > *:first-child {
+body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article[class^=col-].type-page footer > *:first-child {
   margin-left: 0;
 }
 article[class^=col-].type-post .entry-content,
@@ -1522,10 +1527,10 @@ article.classic .entry-content {
   margin-top: 0.5em;
 }
 
-body:not(.single):not(.page):not(.post-type-archive-property) #primary article {
+body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article {
   margin-bottom: 3rem;
 }
-body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a {
+body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer a {
   margin: auto 0.1875rem;
 }
 
@@ -1533,32 +1538,33 @@ body:not(.single):not(.page):not(.post-type-archive-property) #primary article f
   color: var(--body-text);
 }
 
-.entry-meta, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer, footer.entry-footer, .comment-meta {
+.entry-meta, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer, footer.entry-footer, .comment-meta {
   color: var(--accent);
   margin: 0.75rem auto;
 }
-.entry-meta a, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a, footer.entry-footer a, .comment-meta a {
+.entry-meta a, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer a, footer.entry-footer a, .comment-meta a {
   margin-right: 0.25rem;
 }
-.entry-meta span, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer span, footer.entry-footer span, .comment-meta span {
+.entry-meta span, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer span, footer.entry-footer span, .comment-meta span {
   margin-right: 0.875rem;
 }
-.entry-meta i, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer i, footer.entry-footer i, .comment-meta i {
+.entry-meta i, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer i, footer.entry-footer i, .comment-meta i {
   display: inline-block;
   font-size: 1.3125rem;
   position: relative;
   top: 1px;
   margin-right: 5px;
 }
-.entry-meta a:not(.post-edit-link), body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a:not(.post-edit-link), footer.entry-footer a:not(.post-edit-link), .comment-meta a:not(.post-edit-link) {
+.entry-meta a:not(.post-edit-link), body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer a:not(.post-edit-link), footer.entry-footer a:not(.post-edit-link), .comment-meta a:not(.post-edit-link) {
   color: var(--link);
 }
-.entry-meta a:not(.post-edit-link):hover, body:not(.single):not(.page):not(.post-type-archive-property) #primary article footer a:not(.post-edit-link):hover, footer.entry-footer a:not(.post-edit-link):hover, .comment-meta a:not(.post-edit-link):hover {
+.entry-meta a:not(.post-edit-link):hover, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article footer a:not(.post-edit-link):hover, footer.entry-footer a:not(.post-edit-link):hover, .comment-meta a:not(.post-edit-link):hover {
   color: var(--link-hvr);
 }
 
 article.list {
   position: relative;
+  margin-bottom: 2rem;
 }
 @media (min-width: 48rem) {
   article.list {
@@ -1640,7 +1646,7 @@ article.list .itre-prop-content {
     padding: 1rem 1rem 0;
   }
 }
-article.list .entry-meta > *, body:not(.single):not(.page):not(.post-type-archive-property) #primary article.list footer > * {
+article.list .entry-meta > *, body :not(.single) :not(.page) :not(.post-type-archive-property) :not(.tax-location) :not(.tax-property-type) #primary article.list footer > * {
   margin-left: 0.2em;
   margin-right: 1.4em;
 }

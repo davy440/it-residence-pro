@@ -1,6 +1,11 @@
 // General Styling for Blog Layouts
 
-body:not(.single):not(.page):not(.post-type-archive-property) {
+body
+:not(.single)
+:not(.page)
+:not(.post-type-archive-property)
+:not(.tax-location)
+:not(.tax-property-type) {
     #primary article {
         margin-bottom: 3rem;
         footer {
