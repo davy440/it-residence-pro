@@ -25,11 +25,16 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'it-residence' ); ?></a>
 
 	<?php
-		$header = !empty($args['header']) ? $args['header'] : 'default';
-		get_template_part('framework/sections/header/header','default', $header);
+		// Determine header variant safely
+		$header_name = ( ! empty( $args['header'] ) && is_string( $args['header'] ) ) ? $args['header'] : 'default';
 
-		do_action('itre_after_header');
+		// Load header template; pass variant as name and in args for compatibility
+		get_template_part( 'framework/sections/header/header', $header_name, array( 'header' => $header_name ) );
 
-		$layout = get_theme_mod( 'itre_site_layout', 'box' ) === 'wide' ? 'container-fluid wide' : 'container box';
+		do_action( 'itre_after_header' );
+
+		// Cache theme mod and compute container class once
+		$layout_option   = get_theme_mod( 'itre_site_layout', 'box' );
+		$container_class = ( $layout_option === 'wide' ) ? 'container-fluid' : 'container';
 	?>
-	<div id="content" class="<?php echo esc_attr( $layout ); ?> site-content">
+	<div id="content" class="<?php echo esc_attr( $container_class . ' ' . $layout_option ); ?> site-content">
