@@ -178,10 +178,6 @@ select {
 #content {
     position: relative;
     z-index: 1;
-    
-    &.wide {
-        --bs-gutter-x: 0rem;
-    }
 
     body:not(.page-template-template-property-listings) & {
         padding-top: 2em;
