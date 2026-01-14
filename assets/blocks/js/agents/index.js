@@ -325,7 +325,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/agents","title":"Agents","category":"it-listings","keywords":["agents","properties","real estate","dealers","brokers","property"],"attributes":{"title":{"type":"string","default":""},"description":{"type":"string","default":""},"align":{"type":"string","default":"center"},"agents":{"type":"array","default":[{"order":1,"agentId":0,"role":"","phone":"","mail":""},{"order":2,"agentId":0,"role":"","phone":"","mail":""},{"order":3,"agentId":0,"role":"","phone":"","mail":""},{"order":4,"agentId":0,"role":"","phone":"","mail":""}]}},"supports":{"align":["full","wide"],"alignWide":true},"editorStyle":"itre-editor-agents-css","style":"itre-agents-css","editorScript":"itre-agents-js","render":"./agents.php"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/agents","title":"Agents","category":"it-listings","keywords":["agents","properties","real estate","dealers","brokers","property"],"attributes":{"title":{"type":"string","default":""},"description":{"type":"string","default":""},"align":{"type":"string","default":"center"},"agents":{"type":"array","default":[{"order":1,"agentId":0,"role":"","phone":"","mail":""},{"order":2,"agentId":0,"role":"","phone":"","mail":""},{"order":3,"agentId":0,"role":"","phone":"","mail":""},{"order":4,"agentId":0,"role":"","phone":"","mail":""}]}},"editorStyle":"itre-editor-agents-css","style":"itre-agents-css","editorScript":"itre-agents-js","render":"./agents.php"}');
 
 /***/ })
 

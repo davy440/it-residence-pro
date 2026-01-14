@@ -58,10 +58,6 @@
         ]
       }
     },
-    "supports": {
-      "align": ["full", "wide"],
-      "alignWide": true
-    },
     "editorStyle": "itre-editor-agents-css",
     "style": "itre-agents-css",
     "editorScript": "itre-agents-js",

@@ -30,6 +30,6 @@
 
 		do_action('itre_after_header');
 
-		$layout = get_theme_mod( 'itre_site_layout', 'box' ) === 'wide' ? 'container-fluid wide' : 'container box';
+		$layout = get_theme_mod( 'itre_site_layout', 'box' ) === 'wide' ? 'wide' : 'container box';
 	?>
 <div id="content" class="<?php echo esc_attr( $layout ); ?> site-content">

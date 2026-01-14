@@ -6,11 +6,11 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 5.6
-Stable tag: 2.7.3
+Stable tag: 2.7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-IT Residence WordPress Theme, Copyright 2024 IndiThemes
+IT Residence WordPress Theme, Copyright 2026 IndiThemes
 IT Residence is distributed under the terms of the GNU GPL
 
 == Description ==

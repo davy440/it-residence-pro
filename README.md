@@ -107,4 +107,7 @@ Demo content is bundled with the theme package. The demo content can be imported
 * **2.7.3**
     Property Archive Lyout Fix
 
+* **Property Archive Lyout Fix**
+    Page Layout Fix for Page Templates
+
 Good luck!
