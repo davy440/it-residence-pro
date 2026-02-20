@@ -2,11 +2,11 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/blocks/jsx/agents/index.js":
+/***/ "./assets/blocks/jsx/agents/index.js"
 /*!*******************************************!*\
   !*** ./assets/blocks/jsx/agents/index.js ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -101,13 +101,13 @@ const blockData = {
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(slug, blockData);
 
-/***/ }),
+/***/ },
 
-/***/ "./assets/blocks/jsx/agents/section.js":
+/***/ "./assets/blocks/jsx/agents/section.js"
 /*!*********************************************!*\
   !*** ./assets/blocks/jsx/agents/section.js ***!
   \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -247,87 +247,87 @@ const Agent = ({
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Agent);
 
-/***/ }),
+/***/ },
 
-/***/ "react":
+/***/ "react"
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["React"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/block-editor":
+/***/ "@wordpress/block-editor"
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
   \*************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["blockEditor"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/blocks":
+/***/ "@wordpress/blocks"
 /*!********************************!*\
   !*** external ["wp","blocks"] ***!
   \********************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["blocks"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/components":
+/***/ "@wordpress/components"
 /*!************************************!*\
   !*** external ["wp","components"] ***!
   \************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["components"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/data":
+/***/ "@wordpress/data"
 /*!******************************!*\
   !*** external ["wp","data"] ***!
   \******************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["data"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/element":
+/***/ "@wordpress/element"
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
   \*********************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["element"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/i18n":
+/***/ "@wordpress/i18n"
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
   \******************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["i18n"];
 
-/***/ }),
+/***/ },
 
-/***/ "./inc/blocks/agents/block.json":
+/***/ "./inc/blocks/agents/block.json"
 /*!**************************************!*\
   !*** ./inc/blocks/agents/block.json ***!
   \**************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/agents","title":"Agents","category":"it-listings","keywords":["agents","properties","real estate","dealers","brokers","property"],"attributes":{"title":{"type":"string","default":""},"description":{"type":"string","default":""},"align":{"type":"string","default":"center"},"agents":{"type":"array","default":[{"order":1,"agentId":0,"role":"","phone":"","mail":""},{"order":2,"agentId":0,"role":"","phone":"","mail":""},{"order":3,"agentId":0,"role":"","phone":"","mail":""},{"order":4,"agentId":0,"role":"","phone":"","mail":""}]}},"editorStyle":"itre-editor-agents-css","style":"itre-agents-css","editorScript":"itre-agents-js","render":"./agents.php"}');
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
@@ -340,6 +340,12 @@ module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/ag
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Check if module exists (development only)
+/******/ 		if (__webpack_modules__[moduleId] === undefined) {
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {

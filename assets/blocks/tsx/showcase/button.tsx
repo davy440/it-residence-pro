@@ -1,21 +1,20 @@
 // UploadButton component
-import { MediaUpload, MediaUploadCheck } from '@wordpress/blockEditor';
+import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { useContext } from 'react';
 import { __ } from '@wordpress/i18n';
 import { Button, ResponsiveWrapper } from '@wordpress/components';
-import { attsContext } from './index.js';
+import { attsContext } from './index';
+import type { Media } from './index';
 
 const ALLOWED_TYPES = ['image'];
 
-const UploadButton = ({ count, image: data }) => {
+const UploadButton = ({ count, data }: { count: number; data: Media | null }) => {
     const { attributes, setAttributes } = useContext(attsContext);
     const { sections } = attributes;
     const section = sections.filter(item => item.order === count)[0];
     const { mediaId, mediaURL } = section;
-    let { image } = data;
     
-    
-    const onSelectMedia = (media) => {
+    const onSelectMedia = (media: Media) => {
         const newSections = sections.map(item => (
             item.order === count ? {...item, mediaId: media.id, mediaURL: media.url } : item
         ));
@@ -25,44 +24,41 @@ const UploadButton = ({ count, image: data }) => {
     return (
         <MediaUploadCheck>
             <MediaUpload
-                allowedTypes = { ALLOWED_TYPES }
-                multiple = { false }
-                render = {({open}) => {
+                allowedTypes={ALLOWED_TYPES}
+                multiple={false}
+                render={({ open }: { open: () => void }) => {
                     return (
                         <>
-                            {
-                                mediaId === 0 &&
+                            {mediaId === 0 && (
                                 <p>
-                                    <span class="dashicons dashicons-format-image"></span>Image
+                                    <span className="dashicons dashicons-format-image"></span>
+                                    Image
                                 </p>
-                            }   
-                                
-                            {
-                                image !== "" &&
-                                image !== undefined &&
+                            )}
+                            {data !== null && (
                                 <ResponsiveWrapper
-                                    naturalWidth={ image.media_details.width }
-                                    naturalHeight={ image.media_details.height }
+                                    naturalWidth={data.media_details.width}
+                                    naturalHeight={data.media_details.height}
                                 >
-                                    <img src={ mediaURL } />
+                                    <img src={mediaURL} alt="" />
                                 </ResponsiveWrapper>
-                            }
-
+                            )}
                             <p>
                                 <Button
-                                    className={image === "" ? 'is-primary' : 'is-secondary'}
+                                    className={data === null ? 'is-primary' : 'is-secondary'}
                                     onClick={open}
                                 >
-                                    {mediaId === 0 ? __('Choose an Image', 'it-listings') : __('Replace Image', 'it-listings')}
+                                    {mediaId === 0
+                                        ? __('Choose an Image', 'it-listings')
+                                        : __('Replace Image', 'it-listings')}
                                 </Button>
                             </p>
                         </>
                     );
                 }}
-                value={ mediaId }
-                onSelect={ onSelectMedia }
-            >
-            </MediaUpload>
+                value={mediaId}
+                onSelect={onSelectMedia}
+            />
         </MediaUploadCheck>
     )
 }

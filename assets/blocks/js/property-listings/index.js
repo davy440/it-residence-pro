@@ -2,11 +2,11 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/blocks/jsx/property-listings/index.js":
+/***/ "./assets/blocks/jsx/property-listings/index.js"
 /*!******************************************************!*\
   !*** ./assets/blocks/jsx/property-listings/index.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -102,13 +102,13 @@ const blockData = {
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)(slug, blockData);
 
-/***/ }),
+/***/ },
 
-/***/ "./assets/blocks/jsx/property-listings/select-location.js":
+/***/ "./assets/blocks/jsx/property-listings/select-location.js"
 /*!****************************************************************!*\
   !*** ./assets/blocks/jsx/property-listings/select-location.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -167,13 +167,13 @@ const SelectLocation = () => {
   });
 };
 
-/***/ }),
+/***/ },
 
-/***/ "./assets/blocks/jsx/property-listings/select-type.js":
+/***/ "./assets/blocks/jsx/property-listings/select-type.js"
 /*!************************************************************!*\
   !*** ./assets/blocks/jsx/property-listings/select-type.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -232,87 +232,87 @@ const SelectPropType = () => {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SelectPropType);
 
-/***/ }),
+/***/ },
 
-/***/ "react":
+/***/ "react"
 /*!************************!*\
   !*** external "React" ***!
   \************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["React"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/block-editor":
+/***/ "@wordpress/block-editor"
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
   \*************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["blockEditor"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/blocks":
+/***/ "@wordpress/blocks"
 /*!********************************!*\
   !*** external ["wp","blocks"] ***!
   \********************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["blocks"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/components":
+/***/ "@wordpress/components"
 /*!************************************!*\
   !*** external ["wp","components"] ***!
   \************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["components"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/data":
+/***/ "@wordpress/data"
 /*!******************************!*\
   !*** external ["wp","data"] ***!
   \******************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["data"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/element":
+/***/ "@wordpress/element"
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
   \*********************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["element"];
 
-/***/ }),
+/***/ },
 
-/***/ "@wordpress/i18n":
+/***/ "@wordpress/i18n"
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
   \******************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = window["wp"]["i18n"];
 
-/***/ }),
+/***/ },
 
-/***/ "./inc/blocks/property-listings/block.json":
+/***/ "./inc/blocks/property-listings/block.json"
 /*!*************************************************!*\
   !*** ./inc/blocks/property-listings/block.json ***!
   \*************************************************/
-/***/ ((module) => {
+(module) {
 
 module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/property-listings","title":"Property Listings","category":"it-listings","keywords":["archive","list","properties","property"],"attributes":{"align":{"type":"string"},"filter":{"type":"string","default":"all"},"location":{"type":"string","default":""},"propType":{"type":"string","default":""}},"supports":{"align":["full","wide"],"alignWide":true,"spacing":{"margin":["top","bottom"]},"multiple":false},"usesContext":["blockId"],"editorStyle":"itre-editor-property-listings-css","viewStyle":"itre-property-listings-css","editorScript":"itre-property-listings-js","viewScript":"itre-property-listings-front-js","render":"./property-listings.php"}');
 
-/***/ })
+/***/ }
 
 /******/ 	});
 /************************************************************************/
@@ -325,6 +325,12 @@ module.exports = /*#__PURE__*/JSON.parse('{"apiVersion":3,"name":"it-listings/pr
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Check if module exists (development only)
+/******/ 		if (__webpack_modules__[moduleId] === undefined) {
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
